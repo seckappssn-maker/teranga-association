@@ -1,0 +1,2202 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<title>Teranga Association</title>
+<meta name="description" content="Aderenti, quote, riunioni, aiuti e cassa della tua associazione. Membres, cotisations, réunions et caisse de votre association.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://seckappssn-maker.github.io/teranga-association/">
+<meta property="og:title" content="Teranga Association">
+<meta property="og:description" content="Aderenti, quote, riunioni e cassa della tua associazione · Membres, cotisations, réunions et caisse.">
+<meta property="og:image" content="https://seckappssn-maker.github.io/teranga-association/cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://seckappssn-maker.github.io/teranga-association/cover.png">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="icon" type="image/png" href="icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Teranga Asso">
+<meta name="theme-color" content="#0B6E4F">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js" onerror="var s=document.createElement('script');s.src='https://unpkg.com/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js';document.head.appendChild(s)"></script>
+</head><body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#F5F7F4; --surface:#FFFFFF; --surface-2:#EDF2EE; --ink:#16241C; --muted:#5B6B61; --line:#D9E2DB;
+  --green:#0B6E4F; --green-ink:#FFFFFF; --green-soft:#DDEFE6;
+  --gold:#C98A12; --gold-soft:#FBEFD3;
+  --red:#B8322A; --red-soft:#F8E1DE;
+  --shadow:0 10px 30px rgba(18,40,28,.14);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1713; --surface:#16211B; --surface-2:#1C2A22; --ink:#E6EEE8; --muted:#9AAEA2; --line:#2A3A31;
+    --green:#3FB488; --green-ink:#08140E; --green-soft:#17372A;
+    --gold:#E8B24A; --gold-soft:#3A2E14;
+    --red:#EE7A70; --red-soft:#3D1D1A;
+    --shadow:0 10px 30px rgba(0,0,0,.5);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1713; --surface:#16211B; --surface-2:#1C2A22; --ink:#E6EEE8; --muted:#9AAEA2; --line:#2A3A31;
+  --green:#3FB488; --green-ink:#08140E; --green-soft:#17372A;
+  --gold:#E8B24A; --gold-soft:#3A2E14;
+  --red:#EE7A70; --red-soft:#3D1D1A;
+  --shadow:0 10px 30px rgba(0,0,0,.5);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:15px;line-height:1.45}
+.wrap{max-width:860px;margin:0 auto;padding-inline:16px;padding-block:20px 110px}
+h1,h2,h3{font-family:"Bricolage Grotesque","Figtree",system-ui,sans-serif;text-wrap:balance;margin:0}
+.num{font-variant-numeric:tabular-nums}
+
+/* Header */
+.head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.brand{display:flex;gap:12px;align-items:center}
+.mark{width:46px;height:46px;border-radius:12px;background:#F7FAFB;border:1px solid var(--line);display:grid;place-items:center;flex:none}
+.mark svg{width:26px;height:26px}
+.eyebrow{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+h1{font-size:clamp(22px,5vw,30px);font-weight:800;line-height:1.1}
+.iconbtn{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:10px;width:36px;height:36px;display:grid;place-items:center;cursor:pointer;flex:none}
+.iconbtn:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+
+/* Summary */
+.summary{margin-top:20px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;display:grid;gap:14px}
+.sumtop{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
+.sumtop h2{font-size:16px;font-weight:600}
+.big{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;font-size:clamp(28px,7vw,38px);line-height:1}
+.bar{height:10px;border-radius:99px;background:var(--red-soft);overflow:hidden;display:flex}
+.bar span{background:var(--green);height:100%;transition:width .4s}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.stat{padding-top:10px;border-top:2px solid var(--line)}
+.stat b{display:block;font-size:20px;font-family:"Bricolage Grotesque",system-ui,sans-serif}
+.stat small{color:var(--muted);font-size:12px}
+.stat.ok{border-color:var(--green)} .stat.no{border-color:var(--red)} .stat.gold{border-color:var(--gold)}
+@media (max-width:520px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* Tabs */
+.tabs{display:flex;gap:6px;margin-top:22px;border-bottom:1px solid var(--line);overflow-x:auto}
+.tab{background:none;border:0;color:var(--muted);font:inherit;font-weight:600;padding:10px 12px;border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap}
+.tab[aria-selected="true"]{color:var(--ink);border-color:var(--gold)}
+.panel{padding-top:16px}
+
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.search{flex:1 1 200px;min-width:0}
+input,select,textarea{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;width:100%}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:99px;padding:6px 12px;font:inherit;font-size:13px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+/* Rows */
+.list{display:grid;border:1px solid var(--line);border-radius:14px;background:var(--surface);overflow:hidden}
+.row{display:flex;align-items:center;gap:12px;padding:12px 14px;border-top:1px solid var(--line)}
+.row:first-child{border-top:0}
+.av{width:38px;height:38px;border-radius:50%;background:var(--surface-2);color:var(--green);display:grid;place-items:center;font-weight:700;flex:none;font-size:14px}
+.who{flex:1;min-width:0}
+.who b{display:block;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.who small{color:var(--muted);font-size:12.5px}
+.pill{font-size:12px;font-weight:600;padding:3px 9px;border-radius:99px;white-space:nowrap}
+.pill.ok{background:var(--green-soft);color:var(--green)}
+.pill.no{background:var(--red-soft);color:var(--red)}
+.pill.gold{background:var(--gold-soft);color:var(--gold)}
+.amt{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.empty{padding:28px 16px;text-align:center;color:var(--muted)}
+
+.btn{border:0;border-radius:10px;padding:10px 14px;font:inherit;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;justify-content:center}
+.btn.primary{background:var(--green);color:var(--green-ink)}
+.btn.gold{background:var(--gold);color:#1b1305}
+.btn.ghost{background:var(--surface-2);color:var(--ink)}
+.btn.danger{background:var(--red-soft);color:var(--red)}
+.btn.sm{padding:6px 10px;font-size:13px;border-radius:8px}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+
+/* Floating pay button */
+.fab{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom,0px));display:flex;gap:8px;z-index:5}
+.fab .btn{box-shadow:var(--shadow);padding:13px 18px;border-radius:99px}
+
+/* Meetings */
+.meet{background:var(--surface);border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden}
+.meethead{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:14px;cursor:pointer;flex-wrap:wrap}
+.meethead h3{font-size:17px}
+.meethead small{color:var(--muted)}
+.meetbody{border-top:1px solid var(--line);padding:6px 14px 14px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:560px){.cols{grid-template-columns:1fr}}
+.colh{font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin:10px 0 6px}
+.colh.ok{color:var(--green)} .colh.no{color:var(--red)}
+.check{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line);cursor:pointer}
+.check input{width:20px;height:20px;accent-color:var(--green);flex:none}
+
+/* Sheet */
+.scrim{position:fixed;inset:0;background:rgba(10,20,14,.45);z-index:10;display:flex;align-items:flex-end;justify-content:center}
+.sheet{background:var(--surface);width:100%;max-width:520px;border-radius:20px 20px 0 0;padding:20px 16px calc(20px + env(safe-area-inset-bottom,0px));max-height:90vh;overflow:auto;box-shadow:var(--shadow)}
+@media (min-width:600px){.scrim{align-items:center}.sheet{border-radius:20px}}
+.sheet h2{font-size:21px;margin-bottom:14px}
+.field{display:grid;gap:5px;margin-bottom:12px}
+.field label{font-size:13px;font-weight:600;color:var(--muted)}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.seg3{grid-template-columns:repeat(2,1fr)}
+@media (min-width:430px){.seg3{grid-template-columns:repeat(4,1fr)}}
+.seg button{border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:10px;border-radius:10px;font:inherit;font-weight:600;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--green-soft);border-color:var(--green);color:var(--green)}
+.actions{display:flex;gap:8px;justify-content:flex-end;margin-top:6px;flex-wrap:wrap}
+.paybox{background:var(--gold-soft);border-radius:12px;padding:12px;margin-bottom:12px;font-size:14px}
+.paybox code{font-size:13px;word-break:break-all}
+.note{font-size:12.5px;color:var(--muted)}
+.toast{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:99px;font-weight:600;z-index:20;box-shadow:var(--shadow)}
+.banner{margin-top:14px;background:var(--gold-soft);color:var(--ink);border-radius:12px;padding:10px 12px;font-size:13.5px}
+.sech{font-size:18px;font-weight:800;margin-bottom:2px}
+.dtile{width:54px;flex:none;border-radius:10px;border:1px solid var(--line);text-align:center;overflow:hidden;background:var(--surface)}
+.dtile span{display:block;background:var(--surface-2);color:var(--muted);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 0}
+.dtile b{display:block;font-family:"Bricolage Grotesque",system-ui,sans-serif;font-size:22px;line-height:1.25;padding:2px 0}
+.row.next{background:var(--gold-soft)}
+.row.next .dtile span{background:var(--gold);color:#1b1305}
+.calbtns{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.wa{background:#1FA855;color:#fff;text-decoration:none}
+@media (max-width:480px){.calrow{flex-wrap:wrap}.calrow .calbtns{width:100%;justify-content:flex-start;padding-left:66px}}
+.qrbtn{padding:6px 8px}
+.filepick{position:relative;display:flex;align-items:center;justify-content:center;gap:8px;padding:16px;border:2px dashed var(--gold);border-radius:14px;background:var(--gold-soft);font-weight:700;cursor:pointer;text-align:center}
+.filepick input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}
+.scanmsg{min-height:20px;margin:8px 0 14px;font-size:13.5px}
+.scanmsg.err{color:var(--red)} .scanmsg.ok{color:var(--green)}
+.cardimg{display:block;width:100%;height:auto;border-radius:14px;box-shadow:var(--shadow);margin-bottom:14px}
+.scanres{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+.aidhead{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px}
+.sigpad{width:100%;height:170px;border:2px dashed var(--line);border-radius:12px;background:#fff;touch-action:none;display:block;cursor:crosshair}
+.sigrow{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:6px}
+.signed{display:block;max-width:220px;height:auto;background:#fff;border-radius:8px;border:1px solid var(--line)}
+.cashgrp{background:var(--surface);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;overflow:hidden}
+.cashgrp h3{font-size:14px;padding:10px 14px;background:var(--surface-2);display:flex;justify-content:space-between}
+.cashgrp .row{padding:8px 14px}
+.sigslots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+@media (max-width:480px){.sigslots{grid-template-columns:1fr}}
+.sigslot{border:1px solid var(--line);border-radius:12px;padding:10px;display:grid;gap:6px;background:var(--surface)}
+.sigslot b{font-size:13px}
+.sigslot img{width:100%;height:60px;object-fit:contain;background:#fff;border-radius:6px}
+@media (max-width:520px){.wrow{flex-wrap:wrap;row-gap:8px}.wrow .who{flex:1 1 100%}.wrow .amt{margin-left:auto}}
+.btn.dim{opacity:.55}
+.rcpt{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--line);margin-bottom:12px;background:#fff}
+.abobar{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;margin-top:12px;border:0;border-radius:12px;padding:10px 12px;font:inherit;font-weight:600;cursor:pointer;text-align:left;background:var(--green-soft);color:var(--green)}
+.abobar.warn{background:var(--gold-soft);color:var(--ink)}
+.abobar.bad{background:var(--red-soft);color:var(--red)}
+.authtabs{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:14px}
+.authtabs button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:10px;padding:9px;font:inherit;font-weight:600;cursor:pointer}
+.authtabs button[aria-pressed="true"]{background:var(--green-soft);border-color:var(--green);color:var(--green)}
+.phonerow{display:grid;grid-template-columns:110px 1fr;gap:6px}
+.langbtn{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:10px;height:36px;min-width:36px;padding:0 8px;font:inherit;font-weight:700;cursor:pointer}
+.lockbrand{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+.syncdot{font-size:11px;letter-spacing:0;white-space:nowrap;color:var(--muted);margin-left:2px}
+.syncdot.err{color:var(--red)}
+#todayBox .who .pill{white-space:normal;display:inline-block;border-radius:10px}
+body.locked .wrap,body.locked .fab,body.locked #sheetRoot{display:none!important}
+.lock{position:fixed;inset:0;z-index:30;background:var(--bg);display:grid;place-items:center;padding:24px 16px;overflow:auto}
+.lockbox{width:100%;max-width:360px;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px 18px;box-shadow:var(--shadow);text-align:center}
+.lockbox h2{font-size:22px;margin:12px 0 4px}
+.lockbox form{margin-top:16px;text-align:left}
+.lockicon{width:56px;height:56px;border-radius:16px;background:var(--green-soft);color:var(--green);display:grid;place-items:center;margin:0 auto}
+.lockicon svg{width:28px;height:28px}
+.lockerr{color:var(--red);font-size:13.5px;min-height:20px;margin:2px 0 8px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<script>document.body.classList.add("locked")</script>
+<div id="lock" class="lock"><div class="lockbox" id="lockBox"><div class="lockicon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div><p class="note" style="margin-top:12px">Caricamento…</p></div></div>
+<div class="wrap">
+  <header class="head">
+    <div class="brand">
+      <div class="mark" aria-hidden="true">
+        <svg viewBox="0 0 48 40" style="width:36px;height:30px"><g transform="rotate(-9 6 4)"><rect x="4" y="3" width="1.6" height="34" fill="#8a8f98"/><rect x="6" y="4" width="6" height="15" fill="#00853F"/><rect x="12" y="4" width="6" height="15" fill="#FDEF42"/><rect x="18" y="4" width="6" height="15" fill="#E31B23"/><path d="M15 8.6l.9 2.4 2.6.1-2 1.6.7 2.5-2.2-1.4-2.2 1.4.7-2.5-2-1.6 2.6-.1z" fill="#00853F"/></g><g id="flagIt" transform="rotate(9 26 4)"><rect x="24" y="3" width="1.6" height="34" fill="#8a8f98"/><rect x="26" y="4" width="6" height="15" fill="#009246"/><rect x="32" y="4" width="6" height="15" fill="#F4F5F0"/><rect x="38" y="4" width="6" height="15" fill="#CE2B37"/></g></svg>
+      </div>
+      <div>
+        <div class="eyebrow">Associazione <span id="syncDot" class="syncdot">☁ ✓</span></div>
+        <h1 id="assocH1">Teranga Association</h1>
+      </div>
+    </div>
+    <div style="display:flex;gap:6px;flex:none">
+    <button class="langbtn" id="btnLang" aria-label="Lingua / Langue">FR</button>
+    <button class="iconbtn" id="btnLock" aria-label="Esci" title="Esci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></button>
+    <button class="iconbtn" id="btnExport" aria-label="Scarica copia Excel" title="Scarica copia Excel">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v3h16v-3"/></svg>
+    </button>
+    <button class="iconbtn owner-only" id="btnSettings" aria-label="Impostazioni">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+    </button>
+    </div>
+  </header>
+
+  <button id="aboBar" class="abobar" hidden></button>
+  <div id="banner" class="banner" hidden></div>
+
+  <section class="summary" aria-label="Riepilogo">
+    <div class="sumtop">
+      <h2>Quote di <span id="yearLbl"></span></h2>
+      <span class="note" id="feeLbl"></span>
+    </div>
+    <div><span class="big num" id="collected">€0</span> <span class="note" id="expected"></span></div>
+    <div class="bar" aria-hidden="true"><span id="barFill" style="width:0%"></span></div>
+    <div class="stats">
+      <div class="stat"><b class="num" id="sMembers">0</b><small>Aderenti</small></div>
+      <div class="stat ok"><b class="num" id="sPaid">0</b><small>In regola</small></div>
+      <div class="stat no"><b class="num" id="sUnpaid">0</b><small>Devono pagare</small></div>
+      <div class="stat gold"><b class="num" id="sContrib">€0</b><small>Arretrati totali</small></div>
+    </div>
+  </section>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab" role="tab" data-tab="aderenti" aria-selected="true">Aderenti</button>
+    <button class="tab" role="tab" data-tab="oggi" aria-selected="false">Oggi</button>
+    <button class="tab" role="tab" data-tab="pagamenti" aria-selected="false">Pagamenti</button>
+    <button class="tab" role="tab" data-tab="riunioni" aria-selected="false">Riunioni</button>
+    <button class="tab" role="tab" data-tab="aiuti" aria-selected="false">Aiuti</button>
+    <button class="tab" role="tab" data-tab="cassa" aria-selected="false">Cassa</button>
+  </nav>
+
+  <section class="panel" id="p-aderenti">
+    <div class="toolbar">
+      <input class="search" id="q" type="search" placeholder="Cerca per nome o numero tessera…" aria-label="Cerca">
+      <button type="button" class="btn gold" id="btnScan">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M3 7V4h3M21 7V4h-3M3 17v3h3M21 17v3h-3M7 12h10"/></svg>Scansiona tessera</button>
+      <button type="button" class="btn wa" id="btnStati"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.2.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2s.2-1.1.1-1.2-.2-.2-.4-.3z"/></svg>Invia situazioni</button>
+      <button class="btn ghost" id="btnAddMember">+ Aderente</button>
+    </div>
+    <div class="chips" style="margin-bottom:12px" id="filters">
+      <button class="chip" data-f="tutti" aria-pressed="true">Tutti</button>
+      <button class="chip" data-f="pagato" aria-pressed="false">In regola</button>
+      <button class="chip" data-f="dapagare" aria-pressed="false">Devono pagare</button>
+      <button class="chip" data-f="assenti" aria-pressed="false">Assenti spesso</button>
+    </div>
+    <div class="list" id="memberList"></div>
+  </section>
+
+  <section class="panel" id="p-oggi" hidden><div id="todayBox"></div></section>
+
+  <section class="panel" id="p-pagamenti" hidden>
+    <div class="toolbar">
+      <div class="chips" id="payFilters">
+        <button class="chip" data-f="tutti" aria-pressed="true">Tutti</button>
+        <button class="chip" data-f="oggi" aria-pressed="false">Oggi</button>
+        <button class="chip" data-f="mensile" aria-pressed="false">Mensili</button>
+        <button class="chip" data-f="iscrizione" aria-pressed="false">Iscrizioni</button>
+        <button class="chip" data-f="contributo" aria-pressed="false">Contributi</button>
+        <button class="chip" data-f="sanzione" aria-pressed="false">Sanzioni</button>
+      </div>
+    </div>
+    <div class="paybox" id="payTot" hidden></div>
+    <div class="list" id="payList"></div>
+  </section>
+
+  <section class="panel" id="p-cassa" hidden>
+    <div class="aidhead">
+      <div><div class="eyebrow">In cassa, da versare in banca</div><div class="big num" id="cashNow">€0</div><span class="note" id="cashInfo"></span></div>
+      <button class="btn gold" id="btnCloseCash">Chiudi cassa</button>
+    </div>
+    <p class="note" style="margin:10px 0 12px">Dopo la riunione chiudi la cassa: si crea il foglio con il totale da versare, da far firmare a presidente, vicepresidente e a chi porta i soldi in banca.</p>
+    <div id="cashItems"></div>
+    <h2 class="sech" style="margin-top:20px">Versamenti</h2>
+    <div class="list" id="depList" style="margin-top:8px"></div>
+  </section>
+
+  <section class="panel" id="p-aiuti" hidden>
+    <div class="aidhead">
+      <div><div class="eyebrow">Aiuti dati nel <span id="aidYear"></span></div><div class="big num" id="aidTot">€0</div><span class="note" id="aidCount"></span></div>
+      <button class="btn gold" id="btnAddAid">+ Nuovo aiuto</button>
+    </div>
+    <p class="note" style="margin:10px 0 12px">Per ogni aiuto la persona firma una ricevuta con nome, cognome e importo: così l'associazione può giustificare ogni uscita.</p>
+    <div class="list" id="aidList"></div>
+  </section>
+
+  <section class="panel" id="p-riunioni" hidden>
+    <h2 class="sech">Calendario riunioni</h2>
+    <p class="note" id="calRule" style="margin:2px 0 10px"></p>
+    <div class="list" id="calList" style="margin-bottom:22px"></div>
+    <div id="warnBox"></div>
+    <h2 class="sech">Presenze</h2>
+    <div class="toolbar">
+      <span class="note" style="flex:1">Segna chi è presente. Gli assenti compaiono a destra.</span>
+      <button class="btn ghost" id="btnAddMeet">+ Riunione</button>
+    </div>
+    <div id="meetList"></div>
+  </section>
+</div>
+
+<div class="fab">
+  <button class="btn primary" id="fabPay">Pagamento</button>
+  <button class="btn gold" id="fabContrib">Contributo</button>
+</div>
+
+<div id="sheetRoot"></div>
+<div id="toast" class="toast" hidden></div>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
+<script>
+(function(){
+const S = { members:[], payments:[], meetings:[], aids:[], deposits:[], config:{joinFee:60, monthlyFee:10, startMonth:"", link:"", iban:""} };
+const ANAME = () => (S.config.assocName||"").trim() || "La mia associazione";
+const ASHORT = () => ANAME().replace(/^associazione\s+/i,"") || ANAME();
+const ACITY = () => (S.config.city||"").trim();
+const ADELL = () => /^associazione\s/i.test(ANAME()) ? "dell'"+ANAME() : "di "+ANAME();
+let db = null, canWrite = true, tab = "aderenti", mFilter = "tutti", pFilter = "tutti", openMeet = null;
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const CURR = () => S.config.currency==="XOF" ? "XOF" : "EUR";
+const CSYM = () => CURR()==="XOF" ? "F" : "€";
+const eur = n => { const v=Math.round((+n||0)*100)/100;
+  return CURR()==="XOF" ? Math.round(v).toLocaleString("fr-FR").replace(/[\u202f\u00a0]/g," ")+" F" : "€"+v.toLocaleString("it-IT",{minimumFractionDigits:0,maximumFractionDigits:2}); };
+const CUR_WORD = () => CURR()==="XOF" ? "francs CFA " : "euro ";
+const fmtDate = d => { try { return new Date(d+"T12:00:00").toLocaleDateString(LOC(),{day:"numeric",month:"short",year:"numeric"}); } catch(e){ return d; } };
+const LOC = () => LANG==="fr" ? "fr-FR" : "it-IT";
+const today = () => { const d=new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); };
+const initials = n => n.split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0].toUpperCase()).join("");
+const uid = () => Math.random().toString(36).slice(2,10) + Date.now().toString(36).slice(-4);
+
+/* ---------- Regole quote ----------
+   Nuovo aderente: iscrizione (60 €), il mese di iscrizione è gratis,
+   poi quota mensile (10 €) dal mese successivo. */
+const ym = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}`;
+const curMonth = () => ym(new Date());
+const addMonth = (k,n=1) => { const [y,m]=k.split("-").map(Number); return ym(new Date(y, m-1+n, 1)); };
+const monthLabel = (k, withYear=true) => { const [y,m]=k.split("-").map(Number); return new Date(y,m-1,1).toLocaleDateString(LOC(), withYear?{month:"long",year:"numeric"}:{month:"long"}); };
+/* Importi con storico: ogni cambio vale da un mese in poi, i mesi passati restano al vecchio importo */
+function feeHistory(){
+  const c=S.config, h=Array.isArray(c.feeHistory) ? c.feeHistory.filter(x=>x && x.from) : [];
+  if(h.length) return [...h].sort((a,b)=>a.from.localeCompare(b.from));
+  return [{from:"2000-01", monthly:+(c.monthlyFee??10), join:+(c.joinFee??60), sanction:+(c.sanctionFee??5), every:+(c.sanctionEvery??3)}];
+}
+function rates(k){ k = k || curMonth(); const h=feeHistory(); let r=h[0]; for(const x of h) if(x.from<=k) r=x; return r; }
+const monthFee = k => +rates(k).monthly||0;
+const joinFee = m => +rates(m && m.joinDate ? m.joinDate.slice(0,7) : undefined).join||0;
+function firstDueMonth(m){
+  // aderenti storici senza data di iscrizione: pagano dal mese di inizio conteggio
+  if(!m.joinDate && m.old) return S.config.startMonth || curMonth();
+  const j = m.joinDate ? m.joinDate.slice(0,7) : curMonth();
+  let f = addMonth(j, 1);
+  const start = S.config.startMonth || "";
+  if(start && f < start) f = start;
+  return f;
+}
+function paidMonths(id, skipPid){ const s=new Set(); S.payments.forEach(p=>{ if(p.memberId===id && p.type==="mensile" && p.id!==skipPid) (p.months||[]).forEach(k=>s.add(k)); }); return s; }
+function dueMonths(m){
+  const out=[], paid=paidMonths(m.id), end=curMonth();
+  for(let k=firstDueMonth(m); k<=end; k=addMonth(k)) if(!paid.has(k)) out.push(k);
+  return out;
+}
+function joinDue(m){ return !m.old && !S.payments.some(p=>p.memberId===m.id && p.type==="iscrizione"); }
+/* Sanzioni: ogni N riunioni saltate (default 3) → X € (default 5) */
+const sanFee = k => +rates(k).sanction||0, sanEvery = () => Math.max(1, +rates().every||3);
+function absences(m){
+  const t=today(), from=m.joinDate||"";
+  return S.meetings.filter(mt => mt.date && mt.date<=t && mt.date>=from && !(mt.present||[]).includes(m.id)).sort((a,b)=>a.date.localeCompare(b.date));
+}
+function sanctionsDue(m){
+  const earned=Math.floor(absences(m).length/sanEvery());
+  const paid=S.payments.filter(p=>p.memberId===m.id && p.type==="sanzione").reduce((a,p)=>a+(+p.sanctions||1),0);
+  return Math.max(0, earned-paid);
+}
+function sanctionAmount(m){
+  // ogni sanzione costa l'importo in vigore nel mese in cui è scattata
+  const ab=absences(m), ev=sanEvery(), n=sanctionsDue(m), earned=Math.floor(ab.length/ev);
+  let t=0; for(let i=earned-n+1;i<=earned;i++){ const d=ab[i*ev-1]; t+=sanFee(d?d.date.slice(0,7):undefined); } return t;
+}
+function nextChange(){ return feeHistory().find(x=>x.from>curMonth()) || null; }
+const monthsTotal = ks => ks.reduce((t,k)=>t+monthFee(k),0);
+function owed(m){ return monthsTotal(dueMonths(m)) + (joinDue(m)?joinFee(m):0) + sanctionAmount(m); }
+function isPaid(m){ return owed(m)===0; }
+function memberName(id){ const m = S.members.find(x=>x.id===id); return m ? m.name : "Aderente rimosso"; }
+function causale(p){
+  if(p.type==="mensile"){ const ms=[...(p.months||[])].sort(); if(!ms.length) return "Quota mensile";
+    const yrs=new Set(ms.map(k=>k.slice(0,4)));
+    return "Quota mensile " + (yrs.size===1 ? ms.map(k=>monthLabel(k,false)).join(", ")+" "+ms[0].slice(0,4) : ms.map(k=>monthLabel(k)).join(", ")); }
+  if(p.type==="iscrizione") return "Iscrizione all'associazione";
+  if(p.type==="sanzione") return `Sanzione per assenze alle riunioni${(+p.sanctions||1)>1?" (x"+p.sanctions+")":""}`;
+  if(p.type==="quota") return "Quota associativa " + (p.year||"");
+  return "Contributo volontario";
+}
+const typeLabel = t => ({mensile:"Mensile", iscrizione:"Iscrizione", contributo:"Contributo", quota:"Quota", sanzione:"Sanzione"})[t] || t;
+const typeClass = t => t==="contributo" ? "gold" : t==="sanzione" ? "no" : "ok";
+
+function toast(msg){ const t=$("#toast"); t.textContent=msg; t.hidden=false; clearTimeout(toast._t); toast._t=setTimeout(()=>t.hidden=true,2200); }
+
+/* ---------- Render ---------- */
+function renderSummary(){
+  const k = curMonth(), fee = monthFee(k);
+  // tutti gli aderenti già iscritti prima di questo mese (i nuovi hanno il primo mese gratis)
+  const dueNow = S.members.filter(m => m.old || !m.joinDate || m.joinDate.slice(0,7) < k);
+  const paidNow = dueNow.filter(m => paidMonths(m.id).has(k)).length;
+  const late = S.members.filter(m=>!isPaid(m));
+  $("#yearLbl").textContent = monthLabel(k);
+  $("#feeLbl").textContent = `${eur(fee)} al mese · iscrizione ${eur(joinFee())}${nextChange()?` · dal ${monthLabel(nextChange().from)}: ${eur(nextChange().monthly)} al mese`:""}`;
+  $("#collected").textContent = eur(paidNow*fee);
+  $("#expected").textContent = `raccolti su ${eur(dueNow.length*fee)} · ${paidNow} di ${dueNow.length} hanno pagato questo mese`;
+  $("#barFill").style.width = dueNow.length ? Math.min(100, paidNow/dueNow.length*100) + "%" : "0%";
+  $("#sMembers").textContent = S.members.length;
+  $("#sPaid").textContent = S.members.length - late.length;
+  $("#sUnpaid").textContent = late.length;
+  $("#sContrib").textContent = eur(late.reduce((a,m)=>a+owed(m),0));
+}
+
+function statusPill(m){
+  const d = dueMonths(m), j = joinDue(m), sd = sanctionsDue(m), ab = absences(m).length;
+  const abs = ab ? ` <span class="pill ${ab>=sanEvery()?"no":"gold"}">${ab} ${ab===1?"assenza":"assenze"}</span>` : "";
+  if(!d.length && !j && !sd){
+    const k=curMonth(); return (firstDueMonth(m) > k ? `<span class="pill ok">Primo mese gratis</span>` : `<span class="pill ok">In regola</span>`) + abs;
+  }
+  const parts=[]; if(j) parts.push("iscrizione"); if(d.length) parts.push(d.length===1? "1 mese" : d.length+" mesi"); if(sd) parts.push(sd===1?"sanzione":sd+" sanzioni");
+  return `<span class="pill ${d.length>1||j||sd?"no":"gold"}">Deve ${eur(owed(m))} · ${parts.join(" + ")}</span>` + abs;
+}
+
+function renderMembers(){
+  const q = $("#q").value.trim().toLowerCase();
+  let list = [...S.members].sort((a,b)=>a.name.localeCompare(b.name,"it"));
+  if(q) list = list.filter(m => (m.name+" "+(m.phone||"")+" "+(m.code?cardNo(m)+" "+m.code:"")).toLowerCase().includes(q));
+  if(mFilter==="pagato") list = list.filter(isPaid);
+  if(mFilter==="dapagare") list = list.filter(m=>!isPaid(m));
+  if(mFilter==="assenti") list = list.filter(m=>absences(m).length>=sanEvery()).sort((a,b)=>absences(b).length-absences(a).length);
+  const el = $("#memberList");
+  if(!list.length){ el.innerHTML = `<div class="empty">${S.members.length? "Nessun aderente con questo filtro." : "Nessun aderente. Aggiungi il primo con “+ Aderente”."}</div>`; return; }
+  el.innerHTML = list.map(m=>{
+    const ok = isPaid(m);
+    const since = m.joinDate ? "iscritto " + fmtDate(m.joinDate) : "";
+    return `<div class="row mrow">
+      <div class="av" aria-hidden="true">${esc(initials(m.name))}</div>
+      <div class="who"><b>${esc(m.name)}</b><small>${esc(m.phone||"")}${m.phone&&since?" · ":""}${esc(since)}</small><div style="margin-top:4px">${statusPill(m)}</div></div>
+      <button class="btn wa sm qrbtn" data-stato="${m.id}" aria-label="Situazione di ${esc(m.name)}" title="Invia situazione"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.2.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2s.2-1.1.1-1.2-.2-.2-.4-.3z"/></svg></button>
+      <button class="btn ghost sm qrbtn" data-card="${m.id}" aria-label="Tessera di ${esc(m.name)}"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3h8v8H3zm2 2v4h4V5zm8-2h8v8h-8zm2 2v4h4V5zM3 13h8v8H3zm2 2v4h4v-4zm8-2h2v2h-2zm4 0h4v2h-4zm-4 4h2v4h-2zm4 0h2v2h2v4h-4z"/></svg></button>
+      ${ok ? `<button class="btn ghost sm" data-edit="${m.id}" aria-label="Modifica ${esc(m.name)}">⋯</button>` : `<button class="btn primary sm" data-pay="${m.id}">Paga</button>`}
+    </div>`;
+  }).join("");
+}
+
+function renderPayments(){
+  let list = [...S.payments].sort((a,b)=>(b.date||"").localeCompare(a.date||""));
+  if(pFilter==="oggi") list = list.filter(p=>p.date===today());
+  else if(pFilter!=="tutti") list = list.filter(p=>p.type===pFilter);
+  const el = $("#payList"), tb = $("#payTot");
+  if(pFilter==="tutti"){ tb.hidden=true; }
+  else {
+    const sum = a => a.reduce((t,p)=>t+(+p.amount||0),0), cash = list.filter(isCash), other = list.filter(p=>!isCash(p));
+    const lbl = pFilter==="oggi" ? "Oggi, "+fmtDate(today()) : ({mensile:"Quote mensili",iscrizione:"Iscrizioni",contributo:"Contributi",sanzione:"Sanzioni"})[pFilter]||"";
+    tb.hidden=false;
+    tb.innerHTML = `<div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap"><b>${esc(lbl)}</b><span class="big num" style="font-size:28px">${eur(sum(list))}</span></div>
+      <div class="note" style="color:var(--ink)">${list.length} ${list.length===1?"pagamento":"pagamenti"}${list.length?` · contanti <b>${eur(sum(cash))}</b>${other.length?` · bonifico/online <b>${eur(sum(other))}</b>`:""}`:""}</div>`;
+  }
+  if(!list.length){ el.innerHTML = `<div class="empty">${pFilter==="oggi"?"Nessun pagamento registrato oggi.":"Nessun pagamento registrato."}</div>`; return; }
+  el.innerHTML = list.map(p=>`<div class="row wrow">
+      <div class="who"><b>${esc(memberName(p.memberId))}</b><small>${fmtDate(p.date)} · ${esc(p.method||"")} · ${esc(causale(p).replace(/^Quota mensile /,""))}${p.note? " · "+esc(p.note):""}</small></div>
+      <span class="pill ${typeClass(p.type)}">${typeLabel(p.type)}</span>
+      <span class="amt">${eur(p.amount)}</span>
+      <button class="btn ghost sm" data-editpay="${p.id}">Modifica</button>
+      <button class="btn primary sm" data-rcpt="${p.id}">Ricevuta</button>
+      <button class="btn ghost sm owner-only" data-delpay="${p.id}" aria-label="Elimina pagamento">✕</button>
+    </div>`).join("");
+}
+
+function renderMeetings(){
+  const list = [...S.meetings].sort((a,b)=>(b.date||"").localeCompare(a.date||""));
+  const el = $("#meetList");
+  if(!list.length){ el.innerHTML = `<div class="list"><div class="empty">Nessuna riunione. Creane una con “+ Riunione”.</div></div>`; return; }
+  if(openMeet===null) openMeet = list[0].id;
+  const members = [...S.members].sort((a,b)=>a.name.localeCompare(b.name,"it"));
+  el.innerHTML = list.map(mt=>{
+    const pres = new Set(mt.present||[]);
+    const inList = members.filter(m=>pres.has(m.id)), outList = members.filter(m=>!pres.has(m.id));
+    const open = openMeet===mt.id;
+    const item = (m,on)=>`<label class="check"><input type="checkbox" data-meet="${mt.id}" data-mem="${m.id}" ${on?"checked":""}><span>${esc(m.name)}</span></label>`;
+    return `<article class="meet">
+      <div class="meethead" data-toggle="${mt.id}" role="button" tabindex="0" aria-expanded="${open}">
+        <div><h3>${esc(mt.title)}</h3><small>${fmtDate(mt.date)}</small></div>
+        <div class="chips"><span class="pill ok">${inList.length} presenti</span><span class="pill no">${outList.length} assenti</span></div>
+      </div>
+      ${open ? `<div class="meetbody"><div class="cols">
+        <div><div class="colh ok">Presenti</div>${inList.map(m=>item(m,true)).join("") || '<p class="note">Nessuno ancora.</p>'}</div>
+        <div><div class="colh no">Mancano</div>${outList.map(m=>item(m,false)).join("") || '<p class="note">Ci sono tutti.</p>'}</div>
+      </div><div class="actions"><button class="btn danger sm owner-only" data-delmeet="${mt.id}">Elimina riunione</button></div></div>` : ""}
+    </article>`;
+  }).join("");
+}
+
+function renderAll(){ { const h=document.getElementById("assocH1"); if(h) h.textContent=ASHORT(); document.title=ANAME(); } renderSummary(); renderMembers(); renderPayments(); renderCalendar(); renderWarnings(); renderMeetings(); renderAids(); renderCash(); renderToday(); renderAbo(); }
+function warnText(m){
+  const ab=absences(m), sd=sanctionsDue(m), name=m.name.replace(/\s*\(esempio\)/,"");
+  return `Ciao ${name}, da ${ANAME()}.
+Risulti assente a ${ab.length} riunioni (${ab.slice(-sanEvery()).map(x=>fmtDate(x.date)).join(", ")}${ab.length>sanEvery()?"…":""}).
+Come deciso dall'associazione, ogni ${sanEvery()} riunioni saltate c'è una sanzione di ${eur(sanFee())}.${sd?` Hai da pagare ${eur(sanctionAmount(m))} di sanzioni.`:""}${owed(m)>sanctionAmount(m)?` In totale devi ${eur(owed(m))}.`:""}
+Ti aspettiamo alla prossima riunione. Jërëjëf!`;
+}
+function renderWarnings(){
+  const list=S.members.filter(m=>absences(m).length>=sanEvery()).sort((a,b)=>absences(b).length-absences(a).length);
+  const el=$("#warnBox");
+  if(!list.length){ el.innerHTML=""; return; }
+  el.innerHTML = `<h2 class="sech">Da segnalare</h2>
+    <p class="note" style="margin:2px 0 10px">Hanno saltato ${sanEvery()} o più riunioni: ${eur(sanFee())} di sanzione ogni ${sanEvery()} assenze.</p>
+    <div class="list" style="margin-bottom:22px">${list.map(m=>{ const ab=absences(m).length, sd=sanctionsDue(m), late=dueMonths(m).length;
+      return `<div class="row calrow">
+        <div class="av" aria-hidden="true">${esc(initials(m.name))}</div>
+        <div class="who"><b>${esc(m.name)}</b><small>${ab} assenze${sd?` · sanzione da pagare ${eur(sanctionAmount(m))}`:" · sanzioni pagate"}${late?` · ${late} ${late===1?"mese":"mesi"} non pagati`:""}</small></div>
+        <div class="calbtns">
+          <a class="btn wa sm" href="https://wa.me/${waNum(m.phone)}?text=${encodeURIComponent(warnText(m))}" target="_blank" rel="noopener">Avvisa</a>
+          ${sd?`<button class="btn primary sm" data-sanz="${m.id}">Paga sanzione</button>`:""}
+        </div></div>`; }).join("")}</div>`;
+}
+
+/* ---------- Calendario: giorno delle riunioni a scelta (default: secondo sabato del mese) ---------- */
+const MW = () => { const w=+S.config.meetWeek; return w>=1&&w<=5 ? w : 2; };
+const MD = () => { const d=S.config.meetDay; return d===undefined||d===null||d==="" ? 6 : +d; };
+const ORD = ["","primo","secondo","terzo","quarto","ultimo"], DAYS = ["domenica","lunedì","martedì","mercoledì","giovedì","venerdì","sabato"];
+const meetRuleText = () => (MD()===0?"Ogni ":"Ogni ")+ORD[MW()]+" "+DAYS[MD()]+" del mese";
+function secondSaturday(y,m){
+  const wd=MD(), w=MW();
+  if(w===5){ const last=new Date(y,m+1,0,12); const back=(last.getDay()-wd+7)%7; return new Date(y,m,last.getDate()-back,12); }
+  const d=new Date(y,m,1,12); const first=(wd-d.getDay()+7)%7+1; return new Date(y,m,first+7*(w-1),12); }
+const iso = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+function upcoming(n){
+  const out=[], now=new Date(); now.setHours(0,0,0,0);
+  let y=now.getFullYear(), m=now.getMonth();
+  while(out.length<n){ const d=secondSaturday(y,m); if(d>=now) out.push(d); m++; if(m>11){m=0;y++;} }
+  return out;
+}
+function daysTo(d){ const now=new Date(); now.setHours(0,0,0,0); const t=new Date(d); t.setHours(0,0,0,0); return Math.round((t-now)/864e5); }
+function inviteText(d){
+  const c=S.config, when=d.toLocaleDateString(LOC(),{weekday:"long",day:"numeric",month:"long"});
+  return `📢 *${ANAME()}*
+
+Riunione mensile: *${when}*
+🕓 Ore ${c.meetTime||"16:00"}
+📍 ${c.meetPlace||ACITY()}
+
+Vi aspettiamo tutti. Chi è indietro con la quota mensile può pagare alla riunione.
+Jërëjëf!`;
+}
+function renderCalendar(){
+  const c=S.config;
+  $("#calRule").textContent = `${meetRuleText()} · ore ${c.meetTime||"16:00"} · ${c.meetPlace||"luogo da impostare in ⚙"}`;
+  const dates = upcoming(6);
+  $("#calList").innerHTML = dates.map((d,i)=>{
+    const k=daysTo(d), dd=iso(d), has=S.meetings.some(x=>x.date===dd);
+    const rel = k===0?"Oggi":k===1?"Domani":`Tra ${k} giorni`;
+    return `<div class="row calrow ${i===0?"next":""}">
+      <div class="dtile" aria-hidden="true"><span>${d.toLocaleDateString(LOC(),{month:"short"}).replace(".","")}</span><b class="num">${d.getDate()}</b></div>
+      <div class="who"><b>${i===0?"Prossima riunione":d.toLocaleDateString(LOC(),{month:"long",year:"numeric"})}</b><small>${DAYS[MD()].charAt(0).toUpperCase()+DAYS[MD()].slice(1)} ${d.getDate()} · ore ${esc(c.meetTime||"16:00")} · ${rel}</small></div>
+      <div class="calbtns">
+        <a class="btn wa sm" href="https://wa.me/?text=${encodeURIComponent(inviteText(d))}" target="_blank" rel="noopener">Avvisa su WhatsApp</a>
+        <button class="btn ghost sm" data-copyinv="${dd}">Copia avviso</button>
+        <button class="btn ${has?"ghost":"primary"} sm" data-presenze="${dd}">${has?"Presenze":"Apri presenze"}</button>
+      </div></div>`;
+  }).join("");
+}
+
+/* ---------- Data layer (salvataggio online su Supabase) ---------- */
+function canEdit(){
+  if(LIC && licState().st==="blocked"){ toast("Abbonamento scaduto: puoi guardare, non modificare"); aboSheet(); return false; }
+  return true;
+}
+async function save(col, id, data){
+  if(!canEdit()) return false;
+  const item = {...data, id};
+  const arr = S[col];
+  const i = arr.findIndex(x=>x.id===id); if(i>=0) arr[i]=item; else arr.push(item);
+  renderAll(); markDirty();
+}
+async function remove(col, id){
+  if(!canEdit()) return false;
+  const arr = S[col];
+  const i = arr.findIndex(x=>x.id===id); if(i>=0) arr.splice(i,1);
+  renderAll(); markDirty();
+}
+async function saveConfig(c){
+  if(!canEdit()) return false;
+  S.config = {...S.config, ...c}; renderAll(); markDirty();
+}
+function showBanner(t){ const b=$("#banner"); b.textContent=t; b.hidden=false; }
+
+/* ---------- Sheets ---------- */
+function openSheet(html, onMount){
+  const root = $("#sheetRoot");
+  root.innerHTML = `<div class="scrim" id="scrim"><div class="sheet" role="dialog" aria-modal="true">${html}</div></div>`;
+  $("#scrim").addEventListener("click", e=>{ if(e.target.id==="scrim") closeSheet(); });
+  root.querySelectorAll("[data-close]").forEach(b=>b.addEventListener("click",closeSheet));
+  const first = root.querySelector("input,select,button"); if(first) first.focus();
+  onMount && onMount(root);
+}
+function closeSheet(){ $("#sheetRoot").innerHTML=""; }
+document.addEventListener("keydown", e=>{ if(e.key==="Escape") closeSheet(); });
+
+function payInfoBox(){
+  const {link, iban} = S.config;
+  if(!link && !iban) return `<p class="note" style="margin-bottom:12px">Per mostrare il link di pagamento online o l'IBAN, aggiungili nelle impostazioni (⚙).</p>`;
+  return `<div class="paybox">
+    ${link?`<div style="margin-bottom:${iban?8:0}px"><a class="btn gold sm" href="${esc(link)}" target="_blank" rel="noopener">Paga online ↗</a> <span class="note">poi registra qui il pagamento</span></div>`:""}
+    ${iban?`<div><b>IBAN:</b> <code id="ibanTxt">${esc(iban)}</code> <button class="btn ghost sm" type="button" id="copyIban">Copia</button></div>`:""}
+  </div>`;
+}
+
+function defaultType(m){ if(!m) return "mensile"; if(joinDue(m)) return "iscrizione"; if(dueMonths(m).length) return "mensile"; if(sanctionsDue(m)) return "sanzione"; return "mensile"; }
+function monthChoices(m, edit){
+  // mostra tutti i mesi non pagati dall'inizio del calendario (gennaio 2026) fino a dicembre dell'anno prossimo
+  const paid=paidMonths(m.id, edit&&edit.id), due=new Set(dueMonths(m));
+  let from = S.config.payFrom || "2026-01";
+  if(m.joinDate && !m.old){ const j=addMonth(m.joinDate.slice(0,7),1); if(j>from) from=j; }
+  const end=(+curMonth().slice(0,4)+1)+"-12", out=[]; // fino a dicembre dell'anno prossimo
+  const em = edit && edit.memberId===m.id ? (edit.months||[]) : [];
+  em.forEach(k=>{ if(k<from) from=k; });
+  let last=end; em.forEach(k=>{ if(k>last) last=k; });
+  for(let k=from;k<=last;k=addMonth(k)) if(!paid.has(k)) out.push(k);
+  let pre = em.length ? em : due.size ? [...due] : [out.find(k=>k>=curMonth()) || out[0]].filter(Boolean);
+  return {list: out, pre: new Set(pre)};
+}
+// dopo una correzione o cancellazione: ricalcola i fogli di cassa che contengono il pagamento
+function syncDeposits(pid){
+  S.deposits.filter(d=>(d.paymentIds||[]).includes(pid)).forEach(d=>{
+    const p=S.payments.find(x=>x.id===pid);
+    const ids=(d.paymentIds||[]).filter(id=>id!==pid || (p && isCash(p)));
+    const tin=ids.map(id=>S.payments.find(x=>x.id===id)).filter(Boolean).reduce((t,x)=>t+(+x.amount||0),0);
+    const net=Math.round((tin-(+d.totalOut||0))*100)/100;
+    if(net===d.amount && ids.length===(d.paymentIds||[]).length) return;
+    const {id, ...rest}=d;
+    save("deposits", d.id, {...rest, paymentIds:ids, totalIn:tin, amount:net, expected:net, sigs:{}});
+  });
+}
+function paySheet(memberId, type, editId){
+  if(!S.members.length){ toast("Aggiungi prima un aderente"); memberSheet(); return; }
+  const edit = editId ? S.payments.find(x=>x.id===editId) : null;
+  if(edit){ memberId = edit.memberId; type = edit.type==="quota" ? "mensile" : edit.type; }
+  const inDep = edit ? S.deposits.find(d=>(d.paymentIds||[]).includes(edit.id)) : null;
+  const sorted=[...S.members].sort((a,b)=>a.name.localeCompare(b.name,"it"));
+  if(!memberId){ const late=sorted.find(m=>!isPaid(m)); memberId = (late||sorted[0]).id; }
+  let t = type || defaultType(S.members.find(x=>x.id===memberId));
+  const opts = sorted.map(m=>`<option value="${m.id}" ${m.id===memberId?"selected":""}>${esc(m.name)}${isPaid(m)?" ✓":""}</option>`).join("");
+  openSheet(`<h2>${edit ? "Modifica pagamento "+esc(rcptCode(edit)) : "Registra pagamento"}</h2>
+    ${edit ? (inDep ? `<div class="paybox">Questo pagamento è nel foglio di cassa <b>${esc(depCode(inDep))}</b>: se cambi importo o metodo, il foglio si aggiorna e le firme vanno rifatte.</div>` : "") : payInfoBox()}
+    <form id="payForm">
+      <div class="field"><label for="pMember">Aderente</label><select id="pMember">${opts}</select><span class="note" id="pStatus"></span></div>
+      <div class="field"><label>Tipo</label><div class="seg seg3" id="seg">
+        <button type="button" data-t="mensile" aria-pressed="${t==="mensile"}">Mensile</button>
+        <button type="button" data-t="iscrizione" aria-pressed="${t==="iscrizione"}">Iscrizione</button>
+        <button type="button" data-t="contributo" aria-pressed="${t==="contributo"}">Contributo</button>
+        <button type="button" data-t="sanzione" aria-pressed="${t==="sanzione"}">Sanzione</button></div></div>
+      <div class="field" id="monthsField"><label>Mesi pagati</label><div class="chips" id="pMonths"></div></div>
+      <div class="field"><label for="pAmount">Importo (${CSYM()})</label><input id="pAmount" type="number" inputmode="decimal" min="0.5" step="0.5" required></div>
+      <div class="field"><label for="pMethod">Metodo</label><select id="pMethod"><option>Contanti</option><option>Bonifico</option><option>Online</option></select></div>
+      <div class="field"><label for="pDate">Data</label><input id="pDate" type="date" value="${today()}" required></div>
+      <div class="field"><label for="pNote">Nota (facoltativa)</label><input id="pNote" type="text" placeholder="es. per la festa di Magal"></div>
+      <div class="actions"><button type="button" class="btn ghost" data-close>Annulla</button><button class="btn primary" type="submit">${edit?"Salva modifiche":"Salva pagamento"}</button></div>
+    </form>`, root=>{
+      const amt = $("#pAmount"), sel = $("#pMember"), mf=$("#monthsField"), mc=$("#pMonths");
+      let chosen = new Set();
+      const mem = ()=>S.members.find(x=>x.id===sel.value);
+      const updAmt = ()=>{ if(t==="mensile") amt.value = monthsTotal([...chosen]) || ""; };
+      const drawMonths = ()=>{
+        const m=mem(); const {list, pre} = monthChoices(m, edit); chosen = pre;
+        const due=new Set(dueMonths(m));
+        mc.innerHTML = list.map(k=>`<button type="button" class="chip" data-k="${k}" aria-pressed="${chosen.has(k)}">${monthLabel(k)}${due.has(k)?" ·arretrato":""}</button>`).join("");
+        updAmt();
+      };
+      const status = ()=>{ const m=mem(); const d=dueMonths(m);
+        const bits=[]; if(joinDue(m)) bits.push("iscrizione"); if(d.length) bits.push(d.map(k=>monthLabel(k,false)).join(", ")); const sd=sanctionsDue(m); if(sd) bits.push(`${sd===1?"1 sanzione":sd+" sanzioni"} (${absences(m).length} assenze)`);
+        $("#pStatus").textContent = isPaid(m) ? "In regola." : `Deve ${eur(owed(m))}: ${bits.join(" + ")}`; };
+      const setType = ()=>{
+        root.querySelectorAll("#seg button").forEach(x=>x.setAttribute("aria-pressed", x.dataset.t===t));
+        mf.hidden = t!=="mensile";
+        if(t==="mensile") drawMonths();
+        else amt.value = t==="iscrizione" ? joinFee(mem()) : t==="sanzione" ? (sanctionAmount(mem()) || sanFee()) : "";
+      };
+      mc.addEventListener("click", e=>{ const b=e.target.closest("[data-k]"); if(!b) return; const k=b.dataset.k; chosen.has(k)?chosen.delete(k):chosen.add(k); b.setAttribute("aria-pressed", chosen.has(k)); updAmt(); });
+      sel.addEventListener("change", ()=>{ t=defaultType(mem()); status(); setType(); });
+      root.querySelectorAll("#seg button").forEach(b=>b.addEventListener("click",()=>{ t=b.dataset.t; setType(); if(t==="contributo") amt.focus(); }));
+      status(); setType();
+      if(edit){ amt.value = edit.amount; $("#pMethod").value = edit.method || "Contanti"; $("#pDate").value = edit.date || today(); $("#pNote").value = edit.note || ""; }
+      const cp = $("#copyIban"); if(cp) cp.addEventListener("click", async()=>{ try{ await navigator.clipboard.writeText(S.config.iban); toast("IBAN copiato"); }catch(e){ const r=document.createRange(); r.selectNodeContents($("#ibanTxt")); const s=getSelection(); s.removeAllRanges(); s.addRange(r); } });
+      $("#payForm").addEventListener("submit", e=>{ e.preventDefault();
+        if(t==="mensile" && !chosen.size){ toast("Scegli almeno un mese"); return; }
+        const a = parseFloat(amt.value); if(!(a>0)){ amt.focus(); return; }
+        const pid = edit ? edit.id : uid(), date = $("#pDate").value, ry = +(date||"").slice(0,4) || new Date().getFullYear();
+        const body = { memberId: sel.value, type: t, amount: a, method: $("#pMethod").value, date, note: $("#pNote").value.trim(), n: edit ? edit.n : nextReceiptNo(ry) };
+        if(t==="mensile") body.months = [...chosen].sort();
+        if(t==="sanzione") body.sanctions = Math.max(1, sanctionsDue(mem()) && a>=sanctionAmount(mem()) ? sanctionsDue(mem()) : Math.round(a / (sanFee()||a)));
+        save("payments", pid, body);
+        if(edit){ syncDeposits(pid); toast("Pagamento corretto"); receiptSheet(pid); return; }
+        toast(t==="mensile" ? "Quota mensile registrata" : t==="iscrizione" ? "Iscrizione registrata" : t==="sanzione" ? "Sanzione registrata" : "Contributo registrato");
+        receiptSheet(pid);
+      });
+  });
+}
+
+function memberSheet(id){
+  const m = id ? S.members.find(x=>x.id===id) : null;
+  openSheet(`<h2>${m?"Modifica aderente":"Nuovo aderente"}</h2>
+    <form id="mForm">
+      <div class="field"><label for="mName">Nome e cognome</label><input id="mName" required value="${esc(m?.name||"")}"></div>
+      <div class="field"><label for="mPhone">Telefono</label><input id="mPhone" type="tel" value="${esc(m?.phone||"")}" placeholder="+39 …"></div>
+      <div class="field"><label for="mJoin">Data di iscrizione</label><input id="mJoin" type="date" value="${esc(m ? (m.joinDate||"") : today())}"><span class="note">Il mese di iscrizione è gratis: la quota mensile parte dal mese dopo.</span></div>
+      <label class="check" style="border:0;margin-bottom:10px"><input type="checkbox" id="mOld" ${m?.old?"checked":""}><span>Già iscritto da prima (iscrizione già pagata)</span></label>
+      <div class="actions">
+        ${m?`<button type="button" class="btn danger owner-only" id="mDel">Elimina</button><span style="flex:1"></span>`:""}
+        ${m?`<button type="button" class="btn ghost" id="mStato">Situazione</button><button type="button" class="btn ghost" id="mCard">Tessera</button><button type="button" class="btn ghost" id="mPay">Pagamento</button>`:""}
+        <button type="button" class="btn ghost" data-close>Annulla</button><button class="btn primary" type="submit">Salva</button></div>
+      <div id="delConfirm" hidden class="paybox" style="margin-top:12px">Eliminare ${esc(m?.name||"")}? I suoi pagamenti restano nello storico.
+        <div class="actions"><button type="button" class="btn ghost sm" id="delNo">No</button><button type="button" class="btn danger sm" id="delYes">Sì, elimina</button></div></div>
+    </form>`, ()=>{
+      $("#mForm").addEventListener("submit", e=>{ e.preventDefault();
+        const name = $("#mName").value.trim(); if(!name) return;
+        const nid = m?m.id:uid(), old = $("#mOld").checked;
+        save("members", nid, { name, phone: $("#mPhone").value.trim(), joinDate: $("#mJoin").value || (old ? "" : today()), old, code: m?.code || nextCode() });
+        toast(m?"Aderente aggiornato":"Aderente aggiunto");
+        if(!m && !old) paySheet(nid, "iscrizione"); else closeSheet();
+      });
+      if(m){
+        $("#mDel").addEventListener("click",()=>$("#delConfirm").hidden=false);
+        $("#delNo").addEventListener("click",()=>$("#delConfirm").hidden=true);
+        $("#delYes").addEventListener("click",()=>{ remove("members",m.id); closeSheet(); toast("Aderente eliminato"); });
+        $("#mPay").addEventListener("click",()=>paySheet(m.id));
+        $("#mCard").addEventListener("click",()=>cardSheet(m.id));
+        $("#mStato").addEventListener("click",()=>statoSheet(m.id));
+      }
+  });
+}
+
+function meetSheet(){
+  openSheet(`<h2>Nuova riunione</h2>
+    <form id="rForm">
+      <div class="field"><label for="rTitle">Titolo</label><input id="rTitle" required value="Assemblea mensile"></div>
+      <div class="field"><label for="rDate">Data</label><input id="rDate" type="date" value="${today()}" required></div>
+      <div class="actions"><button type="button" class="btn ghost" data-close>Annulla</button><button class="btn primary" type="submit">Crea</button></div>
+    </form>`, ()=>{
+      $("#rForm").addEventListener("submit", e=>{ e.preventDefault();
+        const id = uid(); openMeet = id;
+        save("meetings", id, { title: $("#rTitle").value.trim()||"Riunione", date: $("#rDate").value, present: [] });
+        closeSheet(); toast("Riunione creata");
+      });
+  });
+}
+
+function settingsSheet(){
+  const c = S.config;
+  openSheet(`<h2>Impostazioni</h2>
+    <form id="sForm">
+      <div class="field"><label for="sName">Nome dell'associazione</label><input id="sName" value="${esc(c.assocName||"")}" placeholder="es. Associazione Senegalesi di Milano"></div>
+      <div class="field"><label for="sCity">Città</label><input id="sCity" value="${esc(c.city||"")}" placeholder="es. Milano"></div>
+      <div class="field"><label for="sCur">Moneta</label><select id="sCur"><option value="EUR" ${CURR()==="EUR"?"selected":""}>€ Euro</option><option value="XOF" ${CURR()==="XOF"?"selected":""}>F CFA</option></select><span class="note">Cambia solo il simbolo: gli importi già scritti restano uguali.</span></div>
+      <div class="field"><label>Account</label><div class="paybox" style="margin:0">Numero: <b>${esc(userPhoneFmt())}</b><br>Codice associazione: <b>${esc(S.config.code||"")}</b></div><div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:6px"><button type="button" class="btn ghost" id="sPw">Cambia password</button><button type="button" class="btn ghost" id="sAbo">Abbonamento</button></div><span class="note">La password serve ogni volta che si apre l'app.</span></div>
+      <div class="field"><label>Importi in vigore</label>
+        <div class="paybox" style="margin:0">${(r=>`Quota mensile <b>${eur(r.monthly)}</b> · Iscrizione <b>${eur(r.join)}</b><br>Sanzione <b>${eur(r.sanction)}</b> ogni <b>${r.every}</b> riunioni saltate`)(rates())}
+          ${nextChange()?`<br><span class="note">Cambio già deciso dal ${monthLabel(nextChange().from)}</span>`:""}</div>
+        <button type="button" class="btn gold" id="sRates" style="justify-self:start;margin-top:6px">Cambia gli importi</button></div>
+      <div class="field"><label for="sStart">Conta le mensilità a partire da</label><input id="sStart" type="month" value="${esc(c.startMonth||"")}"><span class="note">Per chi era già iscritto: i mesi prima di questa data non risultano arretrati.</span></div>
+      <div class="field"><label>Giorno delle riunioni</label><div class="seg"><select id="sWeek">${ORD.slice(1).map((o,i)=>`<option value="${i+1}" ${MW()===i+1?"selected":""}>${o}</option>`).join("")}</select><select id="sDay">${DAYS.map((d,i)=>`<option value="${i}" ${MD()===i?"selected":""}>${d}</option>`).join("")}</select></div><span class="note">es. "secondo sabato" = il secondo sabato di ogni mese.</span></div>
+      <div class="field"><label for="sTime">Orario delle riunioni</label><input id="sTime" type="time" value="${esc(c.meetTime||"16:00")}"></div>
+      <div class="field"><label for="sPlace">Luogo delle riunioni</label><input id="sPlace" value="${esc(c.meetPlace||"")}" placeholder="es. Sala civica, via …, ${esc(ACITY())}"></div>
+      <div class="field"><label for="sLink">Link pagamento online</label><input id="sLink" type="url" placeholder="https://paypal.me/…" value="${esc(c.link||"")}"><span class="note">PayPal.me, Satispay o altro: appare come pulsante “Paga online”.</span></div>
+      <div class="field"><label for="sIban">IBAN dell'associazione</label><input id="sIban" value="${esc(c.iban||"")}" placeholder="IT…"></div>
+      <div class="field"><label for="sTreas">Chi firma le ricevute</label><input id="sTreas" value="${esc(c.treasurer||"")}" placeholder="es. Il tesoriere, Nome Cognome"></div>
+      <div class="field"><label for="sPres">Presidente</label><input id="sPres" value="${esc(c.president||"")}" placeholder="Nome e cognome"></div>
+      <div class="field"><label for="sVice">Vicepresidente</label><input id="sVice" value="${esc(c.vice||"")}" placeholder="Nome e cognome"></div>
+      <div class="field"><label for="sColl">Chi raccoglie i soldi (cassiere)</label><input id="sColl" value="${esc(c.collector||"")}" placeholder="Nome e cognome"></div>
+      <div class="field"><label for="sCf">Codice fiscale dell'associazione (facoltativo)</label><input id="sCf" value="${esc(c.cf||"")}"></div>
+      <div class="actions"><button type="button" class="btn ghost" data-close>Annulla</button><button class="btn primary" type="submit">Salva</button></div>
+    </form>`, ()=>{
+      $("#sRates").addEventListener("click", ratesSheet);
+      $("#sPw").addEventListener("click", pwSheet);
+      $("#sAbo").addEventListener("click", aboSheet);
+      $("#sForm").addEventListener("submit", e=>{ e.preventDefault();
+        let link = $("#sLink").value.trim(); if(link && !/^https:\/\//i.test(link)) link = "https://" + link.replace(/^http:\/\//i,"");
+        saveConfig({ assocName: $("#sName").value.trim(), city: $("#sCity").value.trim(), startMonth: $("#sStart").value||"", link, iban: $("#sIban").value.trim().toUpperCase(), treasurer: $("#sTreas").value.trim(), cf: $("#sCf").value.trim().toUpperCase(), meetTime: $("#sTime").value||"16:00", meetWeek: +$("#sWeek").value, meetDay: +$("#sDay").value, currency: $("#sCur").value, meetPlace: $("#sPlace").value.trim(), president: $("#sPres").value.trim(), vice: $("#sVice").value.trim(), collector: $("#sColl").value.trim() });
+        closeSheet(); toast("Impostazioni salvate");
+      });
+  });
+}
+
+
+/* ---------- Situazione personale via WhatsApp ---------- */
+const STATO_SENT = new Set();
+function statoText(m){
+  const name=m.name.replace(/\s*\(esempio\)/,""), c=S.config, y=String(new Date().getFullYear()), t=today();
+  const d=dueMonths(m), j=joinDue(m), sd=sanctionsDue(m), tot=owed(m);
+  const paid=[...paidMonths(m.id)].sort(), paidY=paid.filter(k=>k.startsWith(y));
+  const meetsY=S.meetings.filter(mt=>mt.date && mt.date<=t && mt.date.startsWith(y) && mt.date>=(m.joinDate||""));
+  const presY=meetsY.filter(mt=>(mt.present||[]).includes(m.id)).length;
+  const payY=S.payments.filter(p=>p.memberId===m.id && (p.date||"").startsWith(y));
+  const L=[];
+  L.push(`Ciao ${name}, ecco la tua situazione con *${ANAME()}*`);
+  L.push(`Tessera N. ${cardNo(m)} · aggiornata al ${fmtDate(t)}`);
+  L.push("");
+  L.push(`💰 *Quote mensili ${y}*`);
+  L.push(paidY.length ? `Pagate: ${paidY.map(k=>monthLabel(k,false)).join(", ")}` : `Pagate: nessuna`);
+  if(d.length) L.push(`Da pagare: ${d.map(k=>monthLabel(k)).join(", ")} (${eur(monthsTotal(d))})`);
+  else if(firstDueMonth(m)>curMonth()) L.push(`Primo mese gratis ✅`);
+  else L.push(`Nessun mese arretrato ✅`);
+  L.push(`📝 Iscrizione: ${j ? "da pagare "+eur(joinFee(m)) : "pagata ✅"}`);
+  L.push("");
+  L.push(`📅 *Riunioni ${y}*`);
+  L.push(meetsY.length ? `Presente a ${presY} su ${meetsY.length}` : `Nessuna riunione ancora quest'anno`);
+  const ab=absences(m).length;
+  if(ab) L.push(`Assenze totali: ${ab} (sanzione di ${eur(sanFee())} ogni ${sanEvery()})`);
+  if(sd) L.push(`⚠️ Sanzioni da pagare: ${eur(sanctionAmount(m))}`);
+  L.push("");
+  if(payY.length) L.push(`🧾 Hai versato nel ${y}: ${eur(payY.reduce((a,p)=>a+(+p.amount||0),0))} (${payY.length} ${payY.length===1?"pagamento":"pagamenti"})`);
+  if(tot>0){
+    L.push(`*Totale da pagare: ${eur(tot)}*`);
+    if(c.iban) L.push(`IBAN: ${c.iban}`);
+    if(c.link) L.push(`Paga online: ${c.link}`);
+  } else L.push(`*Sei in regola* ✅ Grazie!`);
+  L.push("");
+  L.push(`Per qualsiasi dubbio scrivici. Jërëjëf!`);
+  return L.join("\n");
+}
+function statoSheet(id){
+  const m=S.members.find(x=>x.id===id); if(!m) return;
+  const txt=statoText(m), ph=waNum(m.phone);
+  openSheet(`<h2>Situazione di ${esc(m.name)}</h2>
+    <p class="note" style="margin:-6px 0 10px">Messaggio privato da mandare solo a questo aderente.</p>
+    <div class="paybox" style="white-space:pre-wrap;background:var(--surface-2);font-size:14px">${esc(txt)}</div>
+    ${ph?"":`<p class="note" style="color:var(--red)">Manca il numero di telefono: aggiungilo nella scheda dell'aderente, oppure copia il messaggio.</p>`}
+    <div class="actions">
+      <button type="button" class="btn ghost" data-close>Chiudi</button>
+      <button type="button" class="btn ghost" id="stCopy">Copia</button>
+      ${ph?`<a class="btn wa" id="stWa" href="https://wa.me/${ph}?text=${encodeURIComponent(txt)}" target="_blank" rel="noopener">Invia su WhatsApp</a>`:""}
+    </div>`, ()=>{
+      $("#stCopy").addEventListener("click", async()=>{ try{ await navigator.clipboard.writeText(txt); toast("Messaggio copiato"); }catch(e){ toast("Copia non riuscita"); } });
+      const w=$("#stWa"); if(w) w.addEventListener("click",()=>{ STATO_SENT.add(m.id); });
+  });
+}
+function statiSheet(){
+  const list=[...S.members].sort((a,b)=>a.name.localeCompare(b.name,"it"));
+  const rows=()=>list.map(m=>{ const ph=waNum(m.phone), sent=STATO_SENT.has(m.id);
+    return `<div class="row" style="padding:10px 0">
+      <div class="who"><b>${esc(m.name)}</b><small>${isPaid(m)?"In regola":"Deve "+eur(owed(m))}${ph?"":" · senza telefono"}</small></div>
+      ${sent?`<span class="pill ok">Inviato</span>`:""}
+      ${ph?`<a class="btn wa sm${sent?" dim":""}" data-send="${m.id}" href="https://wa.me/${ph}?text=${encodeURIComponent(statoText(m))}" target="_blank" rel="noopener">Invia</a>`:`<button type="button" class="btn ghost sm" data-see="${m.id}">Vedi</button>`}
+    </div>`; }).join("") || `<div class="empty">Nessun aderente.</div>`;
+  openSheet(`<h2>Invia situazioni</h2>
+    <p class="note" style="margin:-6px 0 10px">Ogni aderente riceve in privato solo la sua situazione: quote, iscrizione, presenze e sanzioni. Tocca “Invia” per ognuno: si apre WhatsApp con il messaggio pronto.</p>
+    <div id="stList">${rows()}</div>
+    <div class="actions"><button type="button" class="btn ghost" data-close>Chiudi</button></div>`, ()=>{
+      $("#stList").addEventListener("click", e=>{
+        const s=e.target.closest("[data-send]"); if(s){ STATO_SENT.add(s.dataset.send); setTimeout(()=>{ const l=$("#stList"); if(l) l.innerHTML=rows(); }, 300); return; }
+        const v=e.target.closest("[data-see]"); if(v) statoSheet(v.dataset.see);
+      });
+  });
+}
+
+
+/* ---------- Online: account, salvataggio, abbonamento (Supabase seck.apps.sn) ---------- */
+const SUPA_URL='https://ncsjgmkrsvtwklfrdbgy.supabase.co', SUPA_KEY='sb_publishable_oDE4BbU6J3RTnce1Oo91cQ_hokWgh0U';
+const MAIL_DOM='@terangaassociation.app';
+const GRACE_DAYS=3, SECK_WA='221778790006', SECK_WA_TXT='+221 77 879 00 06', SECK_PAY='77 879 00 06';
+const ABO_PRIX={EUR:'', XOF:''};   // prezzo dell'abbonamento: ancora da decidere (es. '10 €' e '5 000 F')
+const LKEY='terangaAsso.v1', DIRTY=LKEY+'.dirty', PHKEY='terangaAsso.phone', LANGKEY='terangaAsso.lang';
+const LOCK_AFTER_MS=5*60*1000;   // se l'app resta in sottofondo più di 5 minuti, chiede di nuovo la password
+const COLS=["members","payments","meetings","aids","deposits"];
+const CC={ "39":{label:"🇮🇹 +39", min:9, max:11, ph:"333 123 4567"}, "221":{label:"🇸🇳 +221", min:9, max:9, ph:"77 123 45 67"} };
+let SB=null, USER=null, LIC=null, savedAt=0, pushing=false, pushT=null, retryT=null, syncSt='ok', AUTHM='login', hiddenAt=0, unlocked=false;
+let LANG=(()=>{ try{ return localStorage.getItem(LANGKEY)==="fr"?"fr":"it"; }catch(e){ return "it"; } })();
+const LOCK_ICON = `<div class="lockicon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>`;
+
+/* scaricare / condividere un file dal telefono */
+const DL={ async save({filename,data}){
+  const type=/\.xlsx$/i.test(filename)?"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":/\.png$/i.test(filename)?"image/png":"application/octet-stream";
+  const blobF = data instanceof Blob ? data : new Blob([data], {type});
+  try{ const file=new File([blobF], filename, {type:blobF.type||type});
+    if(navigator.canShare && navigator.canShare({files:[file]})){ await navigator.share({files:[file], title:filename}); return; } }
+  catch(e){ if(e && e.name==="AbortError") return; }
+  const url=URL.createObjectURL(blobF), a=document.createElement("a"); a.href=url; a.download=filename; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(url),4000);
+}};
+
+/* numeri di telefono: Italia +39 e Senegal +221 */
+function normPhone(cc, raw){
+  let d=String(raw||"").replace(/\D/g,""); if(d.startsWith("00")) d=d.slice(2);
+  if(d.startsWith(cc) && d.length>CC[cc].max) d=d.slice(cc.length);
+  if(cc==="221" && !/^[37]/.test(d)) return "";
+  return d.length>=CC[cc].min && d.length<=CC[cc].max ? cc+d : "";
+}
+function userPhoneFmt(){
+  const e=USER&&USER.email?USER.email.split("@")[0]:"";
+  let m=e.match(/^221(\d\d)(\d{3})(\d\d)(\d\d)$/); if(m) return "+221 "+m.slice(1).join(" ");
+  m=e.match(/^39(\d{3})(\d{3})(\d+)$/); if(m) return "+39 "+m.slice(1).join(" ");
+  return e?"+"+e:"";
+}
+const A31='ABCDEFGHJKMNPQRSTUVWXYZ23456789';
+function newCode(){ const a=new Uint32Array(6); try{ crypto.getRandomValues(a); }catch(e){ a.forEach((_,i)=>a[i]=Math.random()*1e9); } return Array.from(a,x=>A31[x%31]).join(""); }
+
+/* ---------- salvataggio ---------- */
+const DEF_CFG=()=>({joinFee:60, monthlyFee:10, startMonth:"", link:"", iban:""});
+function blob(){ const o={v:1, savedAt, uid:USER?USER.id:"", config:S.config}; COLS.forEach(k=>o[k]=S[k]); return o; }
+function applyBlob(b){ b=b||{}; COLS.forEach(k=>S[k]=Array.isArray(b[k])?b[k]:[]); S.config={...DEF_CFG(), ...(b.config||{})}; savedAt=+b.savedAt||0; }
+const isDirty=()=>{ try{ return localStorage.getItem(DIRTY)==="1"; }catch(e){ return false; } };
+const setDirty=v=>{ try{ v?localStorage.setItem(DIRTY,"1"):localStorage.removeItem(DIRTY); }catch(e){} };
+function writeLocal(){ try{ localStorage.setItem(LKEY, JSON.stringify(blob())); }catch(e){} }
+function readLocal(){ try{ const r=localStorage.getItem(LKEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function markDirty(){ savedAt=Date.now(); writeLocal(); setDirty(true); schedulePush(); }
+function setSync(st){ syncSt=st; const e=$("#syncDot"); if(e){ e.textContent = st==="ok"?"☁ ✓":st==="err"?"☁ !":"☁ …"; e.className="syncdot"+(st==="err"?" err":""); e.title = st==="ok"?"Salvato online":st==="err"?"Non ancora salvato: controlla internet":"Salvataggio…"; } }
+function schedulePush(){ if(!SB||!USER) return; clearTimeout(pushT); setSync("wait"); pushT=setTimeout(push,1200); }
+async function push(){
+  if(!SB||!USER||pushing) return; if(!isDirty()){ setSync("ok"); return; }
+  pushing=true; const at=savedAt;
+  try{
+    const {error}=await SB.from("asso_comptes").upsert({user_id:USER.id, phone:USER.email.split("@")[0], shop_name:ANAME(), shop_id:S.config.code||null, saved_at:at, data:blob(), updated_at:new Date().toISOString()});
+    if(error){ if(/shop_id|duplicate/i.test(error.message||"")){ S.config.code=newCode(); writeLocal(); } throw error; }
+    if(savedAt===at) setDirty(false); setSync("ok");
+  }catch(e){ setSync("err"); clearTimeout(retryT); retryT=setTimeout(push,20000); }
+  finally{ pushing=false; if(isDirty() && syncSt==="ok") schedulePush(); }
+}
+async function cloudCheck(){
+  const r=await SB.from("asso_comptes").select("saved_at").eq("user_id",USER.id).maybeSingle(); if(r.error) throw r.error;
+  const loc=readLocal(), locOk=!!(loc && loc.uid===USER.id);
+  if(!r.data){ if(locOk){ applyBlob(loc); setDirty(true); await push(); return "up"; } return "empty"; }
+  const cAt=+r.data.saved_at||0, lAt=locOk?(+loc.savedAt||0):-1;
+  if(locOk && lAt>cAt && isDirty()){ applyBlob(loc); await push(); return "up"; }
+  if(locOk && lAt===cAt){ applyBlob(loc); setDirty(false); setSync("ok"); return "same"; }
+  const d=await SB.from("asso_comptes").select("data").eq("user_id",USER.id).single(); if(d.error) throw d.error;
+  applyBlob(d.data.data||{}); savedAt=cAt; writeLocal(); setDirty(false); setSync("ok"); return "down";
+}
+/* se un altro telefono ha cambiato qualcosa, lo prende */
+async function refreshFromCloud(){
+  if(!SB||!USER||!unlocked||isDirty()||pushing) return;
+  try{ const r=await SB.from("asso_comptes").select("saved_at").eq("user_id",USER.id).maybeSingle();
+    if(r.data && (+r.data.saved_at||0)>savedAt){ const d=await SB.from("asso_comptes").select("data").eq("user_id",USER.id).single();
+      if(!d.error && !isDirty()){ applyBlob(d.data.data||{}); savedAt=+r.data.saved_at||0; writeLocal(); renderAll(); } } }catch(e){}
+}
+
+/* ---------- abbonamento Seck Apps ---------- */
+async function fetchLic(){ try{ const r=await SB.rpc("asso_inscription"); if(!r.error && r.data && r.data[0]) LIC=r.data[0]; }catch(e){} }
+const daysBetween=(a,b)=>Math.round((Date.parse(b+"T12:00:00")-Date.parse(a+"T12:00:00"))/864e5);
+function licState(){
+  const L=LIC||{}; const end=[L.trial_end,L.paid_until].filter(Boolean).sort().pop()||today(); const left=daysBetween(today(),end);
+  const trial=!L.paid_until||L.trial_end>=L.paid_until;
+  if(left>=0) return {st:left<=5?"warn":"ok",left,end,trial};
+  if(-left<=GRACE_DAYS) return {st:"grace",left,end,trial};
+  return {st:"blocked",left,end,trial};
+}
+function renderAbo(){
+  const b=$("#aboBar"); if(!b) return;
+  if(!LIC){ b.hidden=true; return; }
+  const L=licState(); let t="", cls="";
+  if(L.st==="blocked"){ t="Abbonamento scaduto: puoi solo guardare i dati"; cls="bad"; }
+  else if(L.st==="grace"){ t=`Abbonamento scaduto: l'app si blocca tra ${GRACE_DAYS+L.left} giorni`; cls="bad"; }
+  else if(L.trial){ t = L.left===0 ? "Prova gratuita: ultimo giorno" : `Prova gratuita: ancora ${L.left} giorni`; cls = L.left<=2?"warn":""; }
+  else if(L.st==="warn"){ t=`Abbonamento: scade tra ${L.left} giorni`; cls="warn"; }
+  b.hidden=!t; b.className="abobar "+cls; b.innerHTML=`<span>${esc(t)}</span><span aria-hidden="true">›</span>`;
+}
+function aboSheet(){
+  const L=licState(), cur=CURR(), price=ABO_PRIX[cur];
+  const st = !LIC ? "—" : L.st==="blocked" ? "Abbonamento scaduto" : L.st==="grace" ? `Scaduto: si blocca tra ${GRACE_DAYS+L.left} giorni` : (L.trial?"Prova gratuita":"Abbonamento attivo")+` · ancora ${L.left} giorni`;
+  const msg = `Ciao Seck Apps, voglio pagare l'abbonamento a Teranga Association.\nAssociazione: ${ANAME()}\nCodice: ${S.config.code||""}\nNumero: ${userPhoneFmt()}`;
+  openSheet(`<h2>Abbonamento</h2>
+    <div class="paybox"><b>${esc(st)}</b><br><span class="note">Fino al ${esc(fmtDate(L.end))}</span></div>
+    <p style="margin:0 0 10px">${price?`Costo: <b>${esc(price)}</b> al mese.`:`Per il prezzo scrivi a Seck Apps su WhatsApp.`}</p>
+    <ol class="note" style="padding-left:18px;line-height:1.6;margin:0 0 10px">${cur==="XOF"?`<li>Invia l'importo con <b>Wave</b> o <b>Orange Money</b> al <b>${SECK_PAY}</b>.</li>`:`<li>Scrivi a Seck Apps su WhatsApp: ti mandiamo i dati per pagare.</li>`}<li>Manda la ricevuta su WhatsApp con il codice <b>${esc(S.config.code||"")}</b>.</li><li>Premi « Ho pagato: controlla ».</li></ol>
+    <div class="actions"><a class="btn wa" href="https://wa.me/${SECK_WA}?text=${encodeURIComponent(trText(msg))}" target="_blank" rel="noopener">WhatsApp Seck Apps</a><button type="button" class="btn primary" id="aboCheck">Ho pagato: controlla</button><button type="button" class="btn ghost" data-close>Chiudi</button></div>
+    <p class="note" style="margin-top:12px">Se l'abbonamento non è pagato, 3 giorni dopo la scadenza l'app si blocca: vedi i dati ma non puoi modificarli. Tutto torna appena paghi.</p>`, ()=>{
+      $("#aboCheck").addEventListener("click", async e=>{ e.currentTarget.disabled=true; await fetchLic(); renderAll(); aboSheet(); toast(licState().st==="blocked"?"Pagamento non ancora registrato":"Abbonamento aggiornato"); });
+  });
+}
+
+/* ---------- entrata con numero e password ---------- */
+function setLocked(on){ document.body.classList.toggle("locked", on); $("#lock").hidden=!on; if(on) closeSheet(); }
+function lockMsg(html){ $("#lockBox").innerHTML = LOCK_ICON + html; translateNow(); }
+function savedPhone(){ try{ const v=JSON.parse(localStorage.getItem(PHKEY)||"null"); if(v && CC[v.cc]) return v; }catch(e){} return {cc:"39",n:""}; }
+function authScreen(){
+  unlocked=false; setLocked(true);
+  const su=AUTHM==="signup", sp=savedPhone();
+  const ccSel=`<select id="auCc" aria-label="Prefisso">${Object.entries(CC).map(([k,v])=>`<option value="${k}" ${sp.cc===k?"selected":""}>${v.label}</option>`).join("")}</select>`;
+  lockMsg(`<div class="lockbrand">Teranga Association</div><h2>${su?"Nuova associazione":"Entra"}</h2>
+    <p class="note">${su?"7 giorni gratis. Aderenti, quote, riunioni e cassa, salvati online.":"Con il numero e la password dell'associazione."}</p>
+    <div class="authtabs"><button type="button" data-am="login" aria-pressed="${!su}">Entra</button><button type="button" data-am="signup" aria-pressed="${su}">Nuova associazione</button></div>
+    <form id="authForm">
+      ${su?`<div class="field"><label for="auName">Nome dell'associazione</label><input id="auName" required placeholder="es. Associazione Senegalesi di Milano"></div>
+      <div class="field"><label for="auCity">Città</label><input id="auCity" placeholder="es. Milano"></div>
+      <div class="field"><label for="auCur">Moneta</label><select id="auCur"><option value="EUR">€ Euro</option><option value="XOF">F CFA</option></select></div>
+      <div class="seg"><div class="field"><label for="auMonthly">Quota mensile</label><input id="auMonthly" type="number" inputmode="decimal" min="0" step="any" value="10"></div><div class="field"><label for="auJoin">Iscrizione</label><input id="auJoin" type="number" inputmode="decimal" min="0" step="any" value="60"></div></div>`:""}
+      <div class="field"><label for="auTel">Numero di telefono</label><div class="phonerow">${ccSel}<input id="auTel" inputmode="tel" autocomplete="username" value="${esc(su?"":sp.n)}" placeholder="${CC[sp.cc].ph}"></div></div>
+      <div class="field"><label for="auPw">Password</label><input id="auPw" type="password" autocomplete="${su?"new-password":"current-password"}" placeholder="almeno 6 caratteri" required></div>
+      ${su?`<div class="field"><label for="auPw2">Ripeti la password</label><input id="auPw2" type="password" autocomplete="new-password" required></div><p class="note">Scrivi la password da qualche parte: servirà ogni volta che si apre l'app, anche su un altro telefono.</p>`:""}
+      <div class="lockerr" id="auErr" role="alert"></div>
+      <button class="btn primary" style="width:100%" type="submit" id="auBtn">${su?"Crea l'account":"Entra"}</button>
+    </form>
+    ${su?"":`<p class="note" style="margin-top:12px"><a href="https://wa.me/${SECK_WA}?text=${encodeURIComponent(trText("Ciao Seck Apps, ho dimenticato la password di Teranga Association."))}" target="_blank" rel="noopener">Password dimenticata?</a></p>`}
+    <p class="note" style="margin-top:10px">Aiuto: WhatsApp Seck Apps ${SECK_WA_TXT}</p>
+    <button type="button" class="langbtn" id="auLang" style="margin-top:6px">${LANG==="fr"?"Italiano":"Français"}</button>`);
+  const box=$("#lockBox");
+  box.querySelectorAll("[data-am]").forEach(b=>b.addEventListener("click",()=>{ AUTHM=b.dataset.am; authScreen(); }));
+  $("#auLang").addEventListener("click",()=>setLang(LANG==="fr"?"it":"fr"));
+  $("#auCc").addEventListener("change",e=>{ $("#auTel").placeholder=CC[e.target.value].ph; });
+  const cur=$("#auCur"); if(cur) cur.addEventListener("change",e=>{ const x=e.target.value==="XOF"; $("#auMonthly").value=x?2000:10; $("#auJoin").value=x?10000:60; });
+  $("#authForm").addEventListener("submit", e=>{ e.preventDefault(); doAuth(); });
+  const f=box.querySelector(su?"#auName":(sp.n?"#auPw":"#auTel")); if(f) f.focus();
+}
+async function doAuth(){
+  const su=AUTHM==="signup", err=$("#auErr"), btn=$("#auBtn"), cc=$("#auCc").value, ph=normPhone(cc,$("#auTel").value), pw=$("#auPw").value;
+  const say=t=>{ err.textContent=t; translateNow(); };
+  if(!ph) return say(cc==="221"?"Numero non valido: 9 cifre, es. 77 123 45 67":"Numero non valido: es. 333 123 4567");
+  if(pw.length<6) return say("La password deve avere almeno 6 caratteri.");
+  if(su && pw!==$("#auPw2").value) return say("Le due password non sono uguali.");
+  const name = su ? $("#auName").value.trim() : ""; if(su && !name) return say("Scrivi il nome dell'associazione.");
+  if(!SB) return say("Niente internet: riprova.");
+  btn.disabled=true; say("");
+  try{
+    const email=ph+MAIL_DOM;
+    const r = su ? await SB.auth.signUp({email,password:pw}) : await SB.auth.signInWithPassword({email,password:pw});
+    if(r.error) throw r.error;
+    if(!r.data.session){ btn.disabled=false; return say("Account creato ma non ancora attivo. Scrivi a Seck Apps."); }
+    USER=r.data.session.user;
+    try{ localStorage.setItem(PHKEY, JSON.stringify({cc, n:ph.slice(cc.length)})); }catch(e){}
+    if(su){
+      const x=$("#auCur").value==="XOF";
+      applyBlob({config:{assocName:name, city:$("#auCity").value.trim(), currency:x?"XOF":"EUR", monthlyFee:+$("#auMonthly").value||0, joinFee:+$("#auJoin").value||0,
+        sanctionFee:x?1000:5, sanctionEvery:3, startMonth:curMonth(), code:newCode()}});
+      savedAt=Date.now(); writeLocal(); setDirty(true);
+    }
+    await afterLogin(su);
+  }catch(e){
+    btn.disabled=false; const m=String(e&&e.message||"");
+    say(/already|registered|exists/i.test(m)?"Questo numero ha già un account: premi « Entra ».":/invalid login|credentials/i.test(m)?"Numero o password sbagliati.":/fetch|network|Failed|Load failed/i.test(m)?"Niente internet: riprova.":m);
+  }
+}
+async function afterLogin(isNew){
+  lockMsg(`<p class="note" style="margin-top:12px">Caricamento…</p>`);
+  if(isNew){ await push(); }
+  else{
+    try{ const st=await cloudCheck(); if(st==="empty"){ applyBlob({config:{code:newCode(), startMonth:curMonth()}}); markDirty(); } }
+    catch(e){
+      const loc=readLocal();
+      if(loc && loc.uid===USER.id){ applyBlob(loc); setSync("err"); }
+      else { lockMsg(`<h2>Non riesco a caricare i dati</h2><p class="note">Controlla internet e riprova.</p><button class="btn primary" id="retryBtn" style="width:100%;margin-top:12px">Riprova</button>`); $("#retryBtn").addEventListener("click",()=>afterLogin(false)); return; }
+    }
+  }
+  if(!S.config.code){ S.config.code=newCode(); markDirty(); }
+  await fetchLic();
+  document.body.classList.add("is-owner"); unlocked=true; setLocked(false); renderAll(); setSync(syncSt);
+  if(isNew) toast("Benvenuti! 7 giorni gratis");
+}
+async function lockNow(){
+  try{ await SB.auth.signOut({scope:"local"}); }catch(e){}
+  USER=null; LIC=null; COLS.forEach(k=>S[k]=[]); AUTHM="login"; authScreen();
+}
+async function doLogout(){
+  if(isDirty()){ await push(); if(isDirty()){ toast("Non ancora salvato online: collegati a internet prima di uscire"); return; } }
+  try{ localStorage.removeItem(LKEY); }catch(e){} setDirty(false);
+  await lockNow(); S.config=DEF_CFG(); savedAt=0;
+}
+function pwSheet(){
+  openSheet(`<h2>Cambia password</h2>
+    <form id="pwForm">
+      <div class="field"><label for="pwN1">Nuova password</label><input id="pwN1" type="password" autocomplete="new-password" required></div>
+      <div class="field"><label for="pwN2">Ripeti la nuova password</label><input id="pwN2" type="password" autocomplete="new-password" required></div>
+      <div class="lockerr" id="pwErr" role="alert"></div>
+      <p class="note">Dopo il cambio, avvisa chi usa l'app con te.</p>
+      <div class="actions"><button type="button" class="btn ghost" data-close>Annulla</button><button class="btn primary" type="submit">Salva</button></div>
+    </form>`, ()=>{
+      $("#pwForm").addEventListener("submit", async e=>{ e.preventDefault();
+        const a=$("#pwN1").value, b=$("#pwN2").value, err=$("#pwErr"); const say=t=>{ err.textContent=t; translateNow(); };
+        if(a.length<6) return say("La password deve avere almeno 6 caratteri.");
+        if(a!==b) return say("Le due password non sono uguali.");
+        const r=await SB.auth.updateUser({password:a}); if(r.error) return say("Non cambiata: controlla internet.");
+        closeSheet(); toast("Password cambiata");
+      });
+  });
+}
+document.addEventListener("visibilitychange", ()=>{
+  if(!USER) return;
+  if(document.hidden){ hiddenAt=Date.now(); if(isDirty()) push(); }
+  else if(hiddenAt && Date.now()-hiddenAt>LOCK_AFTER_MS){ hiddenAt=0; lockNow(); }
+  else refreshFromCloud();
+});
+setInterval(()=>{ if(USER && !document.hidden) refreshFromCloud(); }, 60000);
+async function boot(){
+  applyLangStatic();
+  setLocked(true); lockMsg(`<p class="note" style="margin-top:12px">Caricamento…</p>`);
+  const t0=Date.now(); while(!window.supabase && Date.now()-t0<8000) await new Promise(r=>setTimeout(r,150));
+  if(!window.supabase){ lockMsg(`<h2>Niente connessione</h2><p class="note">Controlla internet e riapri l'app.</p><button class="btn primary" id="retryBtn" style="width:100%;margin-top:12px">Riprova</button>`); $("#retryBtn").addEventListener("click",()=>location.reload()); return; }
+  SB=window.supabase.createClient(SUPA_URL,SUPA_KEY,{auth:{persistSession:false,autoRefreshToken:true,storageKey:"terangaAsso.auth"}});
+  authScreen();
+}
+
+
+/* ---------- Oggi: tutto quello che è successo oggi (riparte da zero ogni giorno) ---------- */
+const goTab = t => { const b=document.querySelector(`.tab[data-tab="${t}"]`); if(b) b.click(); };
+function renderToday(){
+  const el=$("#todayBox"); if(!el) return;
+  const t=today(), sum=a=>a.reduce((x,y)=>x+(+y.amount||0),0), byName=(a,b)=>a.name.localeCompare(b.name,"it");
+  const pays=S.payments.filter(p=>p.date===t).sort((a,b)=>receiptNo(b)-receiptNo(a));
+  const cash=pays.filter(isCash), other=pays.filter(p=>!isCash(p));
+  const aids=S.aids.filter(a=>a.date===t), news=S.members.filter(m=>m.joinDate===t).sort(byName);
+  const meet=S.meetings.find(m=>m.date===t);
+  const when=new Date(t+"T12:00:00").toLocaleDateString(LOC(),{weekday:"long",day:"numeric",month:"long"});
+  const sec=(title,n,body)=>`<h2 class="sech" style="margin:22px 0 8px">${title} <span class="note" style="font-weight:600">(${n})</span></h2><div class="list">${body}</div>`;
+  let h=`<div class="aidhead"><div><div class="eyebrow">Oggi · ${esc(when)}</div><div class="big num">${eur(sum(pays))}</div>
+      <span class="note">${pays.length? `${pays.length} ${pays.length===1?"pagamento":"pagamenti"} · contanti <b>${eur(sum(cash))}</b>${other.length?` · bonifico/online <b>${eur(sum(other))}</b>`:""}` : "Nessun pagamento ancora oggi"}</span></div>
+    <button class="btn primary" data-tpay="">+ Pagamento</button></div>`;
+  if(meet){
+    const pres=new Set(meet.present||[]), elig=S.members.filter(m=>!m.joinDate||m.joinDate<=t), np=elig.filter(m=>pres.has(m.id)).length;
+    h+=`<div class="list" style="margin-top:12px"><div class="row"><div class="who"><b>${esc(meet.title||"Riunione")}</b><small>${np} presenti · ${elig.length-np} assenti</small></div><button class="btn ghost sm" data-tmeet="${meet.id}">Presenze</button></div></div>`;
+  } else {
+    h+=`<div class="list" style="margin-top:12px"><div class="row"><div class="who"><b>Nessuna riunione segnata oggi</b><small>Se fate riunione, apri le presenze</small></div><button class="btn ghost sm" data-tnewmeet="1">Apri presenze</button></div></div>`;
+  }
+  h+=sec("Hanno pagato oggi", pays.length, pays.length ? pays.map(p=>`<div class="row wrow">
+      <div class="who"><b>${esc(memberName(p.memberId))}</b><small>${esc(causale(p))} · ${esc(p.method||"")}${p.note?" · "+esc(p.note):""}</small></div>
+      <span class="amt">${eur(p.amount)}</span><button class="btn ghost sm" data-rcpt="${p.id}">Ricevuta</button></div>`).join("")
+    : `<div class="empty">Nessuno ha ancora pagato oggi.</div>`);
+  if(meet){
+    const pres=new Set(meet.present||[]), owe=S.members.filter(m=>pres.has(m.id) && !isPaid(m)).sort(byName);
+    if(owe.length) h+=sec("Presenti che devono ancora pagare", owe.length, owe.map(m=>`<div class="row">
+      <div class="av" aria-hidden="true">${esc(initials(m.name))}</div>
+      <div class="who"><b>${esc(m.name)}</b><div style="margin-top:4px">${statusPill(m)}</div></div>
+      <button class="btn primary sm" data-tpay="${m.id}">Paga</button></div>`).join(""));
+  }
+  if(aids.length) h+=sec("Aiuti dati oggi", aids.length, aids.map(a=>`<div class="row wrow">
+      <div class="who"><b>${esc(a.name)}</b><small>${esc(a.reason||"")} · ${esc(a.method||"")}</small></div>
+      <span class="amt">−${eur(a.amount)}</span><button class="btn ghost sm" data-aid="${a.id}">Ricevuta</button></div>`).join(""));
+  if(news.length) h+=sec("Nuovi aderenti oggi", news.length, news.map(m=>`<div class="row">
+      <div class="av" aria-hidden="true">${esc(initials(m.name))}</div>
+      <div class="who"><b>${esc(m.name)}</b><div style="margin-top:4px">${statusPill(m)}</div></div></div>`).join(""));
+  h+=`<p class="note" style="margin-top:16px">Domani questa pagina riparte da zero. Niente viene cancellato: tutto resta in Pagamenti, Riunioni e Aiuti.</p>`;
+  el.innerHTML=h;
+}
+
+/* ---------- Tessere ---------- */
+const waNum = p => { let d=String(p||"").replace(/[^\d]/g,""); if(d.startsWith("00")) d=d.slice(2); if(d.length===10 && d.startsWith("3")) d="39"+d; if(d.length===9 && /^[37]/.test(d)) d="221"+d; return d; };
+const cardNo = m => String(m.code||0).padStart(4,"0");
+function nextCode(){ return S.members.reduce((a,m)=>Math.max(a, +m.code||0), 0) + 1; }
+async function ensureCode(m){
+  if(m.code) return m;
+  // tessere per gli aderenti senza numero: in ordine di iscrizione
+  const missing = S.members.filter(x=>!x.code).sort((a,b)=>(a.joinDate||"").localeCompare(b.joinDate||"")||a.name.localeCompare(b.name,"it"));
+  let n = nextCode();
+  for(const x of missing){ const {id, ...rest} = x; await save("members", id, {...rest, code: n++}); }
+  return S.members.find(x=>x.id===m.id);
+}
+const qrText = m => `${ANAME()}\nTessera N. ${cardNo(m)}\n${m.name.replace(/\s*\(esempio\)/,"")}`;
+function qrMatrix(text){
+  if(typeof qrcode!=="function") return null;
+  try{ const q=qrcode(0,"M"); q.addData(unescape(encodeURIComponent(text))); q.make(); return q; }catch(e){ return null; }
+}
+function rr(g,x,y,w,h,r){ g.beginPath(); g.moveTo(x+r,y); g.arcTo(x+w,y,x+w,y+h,r); g.arcTo(x+w,y+h,x,y+h,r); g.arcTo(x,y+h,x,y,r); g.arcTo(x,y,x+w,y,r); g.closePath(); }
+/* ---------- Grafica tessera (stile tessera cartacea dell'associazione) ---------- */
+function drawFlagsLogo(g, x, y, s){
+  // due bandiere incrociate: Senegal a sinistra, Italia a destra
+  const w=46*s, h=34*s;
+  const flag=(cols, star, rot, ox)=>{
+    g.save(); g.translate(x+ox, y); g.rotate(rot);
+    // asta
+    g.fillStyle="#8a8f98"; g.fillRect(-2*s, -4*s, 3*s, h+26*s);
+    // drappo con leggera onda
+    const cw=w/3;
+    cols.forEach((c,i)=>{ g.fillStyle=c; g.beginPath();
+      const x0=i*cw, x1=(i+1)*cw, wv=a=>Math.sin((a/w)*Math.PI*1.6)*3*s;
+      g.moveTo(x0, wv(x0)); g.lineTo(x1, wv(x1)); g.lineTo(x1, h+wv(x1)); g.lineTo(x0, h+wv(x0)); g.closePath(); g.fill(); });
+    if(star){ g.save(); g.translate(w/2, h/2+Math.sin(0.8*Math.PI)*3*s); g.fillStyle="#00853F"; g.beginPath();
+      for(let i=0;i<10;i++){ const r=i%2?3.2*s:7.5*s, a=-Math.PI/2+i*Math.PI/5; g.lineTo(Math.cos(a)*r, Math.sin(a)*r); } g.closePath(); g.fill(); g.restore(); }
+    g.restore();
+  };
+  flag(["#00853F","#FDEF42","#E31B23"], true, -0.16, 0);
+  if(CURR()!=="XOF") flag(["#009246","#F4F5F0","#CE2B37"], false, 0.16, 52*s);
+}
+function drawHandshake(g, cx, cy, s, color){
+  g.save(); g.translate(cx, cy); g.scale(s, s); g.fillStyle=color; g.strokeStyle=color; g.lineJoin="round"; g.lineCap="round";
+  // polsini
+  g.save(); g.translate(-46,-2); g.rotate(-0.55); g.fillRect(-10,-14,20,34); g.restore();
+  g.save(); g.translate(46,-2); g.rotate(0.55); g.fillRect(-10,-14,20,34); g.restore();
+  // mani unite
+  g.beginPath();
+  g.moveTo(-36,-10); g.quadraticCurveTo(-18,-26,0,-18); g.quadraticCurveTo(18,-26,36,-10);
+  g.lineTo(28,4); g.quadraticCurveTo(14,26,-2,26); g.quadraticCurveTo(-20,24,-34,6); g.closePath(); g.fill();
+  // dita
+  g.strokeStyle="#ffffff"; g.lineWidth=2.4;
+  [[-14,4,-4,16],[-6,0,4,12],[2,-4,12,8]].forEach(([a,b,c,d])=>{ g.beginPath(); g.moveTo(a,b); g.lineTo(c,d); g.stroke(); });
+  g.beginPath(); g.moveTo(0,-18); g.quadraticCurveTo(10,-10,20,-12); g.stroke();
+  g.restore();
+}
+function heartPath(g, cx, cy, sz){
+  g.beginPath();
+  g.moveTo(cx, cy+sz*0.95);
+  g.bezierCurveTo(cx-sz*1.35, cy+sz*0.05, cx-sz*0.95, cy-sz*0.95, cx, cy-sz*0.35);
+  g.bezierCurveTo(cx+sz*0.95, cy-sz*0.95, cx+sz*1.35, cy+sz*0.05, cx, cy+sz*0.95);
+  g.closePath();
+}
+function drawHeartHands(g, cx, cy, sz){
+  // cuore formato da due "braccia": metà chiara e metà scura, come le mani della tessera
+  const light=["#F1C6B8","#E3A993"], dark=["#7A4032","#4E2519"];
+  g.save(); g.lineCap="round"; g.lineJoin="round";
+  // braccia che arrivano al cuore: due dall'alto ai lobi, due dal basso alla punta
+  const arm=(x0,y0,x1,y1,c,w)=>{ const gr=g.createLinearGradient(x0,y0,x1,y1); gr.addColorStop(0,c[0]); gr.addColorStop(1,c[1]); g.strokeStyle=gr; g.lineWidth=sz*(w||0.26); g.beginPath(); g.moveTo(x0,y0); g.lineTo(x1,y1); g.stroke(); };
+  arm(cx-sz*2.3, cy-sz*1.35, cx-sz*0.8, cy-sz*0.55, light);
+  arm(cx+sz*2.3, cy-sz*1.35, cx+sz*0.8, cy-sz*0.55, dark);
+  arm(cx-sz*0.75, cy+sz*2.2, cx-sz*0.12, cy+sz*0.9, dark, .22);
+  arm(cx+sz*0.75, cy+sz*2.2, cx+sz*0.12, cy+sz*0.9, light, .22);
+  // contorno del cuore: sinistra chiara, destra scura
+  g.lineWidth=sz*0.30;
+  g.save(); g.beginPath(); g.rect(cx-sz*2, cy-sz*2, sz*2, sz*4); g.clip();
+  let gr=g.createLinearGradient(cx-sz, cy-sz, cx, cy+sz); gr.addColorStop(0,light[0]); gr.addColorStop(1,light[1]); g.strokeStyle=gr; heartPath(g,cx,cy,sz); g.stroke(); g.restore();
+  g.save(); g.beginPath(); g.rect(cx, cy-sz*2, sz*2, sz*4); g.clip();
+  gr=g.createLinearGradient(cx+sz, cy-sz, cx, cy+sz); gr.addColorStop(0,dark[0]); gr.addColorStop(1,dark[1]); g.strokeStyle=gr; heartPath(g,cx,cy,sz); g.stroke(); g.restore();
+  g.restore();
+}
+function splitName(n){ const p=n.replace(/\s*\(esempio\)/,"").trim().split(/\s+/); return p.length>1 ? [p.slice(0,-1).join(" "), p[p.length-1]] : [p[0]||"", ""]; }
+async function drawCard(m){
+  try{ await document.fonts.ready; }catch(e){}
+  const W=1012, H=638, cv=document.createElement("canvas"); cv.width=W; cv.height=H;
+  const g=cv.getContext("2d");
+  const F="Figtree, system-ui, sans-serif", D="'Bricolage Grotesque', Figtree, system-ui, sans-serif";
+  g.save(); rr(g,0,0,W,H,40); g.clip();
+  const grd=g.createLinearGradient(0,0,W,H); grd.addColorStop(0,"#0B6E4F"); grd.addColorStop(1,"#074A35");
+  g.fillStyle=grd; g.fillRect(0,0,W,H);
+  // bande verticale verde-oro-rosso a sinistra
+  [["#0B8A5E",0],["#F2C14E",18],["#C8352C",36]].forEach(([c,x])=>{ g.fillStyle=c; g.fillRect(x,0,18,H); });
+  // logo dell'associazione: bandiere Senegal e Italia
+  g.save(); g.fillStyle="rgba(255,255,255,.14)"; rr(g, W-238, 30, 200, 128, 20); g.fill(); g.restore();
+  drawFlagsLogo(g, W-214, 50, 1.6);
+  // intestazione
+  g.fillStyle="#F2C14E"; g.font=`700 20px ${F}`; g.fillText("TESSERA ASSOCIATIVA", 96, 88);
+  g.fillStyle="#FFFFFF"; g.font=`800 44px ${D}`; (()=>{ const w=ANAME().split(/\s+/), h=Math.ceil(w.length/2); g.fillText(w.slice(0,h).join(" "), 96, 142); g.fillText(w.slice(h).join(" "), 96, 192); })();
+  // nome
+  const name = m.name.replace(/\s*\(esempio\)/,"");
+  g.font=`800 50px ${D}`; let fs=50; while(g.measureText(name).width>520 && fs>28){ fs-=2; g.font=`800 ${fs}px ${D}`; }
+  g.fillStyle="#FFFFFF"; g.fillText(name, 96, 392);
+  g.fillStyle="rgba(255,255,255,.72)"; g.font=`600 18px ${F}`;
+  g.fillText("TESSERA N.", 96, 470); g.fillText("ISCRITTO DAL", 330, 470);
+  g.fillStyle="#FFFFFF"; g.font=`700 34px ${D}`;
+  g.fillText(cardNo(m), 96, 514);
+  g.fillText(m.joinDate ? new Date(m.joinDate+"T12:00:00").toLocaleDateString(LOC(),{month:"short",year:"numeric"}).replace(".","") : "—", 330, 514);
+  // QR
+  const qx=W-360, qy=H-360, qs=300;
+  g.fillStyle="#FFFFFF"; rr(g,qx-18,qy-18,qs+36,qs+36,24); g.fill();
+  const q=qrMatrix(qrText(m));
+  if(q){ const n=q.getModuleCount(), cell=qs/n; g.fillStyle="#0E2A1E";
+    for(let r=0;r<n;r++) for(let c=0;c<n;c++) if(q.isDark(r,c)) g.fillRect(Math.floor(qx+c*cell), Math.floor(qy+r*cell), Math.ceil(cell), Math.ceil(cell)); }
+  else { g.fillStyle="#0E2A1E"; g.font=`800 64px ${D}`; g.textAlign="center"; g.fillText(cardNo(m), qx+qs/2, qy+qs/2+20); g.textAlign="left"; }
+  g.fillStyle="rgba(255,255,255,.6)"; g.font=`500 16px ${F}`; g.fillText("Jërëjëf · Mostra questa tessera alle riunioni", 96, H-50);
+  g.restore();
+  return cv;
+}
+async function cardSheet(id){
+  let m = S.members.find(x=>x.id===id); if(!m) return;
+  m = await ensureCode(m);
+  const clean = m.name.replace(/\s*\(esempio\)/,"");
+  openSheet(`<h2>Tessera di ${esc(clean)}</h2>
+    <div id="cardWrap"><p class="note">Preparo la tessera…</p></div>
+    <div class="paybox" style="font-size:13.5px"><b>Come mandarla su WhatsApp</b><br>
+      1. Premi <b>Salva / Condividi tessera</b>. Su iPhone si apre il menu di condivisione: scegli WhatsApp e poi la persona.<br>
+      2. Su Android e computer l'immagine si salva: poi premi <b>Apri chat WhatsApp</b> e allegala con la graffetta 📎.</div>
+    <div class="actions">
+      <a class="btn ghost" id="cWa" href="https://wa.me/${waNum(m.phone)}?text=${encodeURIComponent(trText(`Ciao ${clean}, ecco la tua tessera ${ADELL()} (N. ${cardNo(m)}). Ti mando la foto della tessera.`))}" target="_blank" rel="noopener">Apri chat WhatsApp</a>
+      <button type="button" class="btn primary" id="cSave" hidden>Salva / Condividi tessera</button>
+      <button type="button" class="btn ghost" data-close>Chiudi</button>
+    </div>`, async ()=>{
+      const cv = await drawCard(m);
+      const img = new Image(); img.className="cardimg"; img.alt="Tessera N. "+cardNo(m); img.src=cv.toDataURL("image/png");
+      const w=$("#cardWrap"); if(!w) return; w.innerHTML=""; w.appendChild(img);
+      if(typeof qrcode!=="function"){ const n=document.createElement("p"); n.className="note"; n.textContent="Il codice QR non si è caricato: sulla tessera c'è il numero al suo posto. Riapri la pagina per riprovare."; w.appendChild(n); }
+      let dl=DL;
+      const sb=$("#cSave"); if(!sb) return;
+      if(dl){ sb.hidden=false; sb.addEventListener("click",()=>cv.toBlob(async b=>{ try{ await dl.save({filename:`Tessera ${cardNo(m)} ${clean}.png`, data:b}); }catch(e){ if(e&&e.code!=="declined") toast("Salvataggio non disponibile"); } },"image/png")); }
+      else { const n=document.createElement("p"); n.className="note"; n.textContent="Tieni premuta l'immagine per salvarla."; w.appendChild(n); }
+  });
+}
+function findByCode(text){
+  const t=String(text||"");
+  const mt = t.match(/Tessera N\.\s*(\d+)/i) || t.match(/^\s*(\d{1,6})\s*$/);
+  if(!mt) return null;
+  return S.members.find(m=>+m.code===+mt[1]) || null;
+}
+function scanResult(m){
+  const today0=today(), meet=S.meetings.find(x=>x.date===today0);
+  const here = meet && (meet.present||[]).includes(m.id);
+  openSheet(`<h2>Tessera N. ${cardNo(m)}</h2>
+    <div class="scanres"><div class="av">${esc(initials(m.name))}</div><div class="who"><b>${esc(m.name)}</b><small>${esc(m.phone||"")}</small></div></div>
+    <div style="margin-bottom:14px">${statusPill(m)}</div>
+    <div class="actions">
+      ${meet ? `<button type="button" class="btn ${here?"ghost":"gold"}" id="sPresent" ${here?"disabled":""}>${here?"Già presente oggi":"Segna presente oggi"}</button>` : ""}
+      ${isPaid(m) ? "" : `<button type="button" class="btn primary" id="sPay">Paga</button>`}
+      <button type="button" class="btn ghost" data-close>Chiudi</button>
+    </div>`, ()=>{
+      const sp=$("#sPay"); if(sp) sp.addEventListener("click",()=>paySheet(m.id));
+      const pr=$("#sPresent"); if(pr && !here) pr.addEventListener("click",()=>{ save("meetings", meet.id, {title:meet.title, date:meet.date, present:[...new Set([...(meet.present||[]), m.id])]}); toast("Presenza segnata"); closeSheet(); });
+  });
+}
+const QR_LIBS=["https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js","https://unpkg.com/jsqr@1.4.0/dist/jsQR.js","https://cdnjs.cloudflare.com/ajax/libs/jsQR/1.4.0/jsQR.min.js"];
+let qrLibPromise=null;
+function loadJsQR(){
+  if(typeof jsQR==="function") return Promise.resolve();
+  if(qrLibPromise) return qrLibPromise;
+  qrLibPromise=(async()=>{ for(const src of QR_LIBS){
+      const ok=await new Promise(res=>{ const sc=document.createElement("script"); sc.src=src; sc.onload=()=>res(typeof jsQR==="function"); sc.onerror=()=>res(false); document.head.appendChild(sc); });
+      if(ok) return; }
+    qrLibPromise=null; throw new Error("lib"); })();
+  return qrLibPromise;
+}
+async function decodeImage(file){
+  await loadJsQR();
+  const url=URL.createObjectURL(file);
+  try{
+    const img=await new Promise((res,rej)=>{ const i=new Image(); i.onload=()=>res(i); i.onerror=()=>rej(new Error("img")); i.src=url; });
+    const W=img.naturalWidth, H=img.naturalHeight;
+    // prova l'immagine intera a varie misure, poi il centro ingrandito (QR piccolo nella foto)
+    const tries=[[0,0,W,H,1000],[0,0,W,H,1600],[W*.2,H*.2,W*.6,H*.6,1200],[W*.3,H*.3,W*.4,H*.4,900],[0,0,W,H,700]];
+    for(const [sx,sy,sw,sh,max] of tries){
+      const sc=Math.min(1, max/Math.max(sw,sh));
+      const cv=document.createElement("canvas"); cv.width=Math.max(1,Math.round(sw*sc)); cv.height=Math.max(1,Math.round(sh*sc));
+      const g=cv.getContext("2d",{willReadFrequently:true}); g.drawImage(img,sx,sy,sw,sh,0,0,cv.width,cv.height);
+      const d=g.getImageData(0,0,cv.width,cv.height);
+      const r=jsQR(d.data, cv.width, cv.height, {inversionAttempts:"attemptBoth"});
+      if(r && r.data) return r.data;
+    }
+    return null;
+  } finally { URL.revokeObjectURL(url); }
+}
+function scanSheet(){
+  loadJsQR().catch(()=>{});
+  openSheet(`<h2>Scansiona tessera</h2>
+    <label class="filepick"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>
+      Fai una foto al codice QR<input type="file" id="scanFile" accept="image/*" aria-label="Foto del codice QR"></label>
+    <p class="note" style="margin-top:6px">Inquadra solo il QR, da vicino e con buona luce. Puoi anche scegliere una foto già fatta.</p>
+    <div class="scanmsg" id="scanMsg" role="status"></div>
+    <form id="scanManual">
+      <div class="field"><label for="scanNo">Oppure scrivi il numero della tessera</label><input id="scanNo" inputmode="numeric" pattern="[0-9]*" placeholder="es. 12"></div>
+      <div class="actions"><button type="button" class="btn ghost" data-close>Chiudi</button><button class="btn primary" type="submit">Cerca</button></div>
+    </form>`, ()=>{
+      const msg=(t,cls)=>{ const el=$("#scanMsg"); if(el){ el.textContent=t; el.className="scanmsg "+(cls||""); } };
+      $("#scanFile").addEventListener("change", async e=>{
+        const f=e.target.files && e.target.files[0]; if(!f) return;
+        msg("Leggo il codice…");
+        try{
+          const txt=await decodeImage(f); e.target.value="";
+          if(!txt){ msg("Non trovo il codice QR nella foto. Riprova più vicino, senza riflessi, oppure scrivi il numero qui sotto.","err"); return; }
+          const m=findByCode(txt);
+          if(m) scanResult(m); else msg("Il QR è stato letto ma non corrisponde a nessun aderente: "+txt.split("\n").slice(0,2).join(" · "),"err");
+        }catch(err){
+          e.target.value="";
+          msg(err && err.message==="img" ? "Non riesco ad aprire questa foto. Prova a farne un'altra." : "Il lettore di QR non si è caricato: controlla la connessione, oppure scrivi il numero qui sotto.","err");
+        }
+      });
+      $("#scanManual").addEventListener("submit", e=>{ e.preventDefault();
+        const n=parseInt($("#scanNo").value,10); if(!n){ $("#scanNo").focus(); return; }
+        const m=S.members.find(x=>+x.code===n); if(m) scanResult(m); else msg("Nessun aderente con la tessera N. "+String(n).padStart(4,"0")+".","err"); });
+  });
+}
+
+/* ---------- Aiuti di solidarietà ---------- */
+const REASONS = ["Perdita del lavoro","Lutto in famiglia","Difficoltà economica","Salute","Rimpatrio salma","Altro"];
+const aidCode = a => "A-" + (a.date||"").slice(0,4) + "/" + String(a.n||0).padStart(3,"0");
+function nextAidNo(y){ return S.aids.filter(x=>+(x.date||"").slice(0,4)===y).reduce((a,x)=>Math.max(a,+x.n||0),0)+1; }
+function renderAids(){
+  const y=new Date().getFullYear();
+  const yr=S.aids.filter(a=>(a.date||"").startsWith(String(y)));
+  $("#aidYear").textContent=y;
+  $("#aidTot").textContent=eur(yr.reduce((t,a)=>t+(+a.amount||0),0));
+  $("#aidCount").textContent = yr.length ? `${yr.length} ${yr.length===1?"aiuto":"aiuti"} · ${new Set(yr.map(a=>a.name.toLowerCase())).size} persone` : "Nessun aiuto registrato quest'anno";
+  const list=[...S.aids].sort((a,b)=>(b.date||"").localeCompare(a.date||""));
+  const el=$("#aidList");
+  if(!list.length){ el.innerHTML=`<div class="empty">Nessun aiuto registrato. Premi “+ Nuovo aiuto”.</div>`; return; }
+  el.innerHTML=list.map(a=>`<div class="row wrow">
+      <div class="who"><b>${esc(a.name)}</b><small>${fmtDate(a.date)} · ${esc(a.reason||"")} · ${esc(a.method||"")}</small></div>
+      <span class="pill ${a.signature?"ok":"no"}">${a.signature?"Firmato":"Da firmare"}</span>
+      <span class="amt">${eur(a.amount)}</span>
+      <button class="btn primary sm" data-aid="${a.id}">Ricevuta</button>
+    </div>`).join("");
+}
+function sigPad(canvas){
+  const g=canvas.getContext("2d"); let drawing=false, dirty=false, last=null;
+  const fit=()=>{ const r=canvas.getBoundingClientRect(), dpr=Math.max(1,window.devicePixelRatio||1); canvas.width=r.width*dpr; canvas.height=r.height*dpr; g.setTransform(dpr,0,0,dpr,0,0); g.lineWidth=2.4; g.lineCap="round"; g.lineJoin="round"; g.strokeStyle="#0E2A1E"; g.fillStyle="#fff"; g.fillRect(0,0,r.width,r.height); dirty=false; };
+  fit();
+  const pos=e=>{ const r=canvas.getBoundingClientRect(); return {x:e.clientX-r.left, y:e.clientY-r.top}; };
+  canvas.addEventListener("pointerdown",e=>{ drawing=true; last=pos(e); canvas.setPointerCapture(e.pointerId); e.preventDefault(); });
+  canvas.addEventListener("pointermove",e=>{ if(!drawing) return; const p=pos(e); g.beginPath(); g.moveTo(last.x,last.y); g.lineTo(p.x,p.y); g.stroke(); last=p; dirty=true; });
+  const end=()=>{ drawing=false; }; canvas.addEventListener("pointerup",end); canvas.addEventListener("pointercancel",end);
+  return { clear: fit, isEmpty: ()=>!dirty, toData: ()=>{
+    // ridimensiona a 480px di larghezza per tenere piccolo il dato salvato
+    const out=document.createElement("canvas"), w=480, h=Math.round(w*canvas.height/canvas.width); out.width=w; out.height=h;
+    const o=out.getContext("2d"); o.fillStyle="#fff"; o.fillRect(0,0,w,h); o.drawImage(canvas,0,0,w,h); return out.toDataURL("image/jpeg",0.7); } };
+}
+function aidSheet(id){
+  const a = id ? S.aids.find(x=>x.id===id) : null;
+  const names=[...S.members].sort((x,y)=>x.name.localeCompare(y.name,"it")).map(m=>`<option value="${esc(m.name.replace(/\s*\(esempio\)/,""))}">`).join("");
+  openSheet(`<h2>${a?"Modifica aiuto":"Nuovo aiuto"}</h2>
+    <form id="aForm">
+      <div class="field"><label for="aName">Nome e cognome di chi riceve</label><input id="aName" list="aNames" required value="${esc(a?.name||"")}" placeholder="Anche chi non è aderente"><datalist id="aNames">${names}</datalist></div>
+      <div class="field"><label for="aReason">Motivo</label><select id="aReason">${REASONS.map(r=>`<option ${a?.reason===r?"selected":""}>${r}</option>`).join("")}</select></div>
+      <div class="field"><label for="aAmount">Importo dato (${CSYM()})</label><input id="aAmount" type="number" inputmode="decimal" min="1" step="1" required value="${esc(a?.amount||"")}"></div>
+      <div class="field"><label for="aMethod">Come è stato dato</label><select id="aMethod">${["Contanti","Bonifico","Pagamento diretto (es. spesa, affitto)"].map(x=>`<option ${a?.method===x?"selected":""}>${x}</option>`).join("")}</select></div>
+      <div class="field"><label for="aDate">Data</label><input id="aDate" type="date" value="${esc(a?.date||today())}" required></div>
+      <div class="field"><label for="aDoc">Documento d'identità (facoltativo)</label><input id="aDoc" value="${esc(a?.doc||"")}" placeholder="es. Carta d'identità"><span class="note">Solo il tipo di documento, non serve il numero.</span></div>
+      <div class="field"><label for="aNote">Nota (facoltativa)</label><input id="aNote" value="${esc(a?.note||"")}" placeholder="es. contributo per l'affitto di ottobre"></div>
+      <div class="actions">
+        ${a?`<button type="button" class="btn danger owner-only" id="aDel">Elimina</button><span style="flex:1"></span>`:""}
+        <button type="button" class="btn ghost" data-close>Annulla</button><button class="btn primary" type="submit">${a?"Salva":"Salva e fai firmare"}</button></div>
+      <div id="aDelConfirm" hidden class="paybox" style="margin-top:12px">Eliminare questo aiuto e la sua ricevuta?
+        <div class="actions"><button type="button" class="btn ghost sm" id="aNo">No</button><button type="button" class="btn danger sm" id="aYes">Sì, elimina</button></div></div>
+    </form>`, ()=>{
+      $("#aForm").addEventListener("submit", e=>{ e.preventDefault();
+        const name=$("#aName").value.trim(), amount=parseFloat($("#aAmount").value), date=$("#aDate").value;
+        if(!name || !(amount>0)) return;
+        const aid = a ? a.id : uid();
+        const body = { name, reason:$("#aReason").value, amount, method:$("#aMethod").value, date, doc:$("#aDoc").value.trim(), note:$("#aNote").value.trim(),
+          n: a?.n || nextAidNo(+date.slice(0,4)), signature: a?.signature || "", signedAt: a?.signedAt || "" };
+        save("aids", aid, body); toast(a?"Aiuto aggiornato":"Aiuto registrato");
+        aidReceiptSheet(aid);
+      });
+      if(a){ $("#aDel").addEventListener("click",()=>$("#aDelConfirm").hidden=false); $("#aNo").addEventListener("click",()=>$("#aDelConfirm").hidden=true);
+        $("#aYes").addEventListener("click",()=>{ remove("aids",a.id); closeSheet(); toast("Aiuto eliminato"); }); }
+  });
+}
+async function loadImg(src){ return new Promise(res=>{ if(!src) return res(null); const i=new Image(); i.onload=()=>res(i); i.onerror=()=>res(null); i.src=src; }); }
+function wrapText(g, text, x, y, maxW, lh){
+  const words=text.split(" "); let line="";
+  for(const w of words){ const t=line?line+" "+w:w; if(g.measureText(t).width>maxW && line){ g.fillText(line,x,y); y+=lh; line=w; } else line=t; }
+  if(line) g.fillText(line,x,y); return y+lh;
+}
+async function drawAidReceipt(a){
+  try{ await document.fonts.ready; }catch(e){}
+  const W=900, H=1160, cv=document.createElement("canvas"); cv.width=W; cv.height=H;
+  const g=cv.getContext("2d"), c=S.config, green="#0B6E4F", ink="#16241C", muted="#5B6B61", gold="#C98A12";
+  const F="Figtree, system-ui, sans-serif", D="'Bricolage Grotesque', Figtree, system-ui, sans-serif";
+  g.fillStyle="#fff"; g.fillRect(0,0,W,H);
+  g.fillStyle=green; g.fillRect(0,0,W,120); g.fillStyle=gold; g.fillRect(0,120,W,6);
+  g.save(); g.translate(72,60); g.fillStyle="#F2C14E"; g.beginPath(); for(let i=0;i<10;i++){ const r=i%2?11:26, t=-Math.PI/2+i*Math.PI/5; g.lineTo(Math.cos(t)*r,Math.sin(t)*r); } g.closePath(); g.fill(); g.restore();
+  g.fillStyle="#fff"; g.font=`600 16px ${F}`; g.fillText("ASSOCIAZIONE", 120, 50); g.font=`800 32px ${D}`; g.fillText(ASHORT(), 120, 88);
+  if(c.cf){ g.font=`500 15px ${F}`; g.textAlign="right"; g.fillText("C.F. "+c.cf, W-40, 50); g.textAlign="left"; }
+  g.fillStyle=ink; g.font=`800 30px ${D}`; g.fillText("Ricevuta di aiuto economico", 40, 190);
+  g.fillStyle=muted; g.font=`600 18px ${F}`; g.fillText("N. "+aidCode(a)+"  ·  "+fmtDate(a.date), 40, 224);
+  // dichiarazione
+  g.fillStyle=ink; g.font=`400 21px ${F}`;
+  const amt=+a.amount||0, ip=Math.floor(amt), ct=Math.round((amt-ip)*100);
+  let y=290;
+  y=wrapText(g, `Io sottoscritto/a ${a.name}${a.doc?", identificato/a con "+a.doc+",":""} dichiaro di aver ricevuto ${ADELL().replace(/^dell'/,"dall'").replace(/^di /,"da ")} la somma di ${eur(amt)} (${CUR_WORD()}${inWords(ip)}/${String(ct).padStart(2,"0")}) come aiuto di solidarietà.`, 40, y, W-80, 32);
+  y+=18;
+  const rows=[["Motivo", a.reason||"—"],["Modalità", a.method||"—"],["Data", fmtDate(a.date)]]; if(a.note) rows.push(["Nota", a.note]);
+  rows.forEach(([k,v])=>{ g.fillStyle=muted; g.font=`600 15px ${F}`; g.fillText(k.toUpperCase(), 40, y); g.fillStyle=ink; g.font=`500 21px ${F}`; y=wrapText(g, String(v), 200, y, W-240, 28)+14; });
+  // importo
+  y+=6; g.fillStyle="#DDEFE6"; g.fillRect(40,y,W-80,90);
+  g.fillStyle=green; g.font=`600 15px ${F}`; g.fillText("IMPORTO RICEVUTO", 64, y+36);
+  g.textAlign="right"; g.font=`800 46px ${D}`; g.fillText(eur(amt), W-64, y+62); g.textAlign="left";
+  y+=150;
+  // firme
+  const sig=await loadImg(a.signature);
+  const colW=(W-120)/2;
+  const drawSigBox=(x, label, name, img)=>{
+    if(img){ const h=110, w=Math.min(colW, img.width*h/img.height); g.drawImage(img, x, y, w, h); }
+    g.strokeStyle="#9AAEA2"; g.lineWidth=1.5; g.beginPath(); g.moveTo(x, y+124); g.lineTo(x+colW, y+124); g.stroke();
+    g.fillStyle=muted; g.font=`600 14px ${F}`; g.fillText(label.toUpperCase(), x, y+150);
+    g.fillStyle=ink; g.font=`500 18px ${F}`; g.fillText(name, x, y+176);
+  };
+  drawSigBox(40, "Firma di chi riceve", a.name, sig);
+  drawSigBox(80+colW, "Per l'associazione", c.treasurer||"Il tesoriere", null);
+  if(a.signedAt){ g.fillStyle=muted; g.font=`400 13px ${F}`; g.fillText("Firmato sul telefono il "+new Date(a.signedAt).toLocaleString(LOC(),{dateStyle:"medium",timeStyle:"short"}), 40, y+202); }
+  g.fillStyle=muted; g.font=`400 14px ${F}`;
+  wrapText(g, "Documento interno dell'associazione per la giustificazione delle uscite. I dati sono usati solo per la gestione dell'associazione.", 40, H-60, W-80, 20);
+  return cv;
+}
+function aidReceiptSheet(id){
+  const a=S.aids.find(x=>x.id===id); if(!a) return;
+  openSheet(`<h2>Ricevuta ${esc(aidCode(a))}</h2>
+    ${a.signature ? "" : `<div class="field"><label>Firma di ${esc(a.name)}</label><canvas class="sigpad" id="sig" aria-label="Spazio per la firma"></canvas>
+      <div class="sigrow"><span class="note">Fai firmare qui con il dito.</span><button type="button" class="btn ghost sm" id="sigClear">Cancella</button></div>
+      <div class="actions"><button type="button" class="btn primary" id="sigSave">Conferma firma</button></div></div>`}
+    <div id="aidWrap"><p class="note">Preparo la ricevuta…</p></div>
+    <div class="actions">
+      <button type="button" class="btn ghost owner-only" id="aEdit">Modifica</button>
+      <button type="button" class="btn primary" id="aSave" hidden>Salva immagine</button>
+      <button type="button" class="btn ghost" data-close>Chiudi</button>
+    </div>`, async ()=>{
+      $("#aEdit").addEventListener("click",()=>aidSheet(a.id));
+      if(!a.signature){
+        const pad=sigPad($("#sig"));
+        $("#sigClear").addEventListener("click",()=>pad.clear());
+        $("#sigSave").addEventListener("click",()=>{
+          if(pad.isEmpty()){ toast("Manca la firma"); return; }
+          const {id:_, ...rest}=a; save("aids", a.id, {...rest, signature: pad.toData(), signedAt: new Date().toISOString()});
+          toast("Firma salvata"); aidReceiptSheet(a.id);
+        });
+      }
+      const cv=await drawAidReceipt(a);
+      const img=new Image(); img.className="rcpt"; img.alt="Ricevuta "+aidCode(a); img.src=cv.toDataURL("image/png");
+      const w=$("#aidWrap"); if(!w) return; w.innerHTML=""; w.appendChild(img);
+      let dl=DL;
+      const sb=$("#aSave"); if(!sb) return;
+      if(dl){ sb.hidden=false; sb.addEventListener("click",()=>cv.toBlob(async b=>{ try{ await dl.save({filename:`Aiuto ${aidCode(a).replace("/","-")} ${a.name}.png`, data:b}); }catch(e){ if(e&&e.code!=="declined") toast("Salvataggio non disponibile"); } },"image/png")); }
+      else { const n=document.createElement("p"); n.className="note"; n.textContent="Tieni premuta l'immagine per salvarla."; w.appendChild(n); }
+  });
+}
+
+/* ---------- Copia Excel ---------- */
+function loadXLSX(){
+  if(window.XLSX) return Promise.resolve(window.XLSX);
+  return new Promise((res,rej)=>{ const sc=document.createElement("script"); sc.src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"; sc.onload=()=>window.XLSX?res(window.XLSX):rej(); sc.onerror=rej; document.head.appendChild(sc); });
+}
+async function exportExcel(){
+  let dl=DL;
+  if(!dl){ toast("Download non disponibile in questa vista"); return; }
+  toast("Preparo il file Excel…");
+  let X; try{ X=await loadXLSX(); }catch(e){ toast("Non riesco a creare il file, riprova"); return; }
+  const byName=(a,b)=>a.name.localeCompare(b.name,"it");
+  const aderenti=[...S.members].sort(byName).map(m=>({
+    "Tessera": m.code?cardNo(m):"", "Nome e cognome": m.name, "Telefono": m.phone||"", "Iscritto dal": m.joinDate||"",
+    "Già iscritto da prima": m.old?"Sì":"No", "Stato": isPaid(m)?"In regola":"Deve pagare", "Deve": owed(m),
+    "Mesi non pagati": dueMonths(m).map(k=>monthLabel(k)).join(", "), "Iscrizione da pagare": joinDue(m)?"Sì":"No",
+    "Assenze": absences(m).length, "Sanzioni da pagare": sanctionsDue(m) }));
+  const pagamenti=[...S.payments].sort((a,b)=>(a.date||"").localeCompare(b.date||"")).map(p=>({
+    "Ricevuta": rcptCode(p), "Data": p.date||"", "Aderente": memberName(p.memberId), "Tipo": typeLabel(p.type),
+    "Causale": causale(p), "Importo": +p.amount||0, "Metodo": p.method||"", "Nota": p.note||"" }));
+  const riunioni=[...S.meetings].sort((a,b)=>(a.date||"").localeCompare(b.date||"")).map(mt=>{ const pres=new Set(mt.present||[]);
+    const elig=S.members.filter(m=>!m.joinDate || m.joinDate<=mt.date);
+    const inn=elig.filter(m=>pres.has(m.id)).sort(byName), out=elig.filter(m=>!pres.has(m.id)).sort(byName);
+    return { "Data": mt.date||"", "Riunione": mt.title||"", "Presenti": inn.length, "Assenti": out.length,
+      "Nomi presenti": inn.map(m=>m.name).join(", "), "Nomi assenti": out.map(m=>m.name).join(", ") }; });
+  const aiuti=[...S.aids].sort((a,b)=>(a.date||"").localeCompare(b.date||"")).map(a=>({
+    "Ricevuta": aidCode(a), "Data": a.date||"", "Nome e cognome": a.name, "Motivo": a.reason||"", "Importo": +a.amount||0,
+    "Modalità": a.method||"", "Documento": a.doc||"", "Firmato": a.signature?"Sì":"No", "Nota": a.note||"" }));
+  const wb=X.utils.book_new();
+  const add=(rows, name, empty)=>{ const ws = rows.length ? X.utils.json_to_sheet(rows) : X.utils.aoa_to_sheet([[empty]]);
+    if(rows.length){ const keys=Object.keys(rows[0]); ws["!cols"]=keys.map(k=>({wch:Math.min(50, Math.max(k.length, ...rows.map(r=>String(r[k]??"").length))+2)})); }
+    X.utils.book_append_sheet(wb, ws, name); };
+  add(aderenti,"Aderenti","Nessun aderente");
+  add(pagamenti,"Pagamenti","Nessun pagamento");
+  add(riunioni,"Riunioni","Nessuna riunione");
+  add(aiuti,"Aiuti","Nessun aiuto");
+  add([...S.deposits].sort((x,y)=>(x.date||"").localeCompare(y.date||"")).map(d=>({ "Foglio": depCode(d), "Data chiusura": d.date||"", "Entrate contanti": d.totalIn||0, "Aiuti contanti": d.totalOut||0,
+    "Da versare": +d.amount||0, "Chi versa": d.collector||"", "Firme": ["pres","vice","coll"].filter(k=>d.sigs&&d.sigs[k]).length+"/3", "Versato il": d.bankDate||"", "Nota": d.note||"" })),"Versamenti","Nessun versamento");
+  const buf=X.write(wb,{bookType:"xlsx",type:"array"});
+  try{ await dl.save({filename:`${ANAME()} ${today()}.xlsx`, data:new Uint8Array(buf)}); toast("Copia salvata"); }
+  catch(e){ if(e && e.code!=="declined") toast("Salvataggio non riuscito, riprova"); }
+}
+
+/* ---------- Cambio importi ---------- */
+function ratesSheet(){
+  const r=rates(), h=feeHistory(), nm=addMonth(curMonth());
+  const hist=[...h].reverse().map((x,i)=>`<div class="row"><div class="who"><b>${x.from==="2000-01"?"Dall'inizio":"Dal "+monthLabel(x.from)}${x.from>curMonth()?" · in arrivo":""}</b><small>${eur(x.monthly)} al mese · iscrizione ${eur(x.join)} · sanzione ${eur(x.sanction)} ogni ${x.every}</small></div>
+    ${h.length>1 && i===0 ? `<button type="button" class="btn ghost sm owner-only" id="rUndo">Annulla</button>` : ""}</div>`).join("");
+  openSheet(`<h2>Cambia gli importi</h2>
+    <p class="note" style="margin-bottom:12px">I nuovi importi valgono dal mese che scegli. I mesi prima restano al vecchio importo, quindi arretrati e ricevute già fatte non cambiano.</p>
+    <form id="rForm">
+      <div class="field"><label for="rFrom">Valido dal mese</label><input id="rFrom" type="month" value="${nm}" required></div>
+      <div class="field"><label for="rMonthly">Quota mensile (${CSYM()})</label><input id="rMonthly" type="number" min="0" step="0.5" value="${r.monthly}" required></div>
+      <div class="field"><label for="rJoin">Iscrizione nuovi aderenti (${CSYM()})</label><input id="rJoin" type="number" min="0" step="0.5" value="${r.join}" required></div>
+      <div class="field"><label>Sanzione per assenze</label><div class="seg"><input id="rSan" type="number" min="0" step="0.5" value="${r.sanction}" aria-label="Euro di sanzione"><input id="rEvery" type="number" min="1" step="1" value="${r.every}" aria-label="Ogni quante riunioni saltate"></div><span class="note">Euro (a sinistra) ogni quante riunioni saltate (a destra).</span></div>
+      <div class="actions"><button type="button" class="btn ghost" data-close>Annulla</button><button class="btn primary" type="submit">Salva i nuovi importi</button></div>
+    </form>
+    <h3 class="sech" style="font-size:15px;margin:18px 0 6px">Storico importi</h3>
+    <div class="list">${hist}</div>`, ()=>{
+      $("#rForm").addEventListener("submit", e=>{ e.preventDefault();
+        const from=$("#rFrom").value; if(!from) return;
+        const entry={from, monthly:+$("#rMonthly").value||0, join:+$("#rJoin").value||0, sanction:+$("#rSan").value||0, every:Math.max(1,+$("#rEvery").value||3)};
+        const base=feeHistory().filter(x=>x.from!==from);
+        saveConfig({feeHistory:[...base, entry].sort((a,b)=>a.from.localeCompare(b.from))});
+        toast("Nuovi importi salvati"); announceSheet(entry);
+      });
+      const u=$("#rUndo"); if(u) u.addEventListener("click",()=>{ const h2=feeHistory(); h2.pop(); saveConfig({feeHistory:h2}); toast("Ultimo cambio annullato"); ratesSheet(); });
+  });
+}
+function announceSheet(e){
+  const txt=trText(`📢 *${ANAME()}*
+
+Come deciso dall'associazione, dal mese di *${monthLabel(e.from)}* gli importi saranno:
+• Quota mensile: ${eur(e.monthly)}
+• Iscrizione nuovi aderenti: ${eur(e.join)}
+• Sanzione: ${eur(e.sanction)} ogni ${e.every} riunioni saltate
+
+Grazie a tutti. Jërëjëf!`);
+  openSheet(`<h2>Avvisa gli aderenti</h2>
+    <p class="note" style="margin-bottom:10px">Manda questo messaggio nel gruppo WhatsApp dell'associazione.</p>
+    <div class="paybox" style="white-space:pre-line">${esc(txt)}</div>
+    <div class="actions">
+      <button type="button" class="btn ghost" id="anCopy">Copia</button>
+      <a class="btn wa" href="https://wa.me/?text=${encodeURIComponent(txt)}" target="_blank" rel="noopener">Invia su WhatsApp</a>
+      <button type="button" class="btn ghost" data-close>Chiudi</button>
+    </div>`, ()=>{ $("#anCopy").addEventListener("click", async()=>{ try{ await navigator.clipboard.writeText(txt); toast("Messaggio copiato"); }catch(err){ toast("Copia non riuscita"); } }); });
+}
+
+/* ---------- Cassa e versamenti ---------- */
+const depCode = d => "V-" + (d.date||"").slice(0,4) + "/" + String(d.n||0).padStart(3,"0");
+function depositedIds(key){ const s=new Set(); S.deposits.forEach(d=>(d[key]||[]).forEach(id=>s.add(id))); return s; }
+const isCash = x => (x.method||"").toLowerCase().startsWith("contanti");
+function openCash(){
+  const dp=depositedIds("paymentIds"), da=depositedIds("aidIds");
+  const ins=S.payments.filter(p=>isCash(p) && !dp.has(p.id)).sort((a,b)=>(a.date||"").localeCompare(b.date||""));
+  const outs=S.aids.filter(a=>isCash(a) && !da.has(a.id)).sort((a,b)=>(a.date||"").localeCompare(b.date||""));
+  const tin=ins.reduce((t,p)=>t+(+p.amount||0),0), tout=outs.reduce((t,a)=>t+(+a.amount||0),0);
+  const bank=S.payments.filter(p=>!isCash(p) && !dp.has(p.id));
+  return {ins, outs, tin, tout, net: Math.round((tin-tout)*100)/100, bank, tbank: bank.reduce((t,p)=>t+(+p.amount||0),0)};
+}
+function renderCash(){
+  const c=openCash();
+  $("#cashNow").textContent=eur(Math.max(0,c.net));
+  $("#cashInfo").textContent = `Incassati in contanti ${eur(c.tin)}${c.tout?` · aiuti dati in contanti ${eur(c.tout)}`:""}`;
+  const grp=(title,items,fn,tot)=> items.length ? `<div class="cashgrp"><h3><span>${title}</span><span class="num">${eur(tot)}</span></h3>${items.map(fn).join("")}</div>` : "";
+  $("#cashItems").innerHTML =
+    grp(`Entrate in contanti (${c.ins.length})`, c.ins, p=>`<div class="row"><div class="who"><b>${esc(memberName(p.memberId))}</b><small>${fmtDate(p.date)} · ${esc(typeLabel(p.type))} · ${rcptCode(p)}</small></div><span class="amt">${eur(p.amount)}</span></div>`, c.tin) +
+    grp(`Aiuti dati in contanti (${c.outs.length})`, c.outs, a=>`<div class="row"><div class="who"><b>${esc(a.name)}</b><small>${fmtDate(a.date)} · ${esc(a.reason||"")} · ${aidCode(a)}</small></div><span class="amt">−${eur(a.amount)}</span></div>`, c.tout) +
+    (c.ins.length||c.outs.length ? "" : `<div class="list"><div class="empty">Nessun contante da versare. Tutto è già nei versamenti qui sotto.</div></div>`);
+  $("#btnCloseCash").classList.toggle("dim", !(c.ins.length||c.outs.length));
+  const list=[...S.deposits].sort((a,b)=>(b.date||"").localeCompare(a.date||""));
+  $("#depList").innerHTML = list.length ? list.map(d=>{ const n=["pres","vice","coll"].filter(k=>d.sigs&&d.sigs[k]).length;
+    return `<div class="row wrow"><div class="who"><b>${depCode(d)} · ${fmtDate(d.date)}</b><small>${esc(d.collector||"")}${d.bankDate?` · versato il ${fmtDate(d.bankDate)}`:" · da portare in banca"}</small></div>
+      <span class="pill ${n===3?"ok":"gold"}">Firme ${n}/3</span>
+      <span class="amt">${eur(d.amount)}</span>
+      <button class="btn primary sm" data-dep="${d.id}">Foglio</button></div>`; }).join("") : `<div class="empty">Nessun versamento ancora.</div>`;
+}
+function closeCashSheet(){
+  const c=openCash(), cf=S.config;
+  openSheet(`<h2>Chiudi cassa</h2>
+    <div class="paybox"><div>Entrate in contanti: <b class="num">${eur(c.tin)}</b> (${c.ins.length})</div>${c.tout?`<div>Aiuti dati in contanti: <b class="num">−${eur(c.tout)}</b> (${c.outs.length})</div>`:""}<div style="margin-top:4px">Da versare: <b class="num">${eur(c.net)}</b></div></div>
+    <form id="cForm">
+      <div class="field"><label for="cDate">Data</label><input id="cDate" type="date" value="${today()}" required></div>
+      <div class="field"><label for="cAmount">Importo da versare in banca (${CSYM()})</label><input id="cAmount" type="number" inputmode="decimal" step="0.01" min="0" value="${Math.max(0,c.net)}" required><span class="note">Conta i soldi: se non corrisponde, scrivi l'importo vero e spiega nella nota.</span></div>
+      <div class="field"><label for="cColl">Chi porta i soldi in banca</label><input id="cColl" value="${esc(cf.collector||cf.treasurer||"")}" required placeholder="Nome e cognome"></div>
+      <div class="field"><label for="cNote">Nota (facoltativa)</label><input id="cNote" placeholder="es. riunione di ottobre"></div>
+      <div class="actions"><button type="button" class="btn ghost" data-close>Annulla</button><button class="btn primary" type="submit">Crea foglio da firmare</button></div>
+    </form>`, ()=>{
+      $("#cForm").addEventListener("submit", e=>{ e.preventDefault();
+        const date=$("#cDate").value, amount=parseFloat($("#cAmount").value);
+        if(!(amount>=0)) return;
+        const y=+date.slice(0,4), n=S.deposits.filter(d=>+(d.date||"").slice(0,4)===y).reduce((a,d)=>Math.max(a,+d.n||0),0)+1;
+        const id=uid();
+        save("deposits", id, { date, n, amount, expected: c.net, totalIn: c.tin, totalOut: c.tout, collector: $("#cColl").value.trim(), note: $("#cNote").value.trim(),
+          paymentIds: c.ins.map(p=>p.id), aidIds: c.outs.map(a=>a.id), president: cf.president||"", vice: cf.vice||"", sigs:{}, bankDate:"" });
+        toast("Cassa chiusa"); depositSheet(id);
+      });
+  });
+}
+const ROLES = [["pres","Presidente","president"],["vice","Vicepresidente","vice"],["coll","Chi porta i soldi","collector"]];
+function roleName(d,k){ return k==="pres" ? (d.president||S.config.president||"") : k==="vice" ? (d.vice||S.config.vice||"") : (d.collector||""); }
+async function drawDeposit(d){
+  try{ await document.fonts.ready; }catch(e){}
+  const pays=(d.paymentIds||[]).map(id=>S.payments.find(p=>p.id===id)).filter(Boolean);
+  const aids=(d.aidIds||[]).map(id=>S.aids.find(a=>a.id===id)).filter(Boolean);
+  const W=900, rowH=30, H=720 + (pays.length+aids.length)*rowH + (aids.length?70:0) + (d.note?40:0) + (Math.abs((d.amount||0)-(d.expected||0))>0.001?40:0);
+  const cv=document.createElement("canvas"); cv.width=W; cv.height=H; const g=cv.getContext("2d");
+  const green="#0B6E4F", ink="#16241C", muted="#5B6B61", gold="#C98A12", red="#B8322A";
+  const F="Figtree, system-ui, sans-serif", D="'Bricolage Grotesque', Figtree, system-ui, sans-serif";
+  g.fillStyle="#fff"; g.fillRect(0,0,W,H);
+  g.fillStyle=green; g.fillRect(0,0,W,110); g.fillStyle=gold; g.fillRect(0,110,W,6);
+  g.save(); g.translate(68,55); g.fillStyle="#F2C14E"; g.beginPath(); for(let i=0;i<10;i++){ const r=i%2?10:24, t=-Math.PI/2+i*Math.PI/5; g.lineTo(Math.cos(t)*r,Math.sin(t)*r); } g.closePath(); g.fill(); g.restore();
+  g.fillStyle="#fff"; g.font=`600 15px ${F}`; g.fillText("ASSOCIAZIONE", 112, 46); g.font=`800 30px ${D}`; g.fillText(ASHORT(), 112, 82);
+  if(S.config.cf){ g.font=`500 14px ${F}`; g.textAlign="right"; g.fillText("C.F. "+S.config.cf, W-40, 46); g.textAlign="left"; }
+  g.fillStyle=ink; g.font=`800 28px ${D}`; g.fillText("Chiusura cassa e versamento in banca", 40, 170);
+  g.fillStyle=muted; g.font=`600 17px ${F}`; g.fillText(`N. ${depCode(d)}  ·  ${fmtDate(d.date)}`, 40, 200);
+  let y=250;
+  const table=(title, items, fn, total, sign)=>{
+    g.fillStyle=green; g.font=`700 14px ${F}`; g.fillText(title.toUpperCase(), 40, y); y+=12;
+    g.strokeStyle="#D9E2DB"; g.lineWidth=1;
+    items.forEach(it=>{ const [a,b,c2,v]=fn(it); y+=rowH;
+      g.fillStyle=muted; g.font=`500 14px ${F}`; g.fillText(a, 40, y); g.fillText(b, 150, y);
+      g.fillStyle=ink; g.font=`500 16px ${F}`; let t=c2; while(g.measureText(t).width>440 && t.length>4) t=t.slice(0,-2); if(t!==c2) t=t.trimEnd()+"…"; g.fillText(t, 280, y);
+      g.textAlign="right"; g.fillText((sign||"")+eur(v), W-40, y); g.textAlign="left";
+      g.beginPath(); g.moveTo(40,y+10); g.lineTo(W-40,y+10); g.stroke(); });
+    y+=34; g.fillStyle=ink; g.font=`700 17px ${F}`; g.fillText("Totale", 40, y); g.textAlign="right"; g.fillText((sign||"")+eur(total), W-40, y); g.textAlign="left"; y+=40;
+  };
+  table(`Entrate in contanti (${pays.length})`, pays, p=>[fmtDate(p.date), rcptCode(p), `${memberName(p.memberId).replace(/\s*\(esempio\)/,"")} – ${typeLabel(p.type)}`, +p.amount||0], d.totalIn||0);
+  if(aids.length) table(`Aiuti dati in contanti (${aids.length})`, aids, a=>[fmtDate(a.date), aidCode(a), `${a.name} – ${a.reason||""}`, +a.amount||0], d.totalOut||0, "−");
+  // totale da versare
+  g.fillStyle="#DDEFE6"; g.fillRect(40,y,W-80,100);
+  g.fillStyle=green; g.font=`700 15px ${F}`; g.fillText("DA VERSARE IN BANCA", 64, y+38);
+  const amt=+d.amount||0, ip=Math.floor(amt), ct=Math.round((amt-ip)*100);
+  g.fillStyle=muted; g.font=`500 16px ${F}`; g.fillText(CUR_WORD()+inWords(ip)+"/"+String(ct).padStart(2,"0"), 64, y+70);
+  g.textAlign="right"; g.fillStyle=green; g.font=`800 50px ${D}`; g.fillText(eur(amt), W-64, y+72); g.textAlign="left";
+  y+=130;
+  if(Math.abs(amt-(d.expected||0))>0.001){ g.fillStyle=red; g.font=`600 16px ${F}`; g.fillText(`Attenzione: dai conti risultavano ${eur(d.expected||0)}, differenza ${eur(amt-(d.expected||0))}.`, 40, y); y+=40; }
+  if(d.note){ g.fillStyle=ink; g.font=`500 16px ${F}`; g.fillText("Nota: "+d.note, 40, y); y+=40; }
+  g.fillStyle=ink; g.font=`400 17px ${F}`;
+  y=wrapText(g, `I sottoscritti confermano il conteggio. ${d.collector||"—"} si impegna a versare la somma sul conto dell'associazione${S.config.iban?" ("+S.config.iban+")":""}.`, 40, y, W-80, 26) + 20;
+  // firme
+  const cw=(W-80-40)/3;
+  for(let i=0;i<3;i++){ const [k,label]=ROLES[i], x=40+i*(cw+20);
+    const img=await loadImg(d.sigs&&d.sigs[k]);
+    if(img){ const h=80, w=Math.min(cw, img.width*h/img.height); g.drawImage(img, x, y, w, h); }
+    g.strokeStyle="#9AAEA2"; g.lineWidth=1.5; g.beginPath(); g.moveTo(x,y+92); g.lineTo(x+cw,y+92); g.stroke();
+    g.fillStyle=muted; g.font=`600 13px ${F}`; g.fillText(label.toUpperCase(), x, y+114);
+    g.fillStyle=ink; g.font=`500 16px ${F}`; g.fillText(roleName(d,k)||"________________", x, y+138);
+  }
+  y+=180;
+  g.fillStyle=d.bankDate?green:muted; g.font=`600 17px ${F}`;
+  g.fillText(d.bankDate ? `Versato in banca il ${fmtDate(d.bankDate)}` : "Versato in banca il ____ / ____ / ________", 40, y);
+  return cv;
+}
+function depositSheet(id){
+  const d=S.deposits.find(x=>x.id===id); if(!d) return;
+  const sigs=d.sigs||{};
+  openSheet(`<h2>Versamento ${esc(depCode(d))}</h2>
+    <div class="sigslots">${ROLES.map(([k,label])=>`<div class="sigslot"><b>${label}</b><small class="note">${esc(roleName(d,k)||"nome da impostare in ⚙")}</small>
+      ${sigs[k]?`<img src="${sigs[k]}" alt="Firma ${label}"><span class="pill ok" style="justify-self:start">Firmato</span>`:`<button type="button" class="btn primary sm" data-sign="${k}">Firma</button>`}</div>`).join("")}</div>
+    <div id="depWrap"><p class="note">Preparo il foglio…</p></div>
+    <div class="field" style="margin-top:4px"><label for="dBank">Data del versamento in banca</label><input id="dBank" type="date" value="${esc(d.bankDate||"")}"></div>
+    <div class="actions">
+      <button type="button" class="btn ghost" id="dBankSave">${d.bankDate?"Aggiorna data":"Segna come versato"}</button>
+      <button type="button" class="btn primary" id="dSave" hidden>Salva foglio</button>
+      <button type="button" class="btn ghost" data-close>Chiudi</button>
+    </div>
+    <div class="actions" style="margin-top:14px"><button type="button" class="btn danger sm owner-only" id="dDel">Annulla questa chiusura</button></div>
+    <div id="dDelConfirm" hidden class="paybox" style="margin-top:8px">Annullare il foglio ${esc(depCode(d))}? I pagamenti torneranno “in cassa”.
+      <div class="actions"><button type="button" class="btn ghost sm" id="dNo">No</button><button type="button" class="btn danger sm" id="dYes">Sì, annulla</button></div></div>`, async ()=>{
+      document.querySelectorAll("[data-sign]").forEach(b=>b.addEventListener("click",()=>signRole(d.id, b.dataset.sign)));
+      $("#dBankSave").addEventListener("click",()=>{ const v=$("#dBank").value || today(); const {id:_, ...rest}=d; save("deposits", d.id, {...rest, bankDate:v}); toast("Segnato come versato"); depositSheet(d.id); });
+      $("#dDel").addEventListener("click",()=>$("#dDelConfirm").hidden=false);
+      $("#dNo").addEventListener("click",()=>$("#dDelConfirm").hidden=true);
+      $("#dYes").addEventListener("click",()=>{ remove("deposits", d.id); closeSheet(); toast("Chiusura annullata"); });
+      const cv=await drawDeposit(d);
+      const img=new Image(); img.className="rcpt"; img.alt="Foglio "+depCode(d); img.src=cv.toDataURL("image/png");
+      const w=$("#depWrap"); if(!w) return; w.innerHTML=""; w.appendChild(img);
+      let dl=DL;
+      const sb=$("#dSave"); if(!sb) return;
+      if(dl){ sb.hidden=false; sb.addEventListener("click",()=>cv.toBlob(async b=>{ try{ await dl.save({filename:`Versamento ${depCode(d).replace("/","-")}.png`, data:b}); }catch(e){ if(e&&e.code!=="declined") toast("Salvataggio non disponibile"); } },"image/png")); }
+      else { const n=document.createElement("p"); n.className="note"; n.textContent="Tieni premuta l'immagine per salvarla."; w.appendChild(n); }
+  });
+}
+function signRole(id, k){
+  const d=S.deposits.find(x=>x.id===id); if(!d) return;
+  const [,label]=ROLES.find(r=>r[0]===k);
+  openSheet(`<h2>Firma: ${label}</h2>
+    <p class="note" style="margin-bottom:8px">${esc(roleName(d,k)||"")} · Versamento ${esc(depCode(d))} di <b>${eur(d.amount)}</b></p>
+    <canvas class="sigpad" id="sig" aria-label="Spazio per la firma"></canvas>
+    <div class="sigrow"><span class="note">Firma con il dito.</span><button type="button" class="btn ghost sm" id="sigClear">Cancella</button></div>
+    <div class="actions"><button type="button" class="btn ghost" id="sigBack">Indietro</button><button type="button" class="btn primary" id="sigOk">Conferma firma</button></div>`, ()=>{
+      const pad=sigPad($("#sig"));
+      $("#sigClear").addEventListener("click",()=>pad.clear());
+      $("#sigBack").addEventListener("click",()=>depositSheet(id));
+      $("#sigOk").addEventListener("click",()=>{ if(pad.isEmpty()){ toast("Manca la firma"); return; }
+        const cur=S.deposits.find(x=>x.id===id); const {id:_, ...rest}=cur;
+        save("deposits", id, {...rest, sigs:{...(cur.sigs||{}), [k]: pad.toData()}, [k+"At"]: new Date().toISOString()});
+        toast("Firma salvata"); depositSheet(id); });
+  });
+}
+
+/* ---------- Ricevute ---------- */
+function receiptNo(p){
+  if(p.n) return +p.n;
+  const y = (p.date||"").slice(0,4);
+  const legacy = S.payments.filter(x=>!x.n && (x.date||"").slice(0,4)===y).sort((a,b)=>(a.date||"").localeCompare(b.date||"")||a.id.localeCompare(b.id));
+  return legacy.findIndex(x=>x.id===p.id)+1;
+}
+function nextReceiptNo(y){
+  const nums = S.payments.filter(x=>+(x.date||"").slice(0,4)===y).map(receiptNo);
+  return (nums.length ? Math.max(...nums) : 0) + 1;
+}
+const rcptCode = p => (p.date||"").slice(0,4) + "/" + String(receiptNo(p)).padStart(3,"0");
+function inWordsFr(n){
+  const u=["zéro","un","deux","trois","quatre","cinq","six","sept","huit","neuf","dix","onze","douze","treize","quatorze","quinze","seize","dix-sept","dix-huit","dix-neuf"];
+  const t=["","","vingt","trente","quarante","cinquante","soixante","soixante","quatre-vingt","quatre-vingt"];
+  const two=x=>{ if(x<20) return u[x]; const d=Math.floor(x/10), r=x%10;
+    if(d===7||d===9) return t[d]+(d===7&&r===1?"-et-":"-")+u[10+r];
+    if(d===8) return r?"quatre-vingt-"+u[r]:"quatre-vingts";
+    return t[d]+(r===1?"-et-un":r?"-"+u[r]:""); };
+  const three=x=>{ const h=Math.floor(x/100), r=x%100; let s=h?(h===1?"cent":u[h]+"-cent"+(r?"":"s")):""; if(r) s+=(s?"-":"")+two(r); return s||"zéro"; };
+  if(n>=1000){ const k=Math.floor(n/1000), r=n%1000; return (k===1?"mille":three(k)+"-mille")+(r?"-"+three(r):""); }
+  return three(n);
+}
+function inWords(n){ if(LANG==="fr") return inWordsFr(n);
+  const u=["zero","uno","due","tre","quattro","cinque","sei","sette","otto","nove","dieci","undici","dodici","tredici","quattordici","quindici","sedici","diciassette","diciotto","diciannove"];
+  const t=["","","venti","trenta","quaranta","cinquanta","sessanta","settanta","ottanta","novanta"];
+  const two=x=>{ if(x<20) return u[x]; let s=t[Math.floor(x/10)], r=x%10; if(r===1||r===8) s=s.slice(0,-1); return s+(r?u[r]:""); };
+  const three=x=>{ const h=Math.floor(x/100), r=x%100; let s=h? (h===1?"cento":u[h]+"cento"):""; if(r){ let w=two(r); if(h && (w.startsWith("otto")||w.startsWith("ott"))) s=s.slice(0,-1); s+=w; } return s||"zero"; };
+  if(n>=1000){ const k=Math.floor(n/1000), r=n%1000; return (k===1?"mille":three(k)+"mila") + (r?three(r):""); }
+  return three(n);
+}
+function receiptText(p){
+  const m = memberName(p.memberId), c = S.config;
+  return `RICEVUTA N. ${rcptCode(p)}
+${ANAME()}${c.cf? "\nC.F. "+c.cf : ""}
+
+Ricevuto da: ${m}
+Importo: ${eur(p.amount)}
+Causale: ${causale(p)}${p.note? " – "+p.note : ""}
+Metodo: ${p.method||""}
+Data: ${fmtDate(p.date)}
+
+${c.treasurer || "Il tesoriere"}
+Grazie! Jërëjëf!`;
+}
+async function drawReceipt(p){
+  try{ await document.fonts.ready; }catch(e){}
+  const W=900, H=640, cv=document.createElement("canvas"); cv.width=W; cv.height=H;
+  const g=cv.getContext("2d"), c=S.config, green="#0B6E4F", ink="#16241C", muted="#5B6B61", gold="#C98A12";
+  const F="Figtree, system-ui, sans-serif", D="'Bricolage Grotesque', Figtree, system-ui, sans-serif";
+  g.fillStyle="#FFFFFF"; g.fillRect(0,0,W,H);
+  g.fillStyle=green; g.fillRect(0,0,W,120);
+  g.fillStyle=gold; g.fillRect(0,120,W,6);
+  // stella
+  g.save(); g.translate(72,60); g.fillStyle="#F2C14E"; g.beginPath();
+  for(let i=0;i<10;i++){ const r=i%2?11:26, a=-Math.PI/2+i*Math.PI/5; g.lineTo(Math.cos(a)*r,Math.sin(a)*r); } g.closePath(); g.fill(); g.restore();
+  g.fillStyle="#FFFFFF"; g.font=`600 16px ${F}`; g.fillText("ASSOCIAZIONE", 120, 50);
+  g.font=`800 32px ${D}`; g.fillText(ASHORT(), 120, 88);
+  if(c.cf){ g.font=`500 15px ${F}`; g.textAlign="right"; g.fillText("C.F. "+c.cf, W-40, 50); g.textAlign="left"; }
+  g.fillStyle=ink; g.font=`800 30px ${D}`; g.fillText("Ricevuta", 40, 185);
+  g.textAlign="right"; g.font=`600 20px ${F}`; g.fillStyle=muted; g.fillText("N. "+rcptCode(p)+"  ·  "+fmtDate(p.date), W-40, 185); g.textAlign="left";
+  const rows=[["Ricevuto da", memberName(p.memberId)],["Causale", causale(p)],["Metodo", p.method||"—"]];
+  if(p.note) rows.push(["Nota", p.note]);
+  let y=240;
+  rows.forEach(([k,v])=>{ g.fillStyle=muted; g.font=`600 15px ${F}`; g.fillText(k.toUpperCase(), 40, y);
+    g.fillStyle=ink; g.font=`500 22px ${F}`; let s=String(v); while(g.measureText(s).width>560 && s.length>3) s=s.slice(0,-2); if(s!==String(v)) s=s.trimEnd()+"…"; g.fillText(s, 230, y); y+=48; });
+  // importo
+  g.fillStyle="#DDEFE6"; g.fillRect(40, y+4, W-80, 96);
+  g.fillStyle=green; g.font=`600 15px ${F}`; g.fillText("IMPORTO", 64, y+40);
+  const amt=+p.amount||0, intp=Math.floor(amt), cents=Math.round((amt-intp)*100);
+  g.font=`500 16px ${F}`; g.fillStyle=muted; g.fillText(CUR_WORD() + inWords(intp) + "/" + String(cents).padStart(2,"0"), 64, y+70);
+  g.textAlign="right"; g.fillStyle=green; g.font=`800 48px ${D}`; g.fillText(eur(amt), W-64, y+70); g.textAlign="left";
+  // firma
+  const fy=H-70; g.strokeStyle="#D9E2DB"; g.lineWidth=2; g.beginPath(); g.moveTo(W-340,fy-20); g.lineTo(W-40,fy-20); g.stroke();
+  g.fillStyle=ink; g.font=`600 17px ${F}`; g.textAlign="right"; g.fillText(c.treasurer || "Il tesoriere", W-40, fy+6);
+  g.textAlign="left"; g.fillStyle=gold; g.font=`700 20px ${D}`; g.fillText("Jërëjëf! Grazie!", 40, fy+6);
+  return cv;
+}
+function receiptSheet(pid){
+  const p = S.payments.find(x=>x.id===pid); if(!p) return;
+  const name = memberName(p.memberId).replace(/\s*\(esempio\)/,"");
+  openSheet(`<h2>Ricevuta ${esc(rcptCode(p))}</h2>
+    <div id="rcptWrap"><p class="note">Preparo la ricevuta…</p></div>
+    <p class="note" style="margin-bottom:12px">Salvala come immagine e mandala all'aderente su WhatsApp, oppure copia il testo.</p>
+    <div class="actions">
+      <button type="button" class="btn ghost" id="rEdit">Modifica</button>
+      <button type="button" class="btn ghost" id="rCopy">Copia testo</button>
+      <button type="button" class="btn primary" id="rSave" hidden>Salva immagine</button>
+      <button type="button" class="btn ghost" data-close>Chiudi</button>
+    </div>`, async ()=>{
+      const cv = await drawReceipt(p);
+      const img = new Image(); img.className="rcpt"; img.alt="Ricevuta "+rcptCode(p); img.src = cv.toDataURL("image/png");
+      const w=$("#rcptWrap"); if(w){ w.innerHTML=""; w.appendChild(img); }
+      $("#rEdit").addEventListener("click",()=>paySheet(null,null,p.id));
+      $("#rCopy").addEventListener("click", async()=>{ try{ await navigator.clipboard.writeText(receiptText(p)); toast("Testo copiato"); }catch(e){ toast("Copia non riuscita"); } });
+      let dl=DL;
+      const sb=$("#rSave"); if(!sb) return;
+      if(dl){ sb.hidden=false; sb.addEventListener("click", ()=>{
+        cv.toBlob(async b=>{ try{ await dl.save({filename:`Ricevuta ${rcptCode(p).replace("/","-")} ${name}.png`, data:b}); }catch(e){ if(e&&e.code!=="declined") toast("Salvataggio non disponibile"); } }, "image/png");
+      }); }
+      else { const n=document.createElement("p"); n.className="note"; n.textContent="Tieni premuta l'immagine per salvarla."; w.appendChild(n); }
+  });
+}
+
+/* ---------- Events ---------- */
+document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>{
+  tab=b.dataset.tab; document.querySelectorAll(".tab").forEach(x=>x.setAttribute("aria-selected",x===b));
+  ["aderenti","oggi","pagamenti","riunioni","aiuti","cassa"].forEach(t=>$("#p-"+t).hidden = t!==tab);
+}));
+$("#filters").addEventListener("click",e=>{ const b=e.target.closest(".chip"); if(!b) return; mFilter=b.dataset.f; $("#filters").querySelectorAll(".chip").forEach(x=>x.setAttribute("aria-pressed",x===b)); renderMembers(); });
+$("#payFilters").addEventListener("click",e=>{ const b=e.target.closest(".chip"); if(!b) return; pFilter=b.dataset.f; $("#payFilters").querySelectorAll(".chip").forEach(x=>x.setAttribute("aria-pressed",x===b)); renderPayments(); });
+$("#q").addEventListener("input", renderMembers);
+$("#btnAddMember").addEventListener("click",()=>memberSheet());
+$("#btnExport").addEventListener("click", exportExcel);
+$("#btnAddAid").addEventListener("click",()=>aidSheet());
+$("#btnCloseCash").addEventListener("click", ()=>{
+  const c=openCash();
+  if(!(c.ins.length||c.outs.length)){
+    const last=[...S.deposits].sort((a,b)=>(b.date||"").localeCompare(a.date||""))[0];
+    toast(last ? `Niente da chiudere: i contanti sono già nel foglio ${depCode(last)}` : "Niente da chiudere: nessun pagamento in contanti");
+    return;
+  }
+  closeCashSheet();
+});
+$("#depList").addEventListener("click",e=>{ const b=e.target.closest("[data-dep]"); if(b) return depositSheet(b.dataset.dep); const r=e.target.closest(".row"); if(r){ const x=r.querySelector("[data-dep]"); if(x) depositSheet(x.dataset.dep); } });
+$("#aidList").addEventListener("click",e=>{ const b=e.target.closest("[data-aid]"); if(b) return aidReceiptSheet(b.dataset.aid); const r=e.target.closest(".row"); if(r){ const x=r.querySelector("[data-aid]"); if(x) aidReceiptSheet(x.dataset.aid); } });
+$("#btnScan").addEventListener("click", scanSheet);
+$("#todayBox").addEventListener("click", e=>{
+  const rc=e.target.closest("[data-rcpt]"); if(rc) return receiptSheet(rc.dataset.rcpt);
+  const tp=e.target.closest("[data-tpay]"); if(tp) return paySheet(tp.dataset.tpay||null);
+  const ad=e.target.closest("[data-aid]"); if(ad) return aidReceiptSheet(ad.dataset.aid);
+  const tm=e.target.closest("[data-tmeet]"), nm=e.target.closest("[data-tnewmeet]");
+  if(tm || nm){
+    if(nm){ const id=uid(), t=today(); save("meetings", id, {title:"Riunione di "+new Date(t+"T12:00:00").toLocaleDateString(LOC(),{month:"long"}), date:t, present:[]}); openMeet=id; }
+    else openMeet=tm.dataset.tmeet;
+    goTab("riunioni"); renderMeetings(); $("#meetList").scrollIntoView({block:"start"});
+  }
+});
+$("#btnStati").addEventListener("click", statiSheet);
+$("#btnAddMeet").addEventListener("click",meetSheet);
+$("#btnSettings").addEventListener("click",settingsSheet);
+$("#btnLock").addEventListener("click",()=>doLogout());
+$("#btnLang").addEventListener("click",()=>setLang(LANG==="fr"?"it":"fr"));
+$("#aboBar").addEventListener("click",()=>aboSheet());
+$("#fabPay").addEventListener("click",()=>paySheet(null));
+$("#fabContrib").addEventListener("click",()=>paySheet(null,"contributo"));
+$("#memberList").addEventListener("click",e=>{
+  const cd=e.target.closest("[data-card]"); if(cd) return cardSheet(cd.dataset.card);
+  const st=e.target.closest("[data-stato]"); if(st) return statoSheet(st.dataset.stato);
+  const p=e.target.closest("[data-pay]"); if(p) return paySheet(p.dataset.pay);
+  const ed=e.target.closest("[data-edit]"); if(ed) return memberSheet(ed.dataset.edit);
+  const row=e.target.closest(".row"); if(row){ const b=row.querySelector("[data-pay],[data-edit]");  if(b) memberSheet(b.dataset.pay||b.dataset.edit); }
+});
+let pendingDel=null;
+$("#payList").addEventListener("click",e=>{
+  const ed=e.target.closest("[data-editpay]"); if(ed) return paySheet(null, null, ed.dataset.editpay);
+  const r=e.target.closest("[data-rcpt]"); if(r) return receiptSheet(r.dataset.rcpt);
+  const d=e.target.closest("[data-delpay]"); if(!d) return;
+  if(pendingDel===d.dataset.delpay){ remove("payments",d.dataset.delpay); syncDeposits(d.dataset.delpay); pendingDel=null; toast("Pagamento eliminato"); }
+  else { pendingDel=d.dataset.delpay; d.textContent="Elimina?"; d.classList.add("danger"); setTimeout(()=>{ if(pendingDel===d.dataset.delpay){ pendingDel=null; renderPayments(); } },3000); }
+});
+$("#warnBox").addEventListener("click", e=>{ const b=e.target.closest("[data-sanz]"); if(b) paySheet(b.dataset.sanz,"sanzione"); });
+$("#calList").addEventListener("click", async e=>{
+  const cp=e.target.closest("[data-copyinv]");
+  if(cp){ const d=new Date(cp.dataset.copyinv+"T12:00:00"); try{ await navigator.clipboard.writeText(inviteText(d)); toast("Avviso copiato"); }catch(err){ toast("Copia non riuscita"); } return; }
+  const pr=e.target.closest("[data-presenze]");
+  if(pr){ const dd=pr.dataset.presenze; let mt=S.meetings.find(x=>x.date===dd);
+    if(!mt){ const id=uid(); const d=new Date(dd+"T12:00:00"); save("meetings", id, {title:"Riunione di "+d.toLocaleDateString(LOC(),{month:"long"}), date:dd, present:[]}); openMeet=id; }
+    else openMeet=mt.id;
+    renderMeetings(); $("#meetList").scrollIntoView({behavior:"smooth",block:"start"}); }
+});
+$("#meetList").addEventListener("click",e=>{
+  const t=e.target.closest("[data-toggle]"); if(t){ openMeet = openMeet===t.dataset.toggle ? "" : t.dataset.toggle; renderMeetings(); return; }
+  const d=e.target.closest("[data-delmeet]"); if(d){
+    if(d.dataset.sure){ remove("meetings",d.dataset.delmeet); toast("Riunione eliminata"); }
+    else { d.dataset.sure="1"; d.textContent="Tocca di nuovo per eliminare"; }
+  }
+});
+$("#meetList").addEventListener("keydown",e=>{ const t=e.target.closest("[data-toggle]"); if(t && (e.key==="Enter"||e.key===" ")){ e.preventDefault(); t.click(); } });
+$("#meetList").addEventListener("change",e=>{
+  const c=e.target.closest("input[data-meet]"); if(!c) return;
+  const mt=S.meetings.find(x=>x.id===c.dataset.meet); if(!mt) return;
+  const set=new Set(mt.present||[]); c.checked?set.add(c.dataset.mem):set.delete(c.dataset.mem);
+  save("meetings", mt.id, {title:mt.title, date:mt.date, present:[...set]});
+});
+
+renderAll();
+
+/* ---------- messaggi e ricevute nella lingua scelta ---------- */
+{ const w=f=>function(...a){ const t=f.apply(this,a); return LANG==="fr"?trText(t):t; };
+  warnText=w(warnText); inviteText=w(inviteText); statoText=w(statoText); receiptText=w(receiptText);
+  const wt=wrapText; wrapText=function(g,text,...a){ return wt(g, LANG==="fr"?trText(text):text, ...a); }; }
+
+/* ---------- Lingua: italiano / français ---------- */
+const FR_DICT = {
+"+ Aderente":"+ Membre","+ Nuovo aiuto":"+ Nouvelle aide","+ Pagamento":"+ Paiement","+ Riunione":"+ Réunion",
+". Su iPhone si apre il menu di condivisione: scegli WhatsApp e poi la persona.":". Sur iPhone, le menu de partage s'ouvre : choisissez WhatsApp puis la personne.",
+"1. Premi":"1. Appuyez sur","2. Su Android e computer l'immagine si salva: poi premi":"2. Sur Android et ordinateur, l'image s'enregistre : appuyez ensuite sur",
+"e allegala con la graffetta 📎.":"et joignez-la avec le trombone 📎.",
+"7 giorni gratis. Aderenti, quote, riunioni e cassa, salvati online.":"7 jours gratuits. Membres, cotisations, réunions et caisse, sauvegardés en ligne.",
+"Abbonamento":"Abonnement","Account":"Compte","Aderente":"Membre","Aderenti":"Membres","Aiuti":"Aides","Aiuti dati nel":"Aides données en","Aiuti dati oggi":"Aides données aujourd'hui",
+"Aiuti dati in contanti:":"Aides données en espèces :","Altro":"Autre","Anche chi non è aderente":"Même une personne non membre","Annulla":"Annuler","Annulla questa chiusura":"Annuler cette clôture",
+"Apri chat WhatsApp":"Ouvrir la discussion WhatsApp","Apri presenze":"Ouvrir les présences","Arretrati totali":"Total des arriérés","Assenti spesso":"Souvent absents","Associazione":"Association",
+"Avvisa":"Prévenir","Avvisa gli aderenti":"Prévenir les membres","Avvisa su WhatsApp":"Prévenir sur WhatsApp","Avviso copiato":"Message copié","Bonifico":"Virement",
+"Calendario riunioni":"Calendrier des réunions","Cambia gli importi":"Changer les montants","Cambia password":"Changer le mot de passe",
+"Cambia solo il simbolo: gli importi già scritti restano uguali.":"Seul le symbole change : les montants déjà écrits restent les mêmes.",
+"Cancella":"Effacer","Caricamento…":"Chargement…","Cassa":"Caisse","Cerca":"Rechercher","Cerca per nome o numero tessera…":"Rechercher par nom ou numéro de carte…",
+"Chi firma le ricevute":"Qui signe les reçus","Chi porta i soldi":"Qui porte l'argent","Chi porta i soldi in banca":"Qui porte l'argent à la banque","Chi raccoglie i soldi (cassiere)":"Qui encaisse l'argent (trésorier)",
+"Chiudi":"Fermer","Chiudi cassa":"Clôturer la caisse","Città":"Ville","Codice associazione:":"Code de l'association :","Codice fiscale dell'associazione (facoltativo)":"Numéro fiscal de l'association (facultatif)",
+"Come mandarla su WhatsApp":"Comment l'envoyer sur WhatsApp","Come è stato dato":"Comment elle a été donnée","Con il numero e la password dell'associazione.":"Avec le numéro et le mot de passe de l'association.",
+"Conferma firma":"Confirmer la signature","Conta i soldi: se non corrisponde, scrivi l'importo vero e spiega nella nota.":"Comptez l'argent : si ce n'est pas pareil, écrivez le vrai montant et expliquez dans la note.",
+"Conta le mensilità a partire da":"Compter les mois à partir de","Contanti":"Espèces","contanti":"espèces","Contributi":"Contributions","Contributo":"Contribution","Contributo volontario":"Contribution volontaire",
+"Copia":"Copier","Copia avviso":"Copier le message","Copia testo":"Copier le texte","Crea":"Créer","Crea foglio da firmare":"Créer la feuille à signer","Crea l'account":"Créer le compte",
+"Da firmare":"À signer","Da segnalare":"À signaler","Da versare:":"À déposer :","Dall'inizio":"Depuis le début","Data":"Date","Data del versamento in banca":"Date du dépôt à la banque","Data di iscrizione":"Date d'inscription",
+"Devono pagare":"Doivent payer","Difficoltà economica":"Difficulté financière","Documento d'identità (facoltativo)":"Pièce d'identité (facultatif)",
+"Domani questa pagina riparte da zero. Niente viene cancellato: tutto resta in Pagamenti, Riunioni e Aiuti.":"Demain cette page repart de zéro. Rien n'est effacé : tout reste dans Paiements, Réunions et Aides.",
+"Dopo il cambio, avvisa chi usa l'app con te.":"Après le changement, prévenez ceux qui utilisent l'app avec vous.",
+"Dopo la riunione chiudi la cassa: si crea il foglio con il totale da versare, da far firmare a presidente, vicepresidente e a chi porta i soldi in banca.":"Après la réunion, clôturez la caisse : une feuille est créée avec le total à déposer, à faire signer par le président, le vice-président et celui qui porte l'argent à la banque.",
+"Elimina":"Supprimer","Elimina pagamento":"Supprimer le paiement","Elimina riunione":"Supprimer la réunion","Eliminare questo aiuto e la sua ricevuta?":"Supprimer cette aide et son reçu ?",
+"Entra":"Entrer","Entrate in contanti:":"Entrées en espèces :","Esci":"Sortir","Euro (a sinistra) ogni quante riunioni saltate (a destra).":"Montant (à gauche) toutes les combien de réunions manquées (à droite).",
+"Euro di sanzione":"Montant de l'amende","Fai firmare qui con il dito.":"Faites signer ici avec le doigt.","Fai una foto al codice QR":"Prenez en photo le code QR","Firma":"Signer","Firma con il dito.":"Signez avec le doigt.",
+"Foglio":"Feuille","Foto del codice QR":"Photo du code QR","Giorno delle riunioni":"Jour des réunions","Già iscritto da prima (iscrizione già pagata)":"Déjà inscrit avant (inscription déjà payée)",
+"Hanno pagato oggi":"Ont payé aujourd'hui","Ho pagato: controlla":"J'ai payé : vérifier",
+"I nuovi importi valgono dal mese che scegli. I mesi prima restano al vecchio importo, quindi arretrati e ricevute già fatte non cambiano.":"Les nouveaux montants valent à partir du mois choisi. Les mois d'avant gardent l'ancien montant : arriérés et reçus déjà faits ne changent pas.",
+"IBAN dell'associazione":"IBAN de l'association","Il codice QR non si è caricato: sulla tessera c'è il numero al suo posto. Riapri la pagina per riprovare.":"Le code QR ne s'est pas chargé : le numéro est sur la carte à sa place. Rouvrez la page pour réessayer.",
+"Il mese di iscrizione è gratis: la quota mensile parte dal mese dopo.":"Le mois d'inscription est gratuit : la cotisation commence le mois suivant.",
+"Importi in vigore":"Montants en vigueur","Impostazioni":"Réglages","In cassa, da versare in banca":"En caisse, à déposer à la banque","In regola":"À jour","Indietro":"Retour",
+"Inquadra solo il QR, da vicino e con buona luce. Puoi anche scegliere una foto già fatta.":"Cadrez seulement le QR, de près et avec une bonne lumière. Vous pouvez aussi choisir une photo déjà prise.",
+"Invia":"Envoyer","Invia situazione":"Envoyer la situation","Invia situazioni":"Envoyer les situations","Invia su WhatsApp":"Envoyer sur WhatsApp","Iscrizione":"Inscription","Iscrizioni":"Inscriptions",
+"Iscrizione all'associazione":"Inscription à l'association","La mia associazione":"Mon association","La password serve ogni volta che si apre l'app.":"Le mot de passe sert à chaque ouverture de l'app.",
+"Lingua / Langue":"Langue / Lingua","Link pagamento online":"Lien de paiement en ligne","Luogo delle riunioni":"Lieu des réunions","Lutto in famiglia":"Deuil dans la famille","Mancano":"Absents",
+"Manda la ricevuta su WhatsApp con il codice":"Envoyez la preuve sur WhatsApp avec le code","Manda questo messaggio nel gruppo WhatsApp dell'associazione.":"Envoyez ce message dans le groupe WhatsApp de l'association.",
+"Mensile":"Mensuelle","Mensili":"Mensuelles","Mesi pagati":"Mois payés","Messaggio privato da mandare solo a questo aderente.":"Message privé à envoyer seulement à ce membre.","Metodo":"Moyen",
+"Modifica":"Modifier","Modifica aderente":"Modifier le membre","Modifica aiuto":"Modifier l'aide","Moneta":"Monnaie","Motivo":"Motif","Nessun aderente con questo filtro.":"Aucun membre avec ce filtre.",
+"Nessun aderente. Aggiungi il primo con “+ Aderente”.":"Aucun membre. Ajoutez le premier avec « + Membre ».","Nessun aiuto registrato quest'anno":"Aucune aide enregistrée cette année",
+"Nessun aiuto registrato. Premi “+ Nuovo aiuto”.":"Aucune aide enregistrée. Appuyez sur « + Nouvelle aide ».","Nessun contante da versare. Tutto è già nei versamenti qui sotto.":"Pas d'espèces à déposer. Tout est déjà dans les dépôts ci-dessous.",
+"Nessun pagamento ancora oggi":"Aucun paiement aujourd'hui pour l'instant","Nessun pagamento registrato.":"Aucun paiement enregistré.","Nessun pagamento registrato oggi.":"Aucun paiement enregistré aujourd'hui.",
+"Nessun versamento ancora.":"Aucun dépôt pour l'instant.","Nessuna riunione segnata oggi":"Aucune réunion notée aujourd'hui","Nessuna riunione. Creane una con “+ Riunione”.":"Aucune réunion. Créez-en une avec « + Réunion ».",
+"Nessuno ancora.":"Personne pour l'instant.","Nessuno ha ancora pagato oggi.":"Personne n'a encore payé aujourd'hui.","Ci sono tutti.":"Tout le monde est là.","No":"Non",
+"Nome dell'associazione":"Nom de l'association","Nome e cognome":"Prénom et nom","Nome e cognome di chi riceve":"Prénom et nom de la personne qui reçoit","Nota (facoltativa)":"Note (facultative)",
+"Numero di telefono":"Numéro de téléphone","Numero:":"Numéro :","Nuova associazione":"Nouvelle association","Nuova password":"Nouveau mot de passe","Nuova riunione":"Nouvelle réunion",
+"Nuovi aderenti oggi":"Nouveaux membres aujourd'hui","Nuovi importi salvati":"Nouveaux montants enregistrés","Nuovo aderente":"Nouveau membre","Nuovo aiuto":"Nouvelle aide","Oggi":"Aujourd'hui","Domani":"Demain",
+"Ogni aderente riceve in privato solo la sua situazione: quote, iscrizione, presenze e sanzioni. Tocca “Invia” per ognuno: si apre WhatsApp con il messaggio pronto.":"Chaque membre reçoit en privé seulement sa situation : cotisations, inscription, présences et amendes. Touchez « Envoyer » pour chacun : WhatsApp s'ouvre avec le message prêt.",
+"Ogni quante riunioni saltate":"Toutes les combien de réunions manquées","Online":"En ligne","Oppure scrivi il numero della tessera":"Ou écrivez le numéro de la carte","Orario delle riunioni":"Heure des réunions",
+"Paga":"Payer","Paga online ↗":"Payer en ligne ↗","Paga sanzione":"Payer l'amende","Pagamenti":"Paiements","Pagamento":"Paiement","Pagamento diretto (es. spesa, affitto)":"Paiement direct (ex. courses, loyer)",
+"Password":"Mot de passe","Password dimenticata?":"Mot de passe oublié ?","PayPal.me, Satispay o altro: appare come pulsante “Paga online”.":"PayPal.me, Wave ou autre : apparaît comme bouton « Payer en ligne ».",
+"Per chi era già iscritto: i mesi prima di questa data non risultano arretrati.":"Pour ceux déjà inscrits : les mois avant cette date ne comptent pas comme arriérés.",
+"Per il prezzo scrivi a Seck Apps su WhatsApp.":"Pour le prix, écrivez à Seck Apps sur WhatsApp.",
+"Per ogni aiuto la persona firma una ricevuta con nome, cognome e importo: così l'associazione può giustificare ogni uscita.":"Pour chaque aide, la personne signe un reçu avec prénom, nom et montant : l'association peut ainsi justifier chaque sortie.",
+"Perdita del lavoro":"Perte d'emploi","Prefisso":"Indicatif","Premi « Ho pagato: controlla ».":"Appuyez sur « J'ai payé : vérifier ».","Presenti":"Présents","Presenze":"Présences","Presidente":"Président",
+"Prossima riunione":"Prochaine réunion","Prova gratuita":"Essai gratuit","Abbonamento attivo":"Abonnement actif","Abbonamento scaduto":"Abonnement expiré","Quota mensile":"Cotisation mensuelle","Quote di":"Cotisations de","Quote mensili":"Cotisations mensuelles",
+"Registra pagamento":"Enregistrer un paiement","Ricevuta":"Reçu","Riepilogo":"Résumé","Rimpatrio salma":"Rapatriement du corps","Ripeti la nuova password":"Répétez le nouveau mot de passe","Ripeti la password":"Répétez le mot de passe",
+"Riunioni":"Réunions","Riunione":"Réunion","Salute":"Santé","Salva":"Enregistrer","Salva / Condividi tessera":"Enregistrer / Partager la carte","Salva e fai firmare":"Enregistrer et faire signer","Salva foglio":"Enregistrer la feuille",
+"Salva i nuovi importi":"Enregistrer les nouveaux montants","Salva immagine":"Enregistrer l'image","Salva modifiche":"Enregistrer les modifications","Salva pagamento":"Enregistrer le paiement",
+"Salvala come immagine e mandala all'aderente su WhatsApp, oppure copia il testo.":"Enregistrez-le en image et envoyez-le au membre sur WhatsApp, ou copiez le texte.",
+"Salvataggio…":"Enregistrement…","Salvato online":"Enregistré en ligne","Non ancora salvato: controlla internet":"Pas encore enregistré : vérifiez internet","Sanzione":"Amende","Sanzione per assenze":"Amende pour absences","Sanzione per assenze alle riunioni":"Amende pour absences aux réunions","Sanzioni":"Amendes",
+"Scansiona tessera":"Scanner la carte","Scarica copia Excel":"Télécharger une copie Excel","Scrivi a Seck Apps su WhatsApp: ti mandiamo i dati per pagare.":"Écrivez à Seck Apps sur WhatsApp : on vous envoie les infos pour payer.",
+"Scrivi la password da qualche parte: servirà ogni volta che si apre l'app, anche su un altro telefono.":"Notez le mot de passe quelque part : il servira à chaque ouverture de l'app, même sur un autre téléphone.",
+"Se fate riunione, apri le presenze":"Si vous faites une réunion, ouvrez les présences",
+"Se l'abbonamento non è pagato, 3 giorni dopo la scadenza l'app si blocca: vedi i dati ma non puoi modificarli. Tutto torna appena paghi.":"Si l'abonnement n'est pas payé, 3 jours après la fin l'app se bloque : vous voyez les données mais ne pouvez plus les modifier. Tout revient dès le paiement.",
+"Segna chi è presente. Gli assenti compaiono a destra.":"Cochez qui est présent. Les absents apparaissent à droite.","Segna come versato":"Marquer comme déposé","Aggiorna data":"Mettre à jour la date","Situazione":"Situation",
+"Solo il tipo di documento, non serve il numero.":"Seulement le type de pièce, pas besoin du numéro.","Spazio per la firma":"Espace pour la signature","Storico importi":"Historique des montants","Sì, annulla":"Oui, annuler","Sì, elimina":"Oui, supprimer",
+"Telefono":"Téléphone","Tessera":"Carte","Tipo":"Type","Titolo":"Titre","Tutti":"Tous","Valido dal mese":"Valable à partir du mois","Vedi":"Voir","Versamenti":"Dépôts","Vicepresidente":"Vice-président",
+"WhatsApp Seck Apps":"WhatsApp Seck Apps","almeno 6 caratteri":"au moins 6 caractères","da portare in banca":"à porter à la banque","senza telefono":"sans téléphone","sanzioni pagate":"amendes payées",
+"es. \"secondo sabato\" = il secondo sabato di ogni mese.":"ex. « deuxième samedi » = le deuxième samedi de chaque mois.","es. 12":"ex. 12","es. Associazione Senegalesi di Milano":"ex. Association des Sénégalais de Milan",
+"es. Carta d'identità":"ex. Carte d'identité","es. Il tesoriere, Nome Cognome":"ex. Le trésorier, Prénom Nom","es. Milano":"ex. Milan","es. contributo per l'affitto di ottobre":"ex. aide pour le loyer d'octobre",
+"es. per la festa di Magal":"ex. pour la fête du Magal","es. riunione di ottobre":"ex. réunion d'octobre","nome da impostare in ⚙":"nom à régler dans ⚙","ogni":"tous les","poi registra qui il pagamento":"puis enregistrez ici le paiement",
+"riunioni saltate":"réunions manquées","primo":"premier","secondo":"deuxième","terzo":"troisième","quarto":"quatrième","ultimo":"dernier",
+"domenica":"dimanche","lunedì":"lundi","martedì":"mardi","mercoledì":"mercredi","giovedì":"jeudi","venerdì":"vendredi","sabato":"samedi",
+"bonifico/online":"virement/en ligne","· bonifico/online":"· virement/en ligne","· Iscrizione":"· Inscription","Sanzione ":"Amende","€ Euro":"€ Euro","F CFA":"F CFA","Firmato":"Signé","Nome e cognome ":"Prénom et nom",
+"Già presente oggi":"Déjà présent aujourd'hui","Segna presente oggi":"Marquer présent aujourd'hui","Elimina?":"Supprimer ?","Tocca di nuovo per eliminare":"Touchez encore pour supprimer",
+"Tieni premuta l'immagine per salvarla.":"Appuyez longuement sur l'image pour l'enregistrer.","Preparo la tessera…":"Je prépare la carte…","Preparo la ricevuta…":"Je prépare le reçu…","Preparo il foglio…":"Je prépare la feuille…",
+"Quota":"Cotisation","Mensile ":"Mensuelle","Assemblea mensile":"Assemblée mensuelle","Fai firmare":"Faire signer",
+"Leggo il codice…":"Je lis le code…","Non trovo il codice QR nella foto. Riprova più vicino, senza riflessi, oppure scrivi il numero qui sotto.":"Je ne trouve pas le code QR sur la photo. Réessayez de plus près, sans reflets, ou écrivez le numéro ci-dessous.",
+"Non riesco ad aprire questa foto. Prova a farne un'altra.":"Je n'arrive pas à ouvrir cette photo. Essayez d'en prendre une autre.",
+"Il lettore di QR non si è caricato: controlla la connessione, oppure scrivi il numero qui sotto.":"Le lecteur de QR ne s'est pas chargé : vérifiez la connexion, ou écrivez le numéro ci-dessous.",
+"Cerca ":"Rechercher",
+/* toasts */
+"Abbonamento aggiornato":"Abonnement mis à jour","Abbonamento scaduto: puoi guardare, non modificare":"Abonnement expiré : vous pouvez regarder, pas modifier","Aderente aggiornato":"Membre mis à jour","Aderente aggiunto":"Membre ajouté",
+"Aderente eliminato":"Membre supprimé","Aggiungi prima un aderente":"Ajoutez d'abord un membre","Aiuto aggiornato":"Aide mise à jour","Aiuto eliminato":"Aide supprimée","Aiuto registrato":"Aide enregistrée",
+"Benvenuti! 7 giorni gratis":"Bienvenue ! 7 jours gratuits","Cassa chiusa":"Caisse clôturée","Chiusura annullata":"Clôture annulée","Contributo registrato":"Contribution enregistrée","Copia non riuscita":"Copie impossible",
+"Copia salvata":"Copie enregistrée","Download non disponibile in questa vista":"Téléchargement indisponible ici","Firma salvata":"Signature enregistrée","IBAN copiato":"IBAN copié","Impostazioni salvate":"Réglages enregistrés",
+"Iscrizione registrata":"Inscription enregistrée","Manca la firma":"Il manque la signature","Messaggio copiato":"Message copié","Niente da chiudere: nessun pagamento in contanti":"Rien à clôturer : aucun paiement en espèces",
+"Non ancora salvato online: collegati a internet prima di uscire":"Pas encore enregistré en ligne : connectez-vous à internet avant de sortir","Non riesco a creare il file, riprova":"Impossible de créer le fichier, réessayez",
+"Pagamento corretto":"Paiement corrigé","Pagamento eliminato":"Paiement supprimé","Pagamento non ancora registrato":"Paiement pas encore enregistré","Password cambiata":"Mot de passe changé","Preparo il file Excel…":"Je prépare le fichier Excel…",
+"Presenza segnata":"Présence notée","Quota mensile registrata":"Cotisation mensuelle enregistrée","Riunione creata":"Réunion créée","Riunione eliminata":"Réunion supprimée","Salvataggio non disponibile":"Enregistrement indisponible",
+"Salvataggio non riuscito, riprova":"Enregistrement échoué, réessayez","Sanzione registrata":"Amende enregistrée","Scegli almeno un mese":"Choisissez au moins un mois","Segnato come versato":"Marqué comme déposé","Testo copiato":"Texte copié",
+"Ultimo cambio annullato":"Dernier changement annulé","Account creato ma non ancora attivo. Scrivi a Seck Apps.":"Compte créé mais pas encore actif. Écrivez à Seck Apps.","La password deve avere almeno 6 caratteri.":"Le mot de passe doit avoir au moins 6 caractères.",
+"Le due password non sono uguali.":"Les deux mots de passe ne sont pas pareils.","Niente internet: riprova.":"Pas d'internet : réessayez.","Non cambiata: controlla internet.":"Pas changé : vérifiez internet.","Scrivi il nome dell'associazione.":"Écrivez le nom de l'association.",
+"Numero o password sbagliati.":"Numéro ou mot de passe faux.","Questo numero ha già un account: premi « Entra ».":"Ce numéro a déjà un compte : appuyez sur « Entrer ».","Numero non valido: 9 cifre, es. 77 123 45 67":"Numéro invalide : 9 chiffres, ex. 77 123 45 67",
+"Numero non valido: es. 333 123 4567":"Numéro invalide : ex. 333 123 4567","Non riesco a caricare i dati":"Impossible de charger les données","Controlla internet e riprova.":"Vérifiez internet et réessayez.","Riprova":"Réessayer",
+"Niente connessione":"Pas de connexion","Controlla internet e riapri l'app.":"Vérifiez internet et rouvrez l'app.","Aiuto: WhatsApp Seck Apps +221 77 879 00 06":"Aide : WhatsApp Seck Apps +221 77 879 00 06",
+"Abbonamento scaduto: puoi solo guardare i dati":"Abonnement expiré : vous pouvez seulement regarder les données","Prova gratuita: ultimo giorno":"Essai gratuit : dernier jour",
+/* canvas */
+"ASSOCIAZIONE":"ASSOCIATION","CAUSALE":"MOTIF","CHI PORTA I SOLDI":"QUI PORTE L'ARGENT","Chiusura cassa e versamento in banca":"Clôture de caisse et dépôt à la banque","DA VERSARE IN BANCA":"À DÉPOSER À LA BANQUE","DATA":"DATE",
+"Documento interno dell'associazione per la giustificazione delle uscite. I dati sono usati solo per la gestione dell'associazione.":"Document interne de l'association pour justifier les sorties. Les données servent seulement à la gestion de l'association.",
+"FIRMA DI CHI RICEVE":"SIGNATURE DU BÉNÉFICIAIRE","IMPORTO":"MONTANT","IMPORTO RICEVUTO":"MONTANT REÇU","ISCRITTO DAL":"INSCRIT DEPUIS","Jërëjëf · Mostra questa tessera alle riunioni":"Jërëjëf · Montrez cette carte aux réunions",
+"Jërëjëf! Grazie!":"Jërëjëf ! Merci !","METODO":"MOYEN","MODALITÀ":"MODALITÉ","MOTIVO":"MOTIF","NOTA":"NOTE","PER L'ASSOCIAZIONE":"POUR L'ASSOCIATION","PRESIDENTE":"PRÉSIDENT","RICEVUTO DA":"REÇU DE",
+"Ricevuta di aiuto economico":"Reçu d'aide financière","TESSERA ASSOCIATIVA":"CARTE DE MEMBRE","TESSERA N.":"CARTE N°","Totale":"Total","VICEPRESIDENTE":"VICE-PRÉSIDENT",
+"Versato in banca il ____ / ____ / ________":"Déposé à la banque le ____ / ____ / ________","Il tesoriere":"Le trésorier","Grazie! Jërëjëf!":"Merci ! Jërëjëf !",
+/* messaggi */
+"Primo mese gratis ✅":"Premier mois gratuit ✅","Nessun mese arretrato ✅":"Aucun mois en retard ✅","📝 Iscrizione: pagata ✅":"📝 Inscription : payée ✅","Nessuna riunione ancora quest'anno":"Aucune réunion cette année pour l'instant",
+"*Sei in regola* ✅ Grazie!":"*Vous êtes à jour* ✅ Merci !","Per qualsiasi dubbio scrivici. Jërëjëf!":"Pour toute question, écrivez-nous. Jërëjëf !","Ti aspettiamo alla prossima riunione. Jërëjëf!":"On vous attend à la prochaine réunion. Jërëjëf !",
+"Vi aspettiamo tutti. Chi è indietro con la quota mensile può pagare alla riunione.":"On vous attend tous. Ceux qui sont en retard sur la cotisation peuvent payer à la réunion.","Jërëjëf!":"Jërëjëf !","Grazie a tutti. Jërëjëf!":"Merci à tous. Jërëjëf !",
+"Ciao Seck Apps, ho dimenticato la password di Teranga Association.":"Bonjour Seck Apps, j'ai oublié le mot de passe de Teranga Association.","Ciao Seck Apps, voglio pagare l'abbonamento a Teranga Association.":"Bonjour Seck Apps, je veux payer l'abonnement à Teranga Association."
+};
+const FR_MON={"gennaio":"janvier","febbraio":"février","marzo":"mars","aprile":"avril","maggio":"mai","giugno":"juin","luglio":"juillet","agosto":"août","settembre":"septembre","ottobre":"octobre","novembre":"novembre","dicembre":"décembre"};
+const FR_DAY={"Domenica":"Dimanche","Lunedì":"Lundi","Martedì":"Mardi","Mercoledì":"Mercredi","Giovedì":"Jeudi","Venerdì":"Vendredi","Sabato":"Samedi"};
+const FR_ORD={"primo":"premier","secondo":"deuxième","terzo":"troisième","quarto":"quatrième","ultimo":"dernier"};
+const tokFR = s => s.replace(/\biscrizione\b/g,"inscription").replace(/\b1 mese\b/g,"1 mois").replace(/\bmes[ei]\b/g,"mois").replace(/\b1 sanzione\b/g,"1 amende").replace(/\bsanzioni\b/g,"amendes").replace(/\bsanzione\b/g,"amende").replace(/\bassenze\b/g,"absences").replace(/\bassenza\b/g,"absence")
+  .replace(new RegExp("\\b("+Object.keys(FR_MON).join("|")+")\\b","g"),m=>FR_MON[m]);
+const T = s => trLine(s);
+const FR_RULES = [
+[/^Ogni (primo|secondo|terzo|quarto|ultimo) (\S+) del mese$/, (m,o,d)=>"Chaque "+FR_ORD[o]+" "+(FR_DICT[d]||d)+" du mois"],
+[/^(Domenica|Lunedì|Martedì|Mercoledì|Giovedì|Venerdì|Sabato) (\d+)$/, (m,d,n)=>FR_DAY[d]+" "+n],
+[/^ore (.+)$/, "à $1"],[/^Tra (\d+) giorni$/, "Dans $1 jours"],
+[/^(\d+) presenti$/, "$1 présents"],[/^(\d+) assenti$/, "$1 absents"],[/^1 assenza$/, "1 absence"],[/^(\d+) assenze$/, "$1 absences"],
+[/^1 mese non pagati$/, "1 mois non payé"],[/^(\d+) mesi non pagati$/, "$1 mois non payés"],[/^sanzione da pagare (.+)$/, "amende à payer $1"],
+[/^1 pagamento$/, "1 paiement"],[/^(\d+) pagamenti$/, "$1 paiements"],[/^1 aiuto$/, "1 aide"],[/^(\d+) aiuti$/, "$1 aides"],[/^(\d+) persone$/, "$1 personnes"],
+[/^iscritto (.+)$/, "inscrit le $1"],
+[/^Deve ([^:·]+): (.+)$/, (m,a,b)=>"Doit "+a+" : "+tokFR(b)],
+[/^Deve (.+)$/, "Doit $1"],
+[/^((?:iscrizione|\d+ mes[ei]|\d* ?sanzion[ei])(?: \+ (?:iscrizione|\d+ mes[ei]|\d* ?sanzion[ei]))*)$/, m=>tokFR(m)],
+[/^raccolti su (.+)$/, "collectés sur $1"],[/^(\d+) di (\d+) hanno pagato questo mese$/, "$1 sur $2 ont payé ce mois"],
+[/^(.+) al mese$/, "$1 par mois"],[/^iscrizione (.+)$/, "inscription $1"],[/^sanzione (.+) ogni (\d+)$/, "amende $1 tous les $2"],
+[/^dal (.+): (.+) al mese$/, (m,a,b)=>"à partir de "+tokFR(a)+" : "+b+" par mois"],[/^Dal (.+)$/, (m,a)=>"À partir de "+tokFR(a)],
+[/^Incassati in contanti (.+)$/, "Encaissé en espèces $1"],[/^aiuti dati in contanti (.+)$/, "aides données en espèces $1"],
+[/^Entrate in contanti \((\d+)\)$/, "Entrées en espèces ($1)"],[/^Aiuti dati in contanti \((\d+)\)$/, "Aides données en espèces ($1)"],
+[/^Firme (.+)$/, "Signatures $1"],[/^Fino al (.+)$/, "Jusqu'au $1"],[/^versato il (.+)$/, "déposé le $1"],
+[/^Modifica pagamento (.+)$/, "Modifier le paiement $1"],[/^Ricevuta (.+)$/, "Reçu $1"],[/^Versamento (\S+) di$/, "Dépôt $1 de"],[/^Versamento (.+)$/, "Dépôt $1"],
+[/^Situazione di (.+)$/, "Situation de $1"],[/^Tessera di (.+)$/, "Carte de $1"],[/^Firma di (.+)$/, "Signature de $1"],[/^Firma: (.+)$/, (m,a)=>"Signature : "+(FR_DICT[a]||a)],
+[/^Eliminare (.*)\? I suoi pagamenti restano nello storico\.$/, "Supprimer $1 ? Ses paiements restent dans l'historique."],
+[/^Annullare il foglio (.+)\? I pagamenti torneranno “in cassa”\.$/, "Annuler la feuille $1 ? Les paiements reviennent « en caisse »."],
+[/^Prova gratuita: ancora (\d+) giorni$/, "Essai gratuit : encore $1 jours"],[/^ancora (\d+) giorni$/, "encore $1 jours"],
+[/^Abbonamento: scade tra (\d+) giorni$/, "Abonnement : finit dans $1 jours"],[/^Abbonamento scaduto: l'app si blocca tra (\d+) giorni$/, "Abonnement expiré : l'app se bloque dans $1 jours"],
+[/^Scaduto: si blocca tra (\d+) giorni$/, "Expiré : bloqué dans $1 jours"],[/^Costo: (.+) al mese\.$/, "Prix : $1 par mois."],[/^Costo:$/, "Prix :"],[/^al mese\.$/, "par mois."],
+[/^Invia l'importo con$/, "Envoyez le montant par"],[/^o$/, "ou"],[/^al$/, "au"],
+[/^Oggi, (.+)$/, "Aujourd'hui, $1"],[/^Oggi · (.+)$/, "Aujourd'hui · $1"],
+[/^Hanno saltato (\d+) o più riunioni: (.+) di sanzione ogni (\d+) assenze\.$/, "Ils ont manqué $1 réunions ou plus : $2 d'amende toutes les $3 absences."],
+[/^(.+) ·arretrato$/, (m,a)=>tokFR(a)+" · en retard"],
+[/^Quota mensile (.+)$/, (m,a)=>"Cotisation mensuelle "+tokFR(a)],[/^Quota associativa (.*)$/, "Cotisation annuelle $1"],[/^Sanzione per assenze alle riunioni \(x(\d+)\)$/, "Amende pour absences aux réunions (x$1)"],
+[/^Riunione di (\S+)$/, (m,a)=>"Réunion de "+tokFR(a)],
+[/^Niente da chiudere: i contanti sono già nel foglio (.+)$/, "Rien à clôturer : les espèces sont déjà dans la feuille $1"],
+[/^Il QR è stato letto ma non corrisponde a nessun aderente: (.*)$/, "Le QR a été lu mais ne correspond à aucun membre : $1"],[/^Nessun aderente con la tessera N\. (.+)\.$/, "Aucun membre avec la carte N° $1."],
+[/^Cambio già deciso dal (.+)$/, (m,a)=>"Changement déjà décidé à partir de "+tokFR(a)],
+[/^Quota mensile (.+) · Iscrizione (.+)$/, "Cotisation mensuelle $1 · Inscription $2"],
+/* canvas */
+[/^N\. (.+)$/, "N° $1"],[/^(.+) – (Mensile|Iscrizione|Contributo|Sanzione|Quota)$/, (m,a,b)=>a+" – "+(FR_DICT[b]||b)],
+[/^Firmato sul telefono il (.+)$/, "Signé sur le téléphone le $1"],[/^Attenzione: dai conti risultavano (.+), differenza (.+)\.$/, "Attention : les comptes donnaient $1, différence $2."],
+[/^Nota: (.*)$/, "Note : $1"],[/^Versato in banca il (.+)$/, "Déposé à la banque le $1"],
+[/^I sottoscritti confermano il conteggio\. (.+) si impegna a versare la somma sul conto dell'associazione(.*)\.$/, "Les soussignés confirment le comptage. $1 s'engage à déposer la somme sur le compte de l'association$2."],
+[/^Io sottoscritto\/a (.+?)(?:, identificato\/a con (.+?),)? dichiaro di aver ricevuto (?:dall'|da )(.+) la somma di (.+) \((.+)\) come aiuto di solidarietà\.$/, (m,n,d,a,s,w)=>"Je soussigné(e) "+n+(d?", identifié(e) par "+d+",":"")+" déclare avoir reçu de "+a+" la somme de "+s+" ("+w+") à titre d'aide de solidarité."],
+/* messaggi */
+[/^Ciao (.+), ecco la tua situazione con (.+)$/, "Bonjour $1, voici votre situation avec $2"],[/^Tessera N\. (\S+) · aggiornata al (.+)$/, "Carte N° $1 · mise à jour le $2"],
+[/^💰 \*Quote mensili (\d+)\*$/, "💰 *Cotisations mensuelles $1*"],[/^Pagate: nessuna$/, "Payées : aucune"],[/^Pagate: (.+)$/, (m,a)=>"Payées : "+tokFR(a)],[/^Da pagare: (.+)$/, (m,a)=>"À payer : "+tokFR(a)],
+[/^📝 Iscrizione: da pagare (.+)$/, "📝 Inscription : à payer $1"],[/^📅 \*Riunioni (\d+)\*$/, "📅 *Réunions $1*"],[/^Presente a (\d+) su (\d+)$/, "Présent à $1 sur $2"],
+[/^Assenze totali: (\d+) \(sanzione di (.+) ogni (\d+)\)$/, "Absences au total : $1 (amende de $2 tous les $3)"],[/^⚠️ Sanzioni da pagare: (.+)$/, "⚠️ Amendes à payer : $1"],
+[/^🧾 Hai versato nel (\d+): (.+) \((\d+) pagament[oi]\)$/, (m,y,a,n)=>"🧾 Vous avez versé en "+y+" : "+a+" ("+n+(n==="1"?" paiement)":" paiements)")],
+[/^\*Totale da pagare: (.+)\*$/, "*Total à payer : $1*"],[/^Paga online: (.+)$/, "Payer en ligne : $1"],
+[/^Ciao (.+), da (.+)\.$/, "Bonjour $1, de la part de $2."],[/^Risulti assente a (\d+) riunioni \((.+)\)\.$/, "Vous avez été absent à $1 réunions ($2)."],
+[/^Come deciso dall'associazione, ogni (\d+) riunioni saltate c'è una sanzione di ([^.]+?)\.(?: Hai da pagare (.+?) di sanzioni\.)?(?: In totale devi (.+?)\.)?$/, (m,n,a,b,c)=>"Comme décidé par l'association, toutes les "+n+" réunions manquées il y a une amende de "+a+"."+(b?" Vous avez "+b+" d'amendes à payer.":"")+(c?" Au total vous devez "+c+".":"")],
+[/^Riunione mensile: (.+)$/, "Réunion mensuelle : $1"],[/^🕓 Ore (.+)$/, "🕓 À $1"],
+[/^Come deciso dall'associazione, dal mese di (.+) gli importi saranno:$/, (m,a)=>"Comme décidé par l'association, à partir du mois de "+tokFR(a)+" les montants seront :"],
+[/^• Quota mensile: (.+)$/, "• Cotisation mensuelle : $1"],[/^• Iscrizione nuovi aderenti: (.+)$/, "• Inscription nouveaux membres : $1"],[/^• Sanzione: (.+) ogni (\d+) riunioni saltate$/, "• Amende : $1 toutes les $2 réunions manquées"],
+[/^Ciao (.+), ecco la tua tessera (?:dell'|di )(.+) \(N\. (\S+)\)\. Ti mando la foto della tessera\.$/, "Bonjour $1, voici votre carte de $2 (N° $3). Je vous envoie la photo de la carte."],
+[/^Associazione: (.+)$/, "Association : $1"],[/^Codice: (.+)$/, "Code : $1"],[/^Numero: (.+)$/, "Numéro : $1"],
+[/^RICEVUTA N\. (.+)$/, "REÇU N° $1"],[/^Ricevuto da: (.+)$/, "Reçu de : $1"],[/^Importo: (.+)$/, "Montant : $1"],[/^Causale: (.+)$/, (m,a)=>"Motif : "+T(a)],[/^Metodo: (.+)$/, (m,a)=>"Moyen : "+T(a)],[/^Data: (.+)$/, "Date : $1"],
+/* etichette con importi */
+[/^Importo \((.+)\)$/, "Montant ($1)"],[/^Importo dato \((.+)\)$/, "Montant donné ($1)"],[/^Quota mensile \((.+)\)$/, "Cotisation mensuelle ($1)"],[/^Iscrizione nuovi aderenti \((.+)\)$/, "Inscription nouveaux membres ($1)"],
+[/^Importo da versare in banca \((.+)\)$/, "Montant à déposer à la banque ($1)"],[/^Importo ricevuto \((.+)\)$/, "Montant reçu ($1)"],
+[/^es\. Sala civica, via …, (.*)$/, "ex. Salle municipale, rue …, $1"],
+[/^Ciao (.+), dall'(.+)\.$/, "Bonjour $1, de la part de l'$2."],
+[/^(.+) riunioni saltate$/, "$1 réunions manquées"]
+];
+const ORIG = new WeakMap();
+function trLine(t){
+  if(LANG!=="fr" || !t) return t;
+  const lead=t.match(/^\s*/)[0], trail=t.match(/\s*$/)[0], core=t.trim();
+  if(!core) return t;
+  const one = c => { if(Object.prototype.hasOwnProperty.call(FR_DICT, c)) return FR_DICT[c];
+    for(const [re,rep] of FR_RULES){ if(re.test(c)) return c.replace(re,rep); } return null; };
+  let out=null;
+  if(Object.prototype.hasOwnProperty.call(FR_DICT, core)) out=FR_DICT[core];
+  if(out===null) for(const [re,rep] of FR_RULES){ if(re.source.includes("·") && re.test(core)){ out=core.replace(re,rep); break; } }
+  if(out===null && core.includes(" · ")){ const parts=core.split(" · "); const tp=parts.map(x=>{ const y=x.trim()?one(x.trim()):null; return y===null?x:y; }); if(tp.some((x,i)=>x!==parts[i])) out=tp.join(" · "); }
+  if(out===null) out=one(core);
+  return out===null ? t : lead+out+trail;
+}
+function trText(t){ if(LANG!=="fr" || t==null) return t; return String(t).split("\n").map(trLine).join("\n"); }
+function tr(t){ return trLine(t); }
+const ATTRS=["placeholder","aria-label","title"];
+function trNode(n){
+  if(n.nodeType===3){
+    const p=n.parentNode; if(!p || /^(SCRIPT|STYLE)$/.test(p.nodeName)) return;
+    const v=n.nodeValue; if(!v || !/[A-Za-zÀ-ÿ]/.test(v)) return;
+    const o=ORIG.get(n);
+    if(o && o.fr===v) return;
+    const x=v.includes("\n")?trText(v):trLine(v);
+    if(x!==v){ ORIG.set(n,{it:v,fr:x}); n.nodeValue=x; }
+  } else if(n.nodeType===1){
+    for(const a of ATTRS){ if(n.hasAttribute && n.hasAttribute(a)){ const v=n.getAttribute(a), k="data-it-"+a;
+      if(n.getAttribute(k+"-fr")===v) continue; const x=trLine(v); if(x!==v){ n.setAttribute(k,v); n.setAttribute(k+"-fr",x); n.setAttribute(a,x); } } }
+    if(n.nodeName==="SCRIPT"||n.nodeName==="STYLE") return;
+    for(const c of n.childNodes) trNode(c);
+  }
+}
+let OBS=null;
+function translateNow(){ if(LANG!=="fr") return; trNode(document.body); document.title=trLine(document.title); if(OBS) OBS.takeRecords(); }
+function restoreIt(root){
+  const w=document.createTreeWalker(root, NodeFilter.SHOW_TEXT); let n;
+  while((n=w.nextNode())){ const o=ORIG.get(n); if(o && n.nodeValue===o.fr) n.nodeValue=o.it; ORIG.delete(n); }
+  root.querySelectorAll("[data-it-placeholder],[data-it-aria-label],[data-it-title]").forEach(el=>{
+    for(const a of ATTRS){ const k="data-it-"+a; if(el.hasAttribute(k)){ if(el.getAttribute(a)===el.getAttribute(k+"-fr")) el.setAttribute(a, el.getAttribute(k)); el.removeAttribute(k); el.removeAttribute(k+"-fr"); } } });
+}
+function applyLangStatic(){
+  document.documentElement.lang = LANG;
+  const b=$("#btnLang"); if(b){ b.textContent = LANG==="fr" ? "IT" : "FR"; }
+  if(LANG==="fr"){
+    if(!OBS){ OBS=new MutationObserver(recs=>{ if(LANG!=="fr") return; for(const r of recs){ if(r.type==="characterData") trNode(r.target); else if(r.type==="attributes") trNode(r.target); else r.addedNodes.forEach(trNode); } OBS.takeRecords(); }); }
+    OBS.observe(document.body,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:ATTRS});
+    translateNow();
+  } else {
+    if(OBS) OBS.disconnect();
+    restoreIt(document.body);
+  }
+}
+function setLang(l){
+  LANG = l==="fr" ? "fr" : "it"; try{ localStorage.setItem(LANGKEY, LANG); }catch(e){}
+  applyLangStatic();
+  if(unlocked) renderAll(); else if(SB && !USER) authScreen();
+  const b=$("#btnLang"); if(b) b.textContent = LANG==="fr" ? "IT" : "FR";
+}
+/* testi disegnati (tessere, ricevute, fogli di cassa) */
+{ const ft=CanvasRenderingContext2D.prototype.fillText;
+  CanvasRenderingContext2D.prototype.fillText=function(t,...a){ return ft.call(this, LANG==="fr"?trLine(String(t)):t, ...a); }; }
+
+/* ---------- Avvio ---------- */
+boot();
+})();
+</script>
+
+</body></html>
