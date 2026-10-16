@@ -824,12 +824,17 @@ function settingsSheet(){
       <div class="field"><label for="sPres">Presidente</label><input id="sPres" value="${esc(c.president||"")}" placeholder="Nome e cognome"></div>
       <div class="field"><label for="sVice">Vicepresidente</label><input id="sVice" value="${esc(c.vice||"")}" placeholder="Nome e cognome"></div>
       <div class="field"><label for="sColl">Chi raccoglie i soldi (cassiere)</label><input id="sColl" value="${esc(c.collector||"")}" placeholder="Nome e cognome"></div>
+      <div class="field"><label>Importa dati</label><label class="btn ghost" style="justify-self:start;position:relative;overflow:hidden;cursor:pointer">Scegli il file dei dati<input type="file" id="sImport" accept=".json,application/json" style="position:absolute;inset:0;opacity:0;cursor:pointer" aria-label="File dei dati"></label><span class="note">Per spostare qui i dati da un'altra app (il file che ti manda Seck Apps). Sostituisce i dati attuali.</span></div>
       <div class="field"><label for="sCf">Codice fiscale dell'associazione (facoltativo)</label><input id="sCf" value="${esc(c.cf||"")}"></div>
       <div class="actions"><button type="button" class="btn ghost" data-close>Annulla</button><button class="btn primary" type="submit">Salva</button></div>
     </form>`, ()=>{
       $("#sRates").addEventListener("click", ratesSheet);
       $("#sPw").addEventListener("click", pwSheet);
       $("#sAbo").addEventListener("click", aboSheet);
+      $("#sImport").addEventListener("change", async e=>{ const f=e.target.files&&e.target.files[0]; e.target.value=""; if(!f) return;
+        let b=null; try{ b=JSON.parse(await f.text()); }catch(err){}
+        if(!b || b.type!=="teranga-association-import" || !Array.isArray(b.members)){ toast("Questo file non è un file di dati di Teranga Association"); return; }
+        importSheet(b); });
       $("#sForm").addEventListener("submit", e=>{ e.preventDefault();
         let link = $("#sLink").value.trim(); if(link && !/^https:\/\//i.test(link)) link = "https://" + link.replace(/^http:\/\//i,"");
         saveConfig({ assocName: $("#sName").value.trim(), city: $("#sCity").value.trim(), startMonth: $("#sStart").value||"", link, iban: $("#sIban").value.trim().toUpperCase(), treasurer: $("#sTreas").value.trim(), cf: $("#sCf").value.trim().toUpperCase(), meetTime: $("#sTime").value||"16:00", meetWeek: +$("#sWeek").value, meetDay: +$("#sDay").value, currency: $("#sCur").value, meetPlace: $("#sPlace").value.trim(), president: $("#sPres").value.trim(), vice: $("#sVice").value.trim(), collector: $("#sColl").value.trim() });
@@ -1109,6 +1114,21 @@ async function doLogout(){
   if(isDirty()){ await push(); if(isDirty()){ toast("Non ancora salvato online: collegati a internet prima di uscire"); return; } }
   try{ localStorage.removeItem(LKEY); }catch(e){} setDirty(false);
   await lockNow(); S.config=DEF_CFG(); savedAt=0;
+}
+function importSheet(b){
+  const n=k=>Array.isArray(b[k])?b[k].length:0, name=(b.config&&b.config.assocName)||"";
+  openSheet(`<h2>Importa dati</h2>
+    <div class="paybox">${name?`<b>${esc(name)}</b><br>`:""}${n("members")} aderenti · ${n("payments")} pagamenti · ${n("meetings")} riunioni · ${n("aids")} aiuti · ${n("deposits")} versamenti</div>
+    <p class="note" style="margin:0 0 12px">I dati che ci sono adesso in questa app vengono sostituiti da quelli del file. Il numero, la password e l'abbonamento restano uguali.</p>
+    <div class="actions"><button type="button" class="btn ghost" data-close>Annulla</button><button type="button" class="btn primary" id="impGo">Sì, importa</button></div>`, ()=>{
+      $("#impGo").addEventListener("click", ()=>{
+        if(!canEdit()) return;
+        const code=S.config.code;
+        applyBlob({...b, config:{...(b.config||{}), code}});
+        markDirty(); closeSheet(); renderAll();
+        toast(`Dati importati: ${S.members.length} aderenti, ${S.payments.length} pagamenti`);
+      });
+  });
 }
 function pwSheet(){
   openSheet(`<h2>Cambia password</h2>
@@ -2069,7 +2089,10 @@ const FR_DICT = {
 "Il lettore di QR non si è caricato: controlla la connessione, oppure scrivi il numero qui sotto.":"Le lecteur de QR ne s'est pas chargé : vérifiez la connexion, ou écrivez le numéro ci-dessous.",
 "Cerca ":"Rechercher",
 /* toasts */
-"Abbonamento aggiornato":"Abonnement mis à jour","Abbonamento scaduto: puoi guardare, non modificare":"Abonnement expiré : vous pouvez regarder, pas modifier","Aderente aggiornato":"Membre mis à jour","Aderente aggiunto":"Membre ajouté",
+"Abbonamento aggiornato":"Abonnement mis à jour","Importa dati":"Importer des données","Scegli il file dei dati":"Choisir le fichier des données","File dei dati":"Fichier des données","Sì, importa":"Oui, importer",
+"Per spostare qui i dati da un'altra app (il file che ti manda Seck Apps). Sostituisce i dati attuali.":"Pour déplacer ici les données d'une autre app (le fichier envoyé par Seck Apps). Remplace les données actuelles.",
+"I dati che ci sono adesso in questa app vengono sostituiti da quelli del file. Il numero, la password e l'abbonamento restano uguali.":"Les données actuelles de cette app sont remplacées par celles du fichier. Le numéro, le mot de passe et l'abonnement restent les mêmes.",
+"Questo file non è un file di dati di Teranga Association":"Ce fichier n'est pas un fichier de données Teranga Association","Abbonamento scaduto: puoi guardare, non modificare":"Abonnement expiré : vous pouvez regarder, pas modifier","Aderente aggiornato":"Membre mis à jour","Aderente aggiunto":"Membre ajouté",
 "Aderente eliminato":"Membre supprimé","Aggiungi prima un aderente":"Ajoutez d'abord un membre","Aiuto aggiornato":"Aide mise à jour","Aiuto eliminato":"Aide supprimée","Aiuto registrato":"Aide enregistrée",
 "Benvenuti! 7 giorni gratis":"Bienvenue ! 7 jours gratuits","Cassa chiusa":"Caisse clôturée","Chiusura annullata":"Clôture annulée","Contributo registrato":"Contribution enregistrée","Copia non riuscita":"Copie impossible",
 "Copia salvata":"Copie enregistrée","Download non disponibile in questa vista":"Téléchargement indisponible ici","Firma salvata":"Signature enregistrée","IBAN copiato":"IBAN copié","Impostazioni salvate":"Réglages enregistrés",
@@ -2119,7 +2142,7 @@ const FR_RULES = [
 [/^dal (.+): (.+) al mese$/, (m,a,b)=>"à partir de "+tokFR(a)+" : "+b+" par mois"],[/^Dal (.+)$/, (m,a)=>"À partir de "+tokFR(a)],
 [/^Incassati in contanti (.+)$/, "Encaissé en espèces $1"],[/^aiuti dati in contanti (.+)$/, "aides données en espèces $1"],
 [/^Entrate in contanti \((\d+)\)$/, "Entrées en espèces ($1)"],[/^Aiuti dati in contanti \((\d+)\)$/, "Aides données en espèces ($1)"],
-[/^Firme (.+)$/, "Signatures $1"],[/^Fino al (.+)$/, "Jusqu'au $1"],[/^versato il (.+)$/, "déposé le $1"],
+[/^Firme (.+)$/, "Signatures $1"],[/^Dati importati: (\d+) aderenti, (\d+) pagamenti$/, "Données importées : $1 membres, $2 paiements"],[/^(\d+) aderenti$/, "$1 membres"],[/^(\d+) riunioni$/, "$1 réunions"],[/^(\d+) versamenti$/, "$1 dépôts"],[/^Fino al (.+)$/, "Jusqu'au $1"],[/^versato il (.+)$/, "déposé le $1"],
 [/^Modifica pagamento (.+)$/, "Modifier le paiement $1"],[/^Ricevuta (.+)$/, "Reçu $1"],[/^Versamento (\S+) di$/, "Dépôt $1 de"],[/^Versamento (.+)$/, "Dépôt $1"],
 [/^Situazione di (.+)$/, "Situation de $1"],[/^Tessera di (.+)$/, "Carte de $1"],[/^Firma di (.+)$/, "Signature de $1"],[/^Firma: (.+)$/, (m,a)=>"Signature : "+(FR_DICT[a]||a)],
 [/^Eliminare (.*)\? I suoi pagamenti restano nello storico\.$/, "Supprimer $1 ? Ses paiements restent dans l'historique."],
