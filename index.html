@@ -198,6 +198,12 @@ body.locked .wrap,body.locked .fab,body.locked #sheetRoot{display:none!important
 .lockicon{width:56px;height:56px;border-radius:16px;background:var(--green-soft);color:var(--green);display:grid;place-items:center;margin:0 auto}
 .lockicon svg{width:28px;height:28px}
 .lockerr{color:var(--red);font-size:13.5px;min-height:20px;margin:2px 0 8px}
+.applogo{width:72px;height:72px;border-radius:18px;display:block;margin:0 auto;box-shadow:0 6px 18px rgba(11,110,79,.25)}
+@media (max-width:600px){
+  .lock{padding:0;place-items:stretch;background:var(--surface)}
+  .lockbox{max-width:none;width:100%;min-height:100%;border:0;border-radius:0;box-shadow:none;
+    padding:calc(36px + env(safe-area-inset-top,0px)) 20px calc(28px + env(safe-area-inset-bottom,0px))}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 
@@ -890,7 +896,8 @@ const COLS=["members","payments","meetings","aids","deposits"];
 const CC={ "39":{label:"🇮🇹 +39", min:9, max:11, ph:"333 123 4567"}, "221":{label:"🇸🇳 +221", min:9, max:9, ph:"77 123 45 67"} };
 let SB=null, USER=null, LIC=null, savedAt=0, pushing=false, pushT=null, retryT=null, syncSt='ok', AUTHM='login', hiddenAt=0, unlocked=false;
 let LANG=(()=>{ try{ return localStorage.getItem(LANGKEY)==="fr"?"fr":"it"; }catch(e){ return "it"; } })();
-const LOCK_ICON = `<div class="lockicon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>`;
+const LOCK_ICON = `<img src="icon.png" alt="Teranga Association" class="applogo" onerror="this.outerHTML='<div class=lockicon>🔒</div>'">`;
+const LOCK_ICON_OLD = `<div class="lockicon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>`;
 
 /* scaricare / condividere un file dal telefono */
 const DL={ async save({filename,data}){
