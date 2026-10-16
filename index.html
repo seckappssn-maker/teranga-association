@@ -198,6 +198,32 @@ body.locked .wrap,body.locked .fab,body.locked #sheetRoot{display:none!important
 .lockicon{width:56px;height:56px;border-radius:16px;background:var(--green-soft);color:var(--green);display:grid;place-items:center;margin:0 auto}
 .lockicon svg{width:28px;height:28px}
 .lockerr{color:var(--red);font-size:13.5px;min-height:20px;margin:2px 0 8px}
+/* ---- adatta a tutti gli schermi ---- */
+.head{min-width:0}
+.brand{min-width:0;flex:1 1 auto}
+.brand>div{min-width:0}
+h1{overflow-wrap:anywhere}
+.list{grid-template-columns:minmax(0,1fr)}
+.who .pill{white-space:normal;display:inline-block;border-radius:10px}
+.seg{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (min-width:430px){.seg3{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.seg button{padding:10px 4px;min-width:0;overflow-wrap:anywhere}
+.field>*,.sheet *{min-width:0}
+.sheet{overflow-x:hidden}
+.actions .btn{max-width:100%}
+@media (max-width:380px){
+  .mark{display:none}
+  h1{font-size:20px}
+  .wrap{padding-inline:12px}
+  .iconbtn{width:34px;height:34px}.langbtn{height:34px;min-width:34px;padding:0 6px}
+  .stat b{font-size:18px}
+  .row{gap:8px;padding:10px}
+  .av{width:32px;height:32px;font-size:12px}
+}
+@media (min-width:900px){ .wrap{max-width:980px} }
+/* iPhone: con testo sotto 16px Safari ingrandisce la pagina quando tocchi un campo */
+input,select,textarea{font-size:16px!important}
+html,body{overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 .applogo{width:72px;height:72px;border-radius:18px;display:block;margin:0 auto;box-shadow:0 6px 18px rgba(11,110,79,.25)}
 @media (max-width:600px){
   .lock{padding:0;place-items:stretch;background:var(--surface)}
