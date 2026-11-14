@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<!doctype html><html><head><meta charset=utf8><script>/* Essai gratuit : 1 mois pour toute inscription jusqu'au 31/01/2027 (offre de lancement), puis 14 jours. Même règle sur le serveur (Supabase seck_essai_fin). */window.ESSAI_LANCEMENT=Date.now()<Date.UTC(2027,1,1);window.ESSAI_TXT=ESSAI_LANCEMENT?'1 mois gratuit':'14 jours gratuits';window.ESSAI_TXT_LONG=ESSAI_LANCEMENT?"1 mois d'essai gratuit":"14 jours d'essai gratuit";window.ESSAI_IT=ESSAI_LANCEMENT?'1 mese gratis':'14 giorni gratis';window.ESSAI_JOURS=ESSAI_LANCEMENT?30:14;</script><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
 <title>Teranga Association</title>
 <meta name="description" content="Aderenti, quote, riunioni, aiuti e cassa della tua associazione. Membres, cotisations, réunions et caisse de votre association.">
 <meta property="og:type" content="website">
@@ -1038,7 +1038,7 @@ function authScreen(){
   const su=AUTHM==="signup", sp=savedPhone();
   const ccSel=`<select id="auCc" aria-label="Prefisso">${Object.entries(CC).map(([k,v])=>`<option value="${k}" ${sp.cc===k?"selected":""}>${v.label}</option>`).join("")}</select>`;
   lockMsg(`<div class="lockbrand">Teranga Association</div><h2>${su?"Nuova associazione":"Entra"}</h2>
-    <p class="note">${su?"7 giorni gratis. Aderenti, quote, riunioni e cassa, salvati online.":"Con il numero e la password dell'associazione."}</p>
+    <p class="note">${su?ESSAI_IT+". Aderenti, quote, riunioni e cassa, salvati online.":"Con il numero e la password dell'associazione."}</p>
     <div class="authtabs"><button type="button" data-am="login" aria-pressed="${!su}">Entra</button><button type="button" data-am="signup" aria-pressed="${su}">Nuova associazione</button></div>
     <form id="authForm">
       ${su?`<div class="field"><label for="auName">Nome dell'associazione</label><input id="auName" required placeholder="es. Associazione Senegalesi di Milano"></div>
@@ -1104,7 +1104,7 @@ async function afterLogin(isNew){
   if(!S.config.code){ S.config.code=newCode(); markDirty(); }
   await fetchLic();
   document.body.classList.add("is-owner"); unlocked=true; setLocked(false); renderAll(); setSync(syncSt);
-  if(isNew) toast("Benvenuti! 7 giorni gratis");
+  if(isNew) toast("Benvenuti! "+ESSAI_IT);
 }
 async function lockNow(){
   try{ await SB.auth.signOut({scope:"local"}); }catch(e){}
@@ -2011,6 +2011,8 @@ const FR_DICT = {
 "1. Premi":"1. Appuyez sur","2. Su Android e computer l'immagine si salva: poi premi":"2. Sur Android et ordinateur, l'image s'enregistre : appuyez ensuite sur",
 "e allegala con la graffetta 📎.":"et joignez-la avec le trombone 📎.",
 "7 giorni gratis. Aderenti, quote, riunioni e cassa, salvati online.":"7 jours gratuits. Membres, cotisations, réunions et caisse, sauvegardés en ligne.",
+"1 mese gratis. Aderenti, quote, riunioni e cassa, salvati online.":"1 mois gratuit. Membres, cotisations, réunions et caisse, sauvegardés en ligne.",
+"14 giorni gratis. Aderenti, quote, riunioni e cassa, salvati online.":"14 jours gratuits. Membres, cotisations, réunions et caisse, sauvegardés en ligne.",
 "Abbonamento":"Abonnement","Account":"Compte","Aderente":"Membre","Aderenti":"Membres","Aiuti":"Aides","Aiuti dati nel":"Aides données en","Aiuti dati oggi":"Aides données aujourd'hui",
 "Aiuti dati in contanti:":"Aides données en espèces :","Altro":"Autre","Anche chi non è aderente":"Même une personne non membre","Annulla":"Annuler","Annulla questa chiusura":"Annuler cette clôture",
 "Apri chat WhatsApp":"Ouvrir la discussion WhatsApp","Apri presenze":"Ouvrir les présences","Arretrati totali":"Total des arriérés","Assenti spesso":"Souvent absents","Associazione":"Association",
@@ -2094,7 +2096,7 @@ const FR_DICT = {
 "I dati che ci sono adesso in questa app vengono sostituiti da quelli del file. Il numero, la password e l'abbonamento restano uguali.":"Les données actuelles de cette app sont remplacées par celles du fichier. Le numéro, le mot de passe et l'abonnement restent les mêmes.",
 "Questo file non è un file di dati di Teranga Association":"Ce fichier n'est pas un fichier de données Teranga Association","Abbonamento scaduto: puoi guardare, non modificare":"Abonnement expiré : vous pouvez regarder, pas modifier","Aderente aggiornato":"Membre mis à jour","Aderente aggiunto":"Membre ajouté",
 "Aderente eliminato":"Membre supprimé","Aggiungi prima un aderente":"Ajoutez d'abord un membre","Aiuto aggiornato":"Aide mise à jour","Aiuto eliminato":"Aide supprimée","Aiuto registrato":"Aide enregistrée",
-"Benvenuti! 7 giorni gratis":"Bienvenue ! 7 jours gratuits","Cassa chiusa":"Caisse clôturée","Chiusura annullata":"Clôture annulée","Contributo registrato":"Contribution enregistrée","Copia non riuscita":"Copie impossible",
+"Benvenuti! 7 giorni gratis":"Bienvenue ! 7 jours gratuits","Benvenuti! 1 mese gratis":"Bienvenue ! 1 mois gratuit","Benvenuti! 14 giorni gratis":"Bienvenue ! 14 jours gratuits","Cassa chiusa":"Caisse clôturée","Chiusura annullata":"Clôture annulée","Contributo registrato":"Contribution enregistrée","Copia non riuscita":"Copie impossible",
 "Copia salvata":"Copie enregistrée","Download non disponibile in questa vista":"Téléchargement indisponible ici","Firma salvata":"Signature enregistrée","IBAN copiato":"IBAN copié","Impostazioni salvate":"Réglages enregistrés",
 "Iscrizione registrata":"Inscription enregistrée","Manca la firma":"Il manque la signature","Messaggio copiato":"Message copié","Niente da chiudere: nessun pagamento in contanti":"Rien à clôturer : aucun paiement en espèces",
 "Non ancora salvato online: collegati a internet prima di uscire":"Pas encore enregistré en ligne : connectez-vous à internet avant de sortir","Non riesco a creare il file, riprova":"Impossible de créer le fichier, réessayez",
